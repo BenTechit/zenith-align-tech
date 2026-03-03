@@ -33,7 +33,8 @@ const ContactFormSection = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: form.name.trim(),
-          phone: form.phone.trim(),
+          email: form.phone.trim(), // temporary compatibility for current Apps Script mapping
+          phone: form.device.trim(), // temporary compatibility for current Apps Script mapping
           device: form.device.trim(),
           message: form.message.trim(),
         }),
