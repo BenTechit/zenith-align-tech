@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Send, User, Mail, Phone, MessageSquare, CheckCircle, Loader2 } from "lucide-react";
+import { Send, User, Phone, MessageSquare, Monitor, CheckCircle, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useState } from "react";
@@ -8,14 +8,13 @@ const SHEETS_URL = "https://script.google.com/macros/s/AKfycbwFl6-cpxSd67gjN4Dt0
 
 const ContactFormSection = () => {
   const { t } = useLanguage();
-  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const [form, setForm] = useState({ name: "", phone: "", device: "", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   const validate = () => {
     const errs: Record<string, string> = {};
     if (!form.name.trim() || form.name.length > 100) errs.name = t.contactForm.errors.name;
-    if (form.email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) errs.email = t.contactForm.errors.email;
     if (!form.phone.trim()) errs.phone = t.contactForm.errors.phone;
     if (form.message.trim().length < 5 || form.message.length > 1000) errs.message = t.contactForm.errors.message;
     setErrors(errs);
@@ -34,13 +33,13 @@ const ContactFormSection = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: form.name.trim(),
-          email: form.email.trim(),
           phone: form.phone.trim(),
+          device: form.device.trim(),
           message: form.message.trim(),
         }),
       });
       setStatus("sent");
-      setForm({ name: "", email: "", phone: "", message: "" });
+      setForm({ name: "", phone: "", device: "", message: "" });
     } catch {
       setStatus("error");
     }
@@ -88,6 +87,7 @@ const ContactFormSection = () => {
             onSubmit={handleSubmit}
             className="max-w-xl mx-auto glass rounded-2xl p-8 md:p-10 space-y-5"
           >
+            {/* Name */}
             <div>
               <div className="relative">
                 <User className="absolute start-3 top-3.5 w-4 h-4 text-muted-foreground/50" />
@@ -103,21 +103,7 @@ const ContactFormSection = () => {
               {errors.name && <p className="text-destructive text-xs mt-1.5 ms-1">{errors.name}</p>}
             </div>
 
-            <div>
-              <div className="relative">
-                <Mail className="absolute start-3 top-3.5 w-4 h-4 text-muted-foreground/50" />
-                <input
-                  type="email"
-                  placeholder={t.contactForm.placeholders.email}
-                  value={form.email}
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className={`${inputClass} ps-10`}
-                  maxLength={255}
-                />
-              </div>
-              {errors.email && <p className="text-destructive text-xs mt-1.5 ms-1">{errors.email}</p>}
-            </div>
-
+            {/* Phone */}
             <div>
               <div className="relative">
                 <Phone className="absolute start-3 top-3.5 w-4 h-4 text-muted-foreground/50" />
@@ -133,6 +119,20 @@ const ContactFormSection = () => {
               {errors.phone && <p className="text-destructive text-xs mt-1.5 ms-1">{errors.phone}</p>}
             </div>
 
+            {/* Device type */}
+            <div className="relative">
+              <Monitor className="absolute start-3 top-3.5 w-4 h-4 text-muted-foreground/50" />
+              <input
+                type="text"
+                placeholder={t.contactForm.placeholders.device}
+                value={form.device}
+                onChange={(e) => setForm({ ...form, device: e.target.value })}
+                className={`${inputClass} ps-10`}
+                maxLength={100}
+              />
+            </div>
+
+            {/* Message */}
             <div>
               <div className="relative">
                 <MessageSquare className="absolute start-3 top-3.5 w-4 h-4 text-muted-foreground/50" />

@@ -139,13 +139,12 @@ export const translations = {
       subtitle: "Describe what you need and I'll get back to you.",
       placeholders: {
         name: "Your name",
-        email: "Email address",
         phone: "Phone number",
-        message: "What do you need help with?",
+        device: "Device type (e.g. laptop, desktop, server)",
+        message: "Describe the problem or what you need help with",
       },
       errors: {
         name: "Please enter your name",
-        email: "Please enter a valid email",
         phone: "Please enter your phone number",
         message: "Message must be at least 5 characters",
       },
@@ -298,13 +297,12 @@ export const translations = {
       subtitle: "תארו מה אתם צריכים ואחזור אליכם.",
       placeholders: {
         name: "שם מלא",
-        email: "כתובת אימייל (אופציונלי)",
         phone: "מספר טלפון",
-        message: "במה אפשר לעזור?",
+        device: "סוג מכשיר (למשל: לפטופ, נייח, שרת)",
+        message: "תארו את הבעיה או מה אתם צריכים",
       },
       errors: {
         name: "נא להזין שם",
-        email: "נא להזין כתובת אימייל תקינה",
         phone: "נא להזין מספר טלפון",
         message: "ההודעה חייבת להכיל לפחות 5 תווים",
       },
