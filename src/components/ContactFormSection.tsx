@@ -50,7 +50,7 @@ const ContactFormSection = () => {
     "w-full bg-secondary/50 border border-border/60 rounded-lg px-4 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all duration-200 text-sm";
 
   return (
-    <section className="relative py-32 overflow-hidden">
+    <section id="contact-form" className="relative py-32 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/10 to-background" />
 
       <div className="relative z-10 container mx-auto px-6">

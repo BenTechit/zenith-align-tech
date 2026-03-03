@@ -27,7 +27,7 @@ const CTASection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button variant="hero" size="lg" className="text-base px-8 py-6" onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}>
+            <Button variant="hero" size="lg" className="text-base px-8 py-6" onClick={() => document.querySelector('#contact-form')?.scrollIntoView({ behavior: 'smooth' })}>
                 {t.cta.ctaPrimary}
                 <ArrowRight className="w-5 h-5 ms-2" />
             </Button>
