@@ -3,7 +3,7 @@ import { XCircle, CheckCircle } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const PreventionSection = () => {
-  const { t } = useLanguage();
+  const { t, isRTL } = useLanguage();
 
   return (
     <section className="relative py-32">
@@ -25,7 +25,7 @@ const PreventionSection = () => {
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: isRTL ? 30 : -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6 }}
@@ -34,16 +34,23 @@ const PreventionSection = () => {
             <h3 className="text-xl font-semibold mb-6 text-destructive/80">{t.prevention.reactiveTitle}</h3>
             <ul className="space-y-4">
               {t.prevention.reactive.map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-muted-foreground text-sm">
+                <motion.li
+                  key={i}
+                  initial={{ opacity: 0, x: isRTL ? 10 : -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.08 }}
+                  className="flex items-start gap-3 text-muted-foreground text-sm"
+                >
                   <XCircle className="w-5 h-5 text-destructive/60 flex-shrink-0 mt-0.5" />
                   {item}
-                </li>
+                </motion.li>
               ))}
             </ul>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: isRTL ? -30 : 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6 }}
@@ -52,10 +59,17 @@ const PreventionSection = () => {
             <h3 className="text-xl font-semibold mb-6 glow-text">{t.prevention.strategicTitle}</h3>
             <ul className="space-y-4">
               {t.prevention.strategic.map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-muted-foreground text-sm">
+                <motion.li
+                  key={i}
+                  initial={{ opacity: 0, x: isRTL ? -10 : 10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.08 }}
+                  className="flex items-start gap-3 text-muted-foreground text-sm"
+                >
                   <CheckCircle className="w-5 h-5 text-primary/80 flex-shrink-0 mt-0.5" />
                   {item}
-                </li>
+                </motion.li>
               ))}
             </ul>
           </motion.div>

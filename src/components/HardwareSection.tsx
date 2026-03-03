@@ -10,6 +10,7 @@ const HardwareSection = () => {
   return (
     <section id="hardware" className="relative py-32 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/20 to-background" />
+      <div className="absolute inset-0 grid-overlay opacity-10" />
 
       <div className="relative z-10 container mx-auto px-6">
         <motion.div
@@ -37,13 +38,16 @@ const HardwareSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="glass-hover rounded-xl p-6 group"
+                className="glass-hover rounded-xl p-6 group relative overflow-hidden"
               >
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors duration-300">
-                  <Icon className="w-5 h-5 text-primary" />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-primary/5 via-transparent to-transparent" />
+                <div className="relative z-10">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 group-hover:shadow-[0_0_15px_hsl(var(--primary)/0.12)] transition-all duration-300">
+                    <Icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="text-base font-semibold mb-2 tracking-tight">{item.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
                 </div>
-                <h3 className="text-base font-semibold mb-2 tracking-tight">{item.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
               </motion.div>
             );
           })}

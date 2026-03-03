@@ -5,7 +5,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 const iconList = [Clock, CloudOff, ShieldOff, HardDrive, AlertTriangle];
 
 const ProblemSection = () => {
-  const { t } = useLanguage();
+  const { t, isRTL } = useLanguage();
 
   return (
     <section className="relative py-32 overflow-hidden">
@@ -33,7 +33,7 @@ const ProblemSection = () => {
             return (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, x: -30 }}
+                initial={{ opacity: 0, x: isRTL ? 30 : -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
