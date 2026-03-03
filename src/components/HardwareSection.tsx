@@ -1,15 +1,15 @@
 import { motion } from "framer-motion";
-import { User, MapPin, Wrench, Handshake, Target, Zap } from "lucide-react";
+import { Cpu, HardDrive, CircuitBoard, Settings, Database, Monitor, Gauge, Server } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 
-const icons = [User, MapPin, Wrench, Handshake, Target, Zap];
+const icons = [CircuitBoard, HardDrive, Settings, Cpu, Database, Monitor, Gauge, Server];
 
-const WhyBentechSection = () => {
+const HardwareSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="about" className="relative py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/10 to-background" />
+    <section id="hardware" className="relative py-32 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/20 to-background" />
 
       <div className="relative z-10 container mx-auto px-6">
         <motion.div
@@ -20,15 +20,15 @@ const WhyBentechSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
-            {t.whyBentech.title}
+            {t.hardware.title}
           </h2>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            {t.whyBentech.subtitle}
+            {t.hardware.subtitle}
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {t.whyBentech.reasons.map((reason, i) => {
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+          {t.hardware.items.map((item, i) => {
             const Icon = icons[i];
             return (
               <motion.div
@@ -36,14 +36,14 @@ const WhyBentechSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
                 className="glass-hover rounded-xl p-6 group"
               >
                 <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors duration-300">
                   <Icon className="w-5 h-5 text-primary" />
                 </div>
-                <h3 className="text-lg font-semibold mb-2 tracking-tight">{reason.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{reason.desc}</p>
+                <h3 className="text-base font-semibold mb-2 tracking-tight">{item.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
               </motion.div>
             );
           })}
@@ -53,4 +53,4 @@ const WhyBentechSection = () => {
   );
 };
 
-export default WhyBentechSection;
+export default HardwareSection;
