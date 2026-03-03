@@ -5,6 +5,7 @@ export const translations = {
     nav: {
       home: "Home",
       businessIT: "Business IT",
+      cloud: "Cloud & Backup",
       hardware: "Hardware & Repairs",
       about: "About",
       contact: "Contact",
@@ -16,6 +17,11 @@ export const translations = {
       subtitle: "Microsoft 365 architecture, cloud strategy, advanced hardware expertise, and proactive IT management for businesses in Modi'in and across Israel.",
       ctaPrimary: "Schedule Consultation",
       ctaSecondary: "054-499-1540",
+      stats: [
+        { value: "Proactive", label: "Not Reactive" },
+        { value: "Prevention", label: "First Approach" },
+        { value: "Infrastructure", label: "Level Thinking" },
+      ],
     },
     problem: {
       title: "Is Your IT Holding You Back?",
@@ -137,6 +143,7 @@ export const translations = {
     nav: {
       home: "ראשי",
       businessIT: "מחשוב עסקי",
+      cloud: "ענן וגיבוי",
       hardware: "חומרה ותיקונים",
       about: "אודות",
       contact: "צור קשר",
@@ -148,6 +155,11 @@ export const translations = {
       subtitle: "ארכיטקטורת Microsoft 365, אסטרטגיית ענן, מומחיות חומרה מתקדמת וניהול IT יזום לעסקים במודיעין וברחבי ישראל.",
       ctaPrimary: "לתיאום ייעוץ",
       ctaSecondary: "054-499-1540",
+      stats: [
+        { value: "יזום", label: "לא תגובתי" },
+        { value: "מניעה", label: "גישה ראשונה" },
+        { value: "תשתית", label: "חשיבה ברמת מערכת" },
+      ],
     },
     problem: {
       title: "ה-IT שלך מעכב את העסק?",
