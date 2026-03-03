@@ -33,10 +33,9 @@ const Navbar = () => {
       className="fixed top-0 left-0 right-0 z-50 glass border-b border-border/30"
     >
       <div className="container mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#home" onClick={() => handleClick("#home")} className="flex items-center gap-2">
-          <span className="h-12 w-44 overflow-hidden rounded-sm">
-            <img src={logoben} alt="Bentech" className="h-full w-full object-cover object-center scale-[1.55]" />
-          </span>
+        <a href="#home" onClick={() => handleClick("#home")} className="text-xl font-bold tracking-tight">
+          <span className="text-foreground">Ben</span>
+          <span className="text-primary">tech</span>
         </a>
 
         {/* Desktop nav */}
