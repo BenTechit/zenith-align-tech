@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
-            <img src={logoben} alt="Bentech" className="h-12 w-auto" />
+            <img src={logoben} alt="Bentech" className="h-20 w-auto" />
             <p className="text-sm text-muted-foreground mt-1">{t.footer.tagline}</p>
           </div>
           <div className="text-sm text-muted-foreground">
