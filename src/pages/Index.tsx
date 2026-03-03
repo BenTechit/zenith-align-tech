@@ -6,6 +6,7 @@ import HardwareSection from "@/components/HardwareSection";
 import TechnicalExpertiseSection from "@/components/TechnicalExpertiseSection";
 import WhyBentechSection from "@/components/WhyBentechSection";
 import PreventionSection from "@/components/PreventionSection";
+import ContactFormSection from "@/components/ContactFormSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 
@@ -20,6 +21,7 @@ const Index = () => {
       <TechnicalExpertiseSection />
       <WhyBentechSection />
       <PreventionSection />
+      <ContactFormSection />
       <CTASection />
       <Footer />
     </div>

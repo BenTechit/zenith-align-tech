@@ -134,6 +134,29 @@ export const translations = {
       ctaPrimary: "Start the Conversation",
       ctaSecondary: "054-499-1540",
     },
+    contactForm: {
+      title: "Get in Touch",
+      subtitle: "Tell us about your IT needs and we'll get back to you promptly.",
+      placeholders: {
+        name: "Your name",
+        email: "Email address",
+        phone: "Phone number (optional)",
+        message: "How can we help?",
+      },
+      errors: {
+        name: "Please enter your name",
+        email: "Please enter a valid email",
+        message: "Message must be at least 5 characters",
+      },
+      waLabels: {
+        name: "Name",
+        email: "Email",
+        phone: "Phone",
+        message: "Message",
+      },
+      submit: "Send via WhatsApp",
+      note: "Opens WhatsApp with your message pre-filled.",
+    },
     footer: {
       tagline: "Business IT Infrastructure Partner — Modi'in, Israel",
       copyright: `© ${new Date().getFullYear()} Bentech. All rights reserved.`,
@@ -271,6 +294,29 @@ export const translations = {
       subtitle: "תאמו ייעוץ כדי לדון בתשתית שלכם, לזהות סיכונים ולבנות תוכנית שמגנה ומצמיחה את העסק.",
       ctaPrimary: "בואו נתחיל שיחה",
       ctaSecondary: "054-499-1540",
+    },
+    contactForm: {
+      title: "צרו קשר",
+      subtitle: "ספרו לנו על צרכי ה-IT שלכם ונחזור אליכם בהקדם.",
+      placeholders: {
+        name: "שם מלא",
+        email: "כתובת אימייל",
+        phone: "מספר טלפון (אופציונלי)",
+        message: "איך נוכל לעזור?",
+      },
+      errors: {
+        name: "נא להזין שם",
+        email: "נא להזין כתובת אימייל תקינה",
+        message: "ההודעה חייבת להכיל לפחות 5 תווים",
+      },
+      waLabels: {
+        name: "שם",
+        email: "אימייל",
+        phone: "טלפון",
+        message: "הודעה",
+      },
+      submit: "שליחה דרך WhatsApp",
+      note: "הטופס ייפתח ב-WhatsApp עם ההודעה שלכם מוכנה.",
     },
     footer: {
       tagline: "שותף תשתיות IT לעסקים — מודיעין, ישראל",
