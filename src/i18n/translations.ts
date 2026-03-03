@@ -140,12 +140,13 @@ export const translations = {
       placeholders: {
         name: "Your name",
         email: "Email address",
-        phone: "Phone number (optional)",
+        phone: "Phone number",
         message: "What do you need help with?",
       },
       errors: {
         name: "Please enter your name",
         email: "Please enter a valid email",
+        phone: "Please enter your phone number",
         message: "Message must be at least 5 characters",
       },
       submit: "Send Message",
@@ -297,13 +298,14 @@ export const translations = {
       subtitle: "תארו מה אתם צריכים ואחזור אליכם.",
       placeholders: {
         name: "שם מלא",
-        email: "כתובת אימייל",
-        phone: "מספר טלפון (אופציונלי)",
+        email: "כתובת אימייל (אופציונלי)",
+        phone: "מספר טלפון",
         message: "במה אפשר לעזור?",
       },
       errors: {
         name: "נא להזין שם",
         email: "נא להזין כתובת אימייל תקינה",
+        phone: "נא להזין מספר טלפון",
         message: "ההודעה חייבת להכיל לפחות 5 תווים",
       },
       submit: "שליחת הודעה",

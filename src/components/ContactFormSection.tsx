@@ -15,7 +15,8 @@ const ContactFormSection = () => {
   const validate = () => {
     const errs: Record<string, string> = {};
     if (!form.name.trim() || form.name.length > 100) errs.name = t.contactForm.errors.name;
-    if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) errs.email = t.contactForm.errors.email;
+    if (form.email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) errs.email = t.contactForm.errors.email;
+    if (!form.phone.trim()) errs.phone = t.contactForm.errors.phone;
     if (form.message.trim().length < 5 || form.message.length > 1000) errs.message = t.contactForm.errors.message;
     setErrors(errs);
     return Object.keys(errs).length === 0;
@@ -117,16 +118,19 @@ const ContactFormSection = () => {
               {errors.email && <p className="text-destructive text-xs mt-1.5 ms-1">{errors.email}</p>}
             </div>
 
-            <div className="relative">
-              <Phone className="absolute start-3 top-3.5 w-4 h-4 text-muted-foreground/50" />
-              <input
-                type="tel"
-                placeholder={t.contactForm.placeholders.phone}
-                value={form.phone}
-                onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                className={`${inputClass} ps-10`}
-                maxLength={20}
-              />
+            <div>
+              <div className="relative">
+                <Phone className="absolute start-3 top-3.5 w-4 h-4 text-muted-foreground/50" />
+                <input
+                  type="tel"
+                  placeholder={t.contactForm.placeholders.phone}
+                  value={form.phone}
+                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                  className={`${inputClass} ps-10`}
+                  maxLength={20}
+                />
+              </div>
+              {errors.phone && <p className="text-destructive text-xs mt-1.5 ms-1">{errors.phone}</p>}
             </div>
 
             <div>
