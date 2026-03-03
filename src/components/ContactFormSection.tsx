@@ -1,13 +1,16 @@
 import { motion } from "framer-motion";
-import { Send, User, Mail, Phone, MessageSquare } from "lucide-react";
+import { Send, User, Mail, Phone, MessageSquare, CheckCircle, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useState } from "react";
+
+const SHEETS_URL = "https://script.google.com/macros/s/AKfycbwFl6-cpxSd67gjN4Dt069YetTXspVUi2hqhhaC1iY0VL2ClFctTyMXciCMXWKJ4L6N/exec";
 
 const ContactFormSection = () => {
   const { t } = useLanguage();
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   const validate = () => {
     const errs: Record<string, string> = {};
@@ -18,24 +21,28 @@ const ContactFormSection = () => {
     return Object.keys(errs).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
-    const text = [
-      `*${t.contactForm.waLabels.name}:* ${form.name.trim()}`,
-      `*${t.contactForm.waLabels.email}:* ${form.email.trim()}`,
-      form.phone.trim() ? `*${t.contactForm.waLabels.phone}:* ${form.phone.trim()}` : "",
-      `*${t.contactForm.waLabels.message}:*\n${form.message.trim()}`,
-    ]
-      .filter(Boolean)
-      .join("\n");
-
-    window.open(
-      `https://wa.me/972544991540?text=${encodeURIComponent(text)}`,
-      "_blank",
-      "noopener,noreferrer"
-    );
+    setStatus("sending");
+    try {
+      await fetch(SHEETS_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name.trim(),
+          email: form.email.trim(),
+          phone: form.phone.trim(),
+          message: form.message.trim(),
+        }),
+      });
+      setStatus("sent");
+      setForm({ name: "", email: "", phone: "", message: "" });
+    } catch {
+      setStatus("error");
+    }
   };
 
   const inputClass =
@@ -61,82 +68,102 @@ const ContactFormSection = () => {
           </p>
         </motion.div>
 
-        <motion.form
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          onSubmit={handleSubmit}
-          className="max-w-xl mx-auto glass rounded-2xl p-8 md:p-10 space-y-5"
-        >
-          {/* Name */}
-          <div>
+        {status === "sent" ? (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="max-w-xl mx-auto glass rounded-2xl p-10 text-center"
+          >
+            <CheckCircle className="w-12 h-12 text-primary mx-auto mb-4" />
+            <h3 className="text-xl font-semibold mb-2">{t.contactForm.successTitle}</h3>
+            <p className="text-muted-foreground text-sm">{t.contactForm.successMessage}</p>
+          </motion.div>
+        ) : (
+          <motion.form
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            onSubmit={handleSubmit}
+            className="max-w-xl mx-auto glass rounded-2xl p-8 md:p-10 space-y-5"
+          >
+            <div>
+              <div className="relative">
+                <User className="absolute start-3 top-3.5 w-4 h-4 text-muted-foreground/50" />
+                <input
+                  type="text"
+                  placeholder={t.contactForm.placeholders.name}
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  className={`${inputClass} ps-10`}
+                  maxLength={100}
+                />
+              </div>
+              {errors.name && <p className="text-destructive text-xs mt-1.5 ms-1">{errors.name}</p>}
+            </div>
+
+            <div>
+              <div className="relative">
+                <Mail className="absolute start-3 top-3.5 w-4 h-4 text-muted-foreground/50" />
+                <input
+                  type="email"
+                  placeholder={t.contactForm.placeholders.email}
+                  value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  className={`${inputClass} ps-10`}
+                  maxLength={255}
+                />
+              </div>
+              {errors.email && <p className="text-destructive text-xs mt-1.5 ms-1">{errors.email}</p>}
+            </div>
+
             <div className="relative">
-              <User className="absolute start-3 top-3.5 w-4 h-4 text-muted-foreground/50" />
+              <Phone className="absolute start-3 top-3.5 w-4 h-4 text-muted-foreground/50" />
               <input
-                type="text"
-                placeholder={t.contactForm.placeholders.name}
-                value={form.name}
-                onChange={(e) => setForm({ ...form, name: e.target.value })}
+                type="tel"
+                placeholder={t.contactForm.placeholders.phone}
+                value={form.phone}
+                onChange={(e) => setForm({ ...form, phone: e.target.value })}
                 className={`${inputClass} ps-10`}
-                maxLength={100}
+                maxLength={20}
               />
             </div>
-            {errors.name && <p className="text-destructive text-xs mt-1.5 ms-1">{errors.name}</p>}
-          </div>
 
-          {/* Email */}
-          <div>
-            <div className="relative">
-              <Mail className="absolute start-3 top-3.5 w-4 h-4 text-muted-foreground/50" />
-              <input
-                type="email"
-                placeholder={t.contactForm.placeholders.email}
-                value={form.email}
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className={`${inputClass} ps-10`}
-                maxLength={255}
-              />
+            <div>
+              <div className="relative">
+                <MessageSquare className="absolute start-3 top-3.5 w-4 h-4 text-muted-foreground/50" />
+                <textarea
+                  placeholder={t.contactForm.placeholders.message}
+                  value={form.message}
+                  onChange={(e) => setForm({ ...form, message: e.target.value })}
+                  rows={4}
+                  className={`${inputClass} ps-10 resize-none`}
+                  maxLength={1000}
+                />
+              </div>
+              {errors.message && <p className="text-destructive text-xs mt-1.5 ms-1">{errors.message}</p>}
             </div>
-            {errors.email && <p className="text-destructive text-xs mt-1.5 ms-1">{errors.email}</p>}
-          </div>
 
-          {/* Phone */}
-          <div className="relative">
-            <Phone className="absolute start-3 top-3.5 w-4 h-4 text-muted-foreground/50" />
-            <input
-              type="tel"
-              placeholder={t.contactForm.placeholders.phone}
-              value={form.phone}
-              onChange={(e) => setForm({ ...form, phone: e.target.value })}
-              className={`${inputClass} ps-10`}
-              maxLength={20}
-            />
-          </div>
+            <Button
+              variant="hero"
+              size="lg"
+              className="w-full text-base py-6 group"
+              type="submit"
+              disabled={status === "sending"}
+            >
+              {status === "sending" ? (
+                <Loader2 className="w-4 h-4 me-2 animate-spin" />
+              ) : (
+                <Send className="w-4 h-4 me-2 group-hover:translate-x-0.5 transition-transform" />
+              )}
+              {status === "sending" ? t.contactForm.sending : t.contactForm.submit}
+            </Button>
 
-          {/* Message */}
-          <div>
-            <div className="relative">
-              <MessageSquare className="absolute start-3 top-3.5 w-4 h-4 text-muted-foreground/50" />
-              <textarea
-                placeholder={t.contactForm.placeholders.message}
-                value={form.message}
-                onChange={(e) => setForm({ ...form, message: e.target.value })}
-                rows={4}
-                className={`${inputClass} ps-10 resize-none`}
-                maxLength={1000}
-              />
-            </div>
-            {errors.message && <p className="text-destructive text-xs mt-1.5 ms-1">{errors.message}</p>}
-          </div>
-
-          <Button variant="hero" size="lg" className="w-full text-base py-6 group" type="submit">
-            <Send className="w-4 h-4 me-2 group-hover:translate-x-0.5 transition-transform" />
-            {t.contactForm.submit}
-          </Button>
-
-          <p className="text-center text-xs text-muted-foreground/60">{t.contactForm.note}</p>
-        </motion.form>
+            {status === "error" && (
+              <p className="text-center text-xs text-destructive">{t.contactForm.errorMessage}</p>
+            )}
+          </motion.form>
+        )}
       </div>
     </section>
   );
