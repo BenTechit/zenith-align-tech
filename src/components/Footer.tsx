@@ -1,4 +1,5 @@
 import { useLanguage } from "@/i18n/LanguageContext";
+import logoben from "@/assets/logoben.png";
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -8,10 +9,7 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
-            <span className="text-lg font-bold tracking-tight">
-              <span className="text-foreground">Ben</span>
-              <span className="text-primary">tech</span>
-            </span>
+            <img src={logoben} alt="Bentech" className="h-7 w-auto" />
             <p className="text-sm text-muted-foreground mt-1">{t.footer.tagline}</p>
           </div>
           <div className="text-sm text-muted-foreground">
