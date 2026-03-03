@@ -16,7 +16,7 @@ export const translations = {
       headline2: "Done Right.",
       subtitle: "Microsoft 365 setup, cloud backup, hardware diagnostics, and structured IT management for small and mid-size businesses.",
       ctaPrimary: "Schedule a Call",
-      ctaSecondary: "054-499-1540",
+      ctaSecondary: "052-637-9747",
       stats: [
         { value: "Cross-Layer", label: "Hardware to Cloud" },
         { value: "Proactive", label: "Not Reactive" },
@@ -132,7 +132,7 @@ export const translations = {
       title2: "Working Properly.",
       subtitle: "A short call to understand your setup, identify risks, and discuss what to improve first.",
       ctaPrimary: "Schedule a Call",
-      ctaSecondary: "054-499-1540",
+      ctaSecondary: "052-637-9747",
     },
     contactForm: {
       title: "Get in Touch",
@@ -174,7 +174,7 @@ export const translations = {
       headline2: "מסודר כמו שצריך.",
       subtitle: "הקמת Microsoft 365, גיבוי בענן, אבחון חומרה וניהול IT מובנה לעסקים קטנים ובינוניים.",
       ctaPrimary: "לתיאום שיחה",
-      ctaSecondary: "054-499-1540",
+      ctaSecondary: "052-637-9747",
       stats: [
         { value: "חומרה עד ענן", label: "מומחיות רוחבית" },
         { value: "יזום", label: "לא תגובתי" },
@@ -290,7 +290,7 @@ export const translations = {
       title2: "את ה-IT.",
       subtitle: "שיחה קצרה כדי להבין את המצב, לזהות סיכונים ולדון במה לשפר קודם.",
       ctaPrimary: "לתיאום שיחה",
-      ctaSecondary: "054-499-1540",
+      ctaSecondary: "052-637-9747",
     },
     contactForm: {
       title: "צרו קשר",
