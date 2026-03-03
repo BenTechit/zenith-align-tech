@@ -27,14 +27,12 @@ const CTASection = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button variant="hero" size="lg" className="text-base px-8 py-6" asChild>
-              <a href="https://wa.me/972544991540" target="_blank" rel="noopener noreferrer">
+            <Button variant="hero" size="lg" className="text-base px-8 py-6" onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}>
                 {t.cta.ctaPrimary}
                 <ArrowRight className="w-5 h-5 ms-2" />
-              </a>
             </Button>
             <Button variant="heroOutline" size="lg" className="text-base px-8 py-6" asChild>
-              <a href="tel:+972544991540">
+              <a href="tel:+972526379747">
                 <Phone className="w-5 h-5 me-2" />
                 {t.cta.ctaSecondary}
               </a>

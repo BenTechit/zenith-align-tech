@@ -56,14 +56,12 @@ const HeroSection = () => {
           transition={{ duration: 0.7, delay: 0.45, ease: "easeOut" }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
         >
-          <Button variant="hero" size="lg" className="text-base px-8 py-6 group" asChild>
-            <a href="https://wa.me/972544991540" target="_blank" rel="noopener noreferrer">
+          <Button variant="hero" size="lg" className="text-base px-8 py-6 group" onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}>
               <Calendar className="w-5 h-5 me-2" />
               {t.hero.ctaPrimary}
-            </a>
           </Button>
           <Button variant="heroOutline" size="lg" className="text-base px-8 py-6" asChild>
-            <a href="tel:+972544991540">
+            <a href="tel:+972526379747">
               <Phone className="w-5 h-5 me-2" />
               {t.hero.ctaSecondary}
             </a>
