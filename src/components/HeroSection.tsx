@@ -69,13 +69,20 @@ const HeroSection = () => {
               </div>
 
               <div className="space-y-3 mb-5">
-                {statusItems.map(({ icon: Icon, label, status }) => (
-                  <div key={label} className="flex items-center justify-between bg-white/5 rounded-lg px-4 py-3">
+                {statusItems.map(({ icon: Icon, label, status }, i) => (
+                  <div
+                    key={label}
+                    className="flex items-center justify-between bg-white/5 rounded-lg px-4 py-3 opacity-0"
+                    style={{
+                      animation: `healthRowIn 0.5s ease-out forwards`,
+                      animationDelay: `${1 + i * 0.2}s`,
+                    }}
+                  >
                     <div className="flex items-center gap-3">
                       <Icon className="w-4 h-4 text-white/50" />
                       <span className="text-sm text-white/80">{label}</span>
                     </div>
-                    <div className="flex items-center gap-1.5">
+                    <div className="flex items-center gap-1.5 opacity-0" style={{ animation: `healthCheck 0.3s ease-out forwards`, animationDelay: `${1.3 + i * 0.2}s` }}>
                       <CheckCircle2 className="w-4 h-4 text-green-400" />
                       <span className="text-xs text-green-400 font-medium">{status}</span>
                     </div>
