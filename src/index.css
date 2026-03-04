@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,49 +6,43 @@
 
 @layer base {
   :root {
-    --background: 220 20% 6%;
-    --foreground: 210 20% 92%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
 
-    --card: 220 18% 10%;
-    --card-foreground: 210 20% 92%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
 
-    --popover: 220 18% 10%;
-    --popover-foreground: 210 20% 92%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
 
-    --primary: 190 80% 50%;
-    --primary-foreground: 220 20% 6%;
+    --primary: 24 94% 53%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 15% 16%;
-    --secondary-foreground: 210 20% 85%;
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 0 0% 10%;
 
-    --muted: 220 15% 14%;
-    --muted-foreground: 215 15% 55%;
+    --muted: 210 16% 93%;
+    --muted-foreground: 215 14% 45%;
 
-    --accent: 190 80% 50%;
-    --accent-foreground: 220 20% 6%;
+    --accent: 210 20% 96%;
+    --accent-foreground: 0 0% 10%;
 
     --destructive: 0 72% 51%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 220 15% 18%;
-    --input: 220 15% 18%;
-    --ring: 190 80% 50%;
+    --border: 214 20% 88%;
+    --input: 214 20% 88%;
+    --ring: 24 94% 53%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 220 18% 8%;
-    --sidebar-foreground: 210 20% 85%;
-    --sidebar-primary: 190 80% 50%;
-    --sidebar-primary-foreground: 220 20% 6%;
-    --sidebar-accent: 220 15% 14%;
-    --sidebar-accent-foreground: 210 20% 85%;
-    --sidebar-border: 220 15% 18%;
-    --sidebar-ring: 190 80% 50%;
-
-    /* Custom tokens */
-    --glow: 190 80% 50%;
-    --surface: 220 16% 12%;
-    --surface-hover: 220 16% 16%;
+    /* Custom section backgrounds */
+    --hero-bg: 216 50% 12%;
+    --section-alt: 210 25% 97%;
+    --section-alt2: 213 27% 94%;
+    --risk-bg: 240 33% 14%;
+    --cta-blue: 224 76% 53%;
+    --contact-bg: 220 14% 96%;
   }
 }
 
@@ -65,52 +59,5 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Inter', system-ui, sans-serif;
     letter-spacing: -0.02em;
-  }
-
-  code, .mono {
-    font-family: 'JetBrains Mono', monospace;
-  }
-}
-
-@layer utilities {
-  .glass {
-    @apply bg-card/60 backdrop-blur-xl border border-border/50;
-  }
-
-  .glass-hover {
-    @apply glass transition-all duration-300;
-  }
-
-  .glass-hover:hover {
-    background: hsl(var(--card) / 0.8);
-    border-color: hsl(var(--primary) / 0.3);
-    box-shadow: 0 0 30px hsl(var(--primary) / 0.08);
-  }
-
-  .glow-text {
-    color: hsl(var(--primary));
-    text-shadow: 0 0 20px hsl(var(--primary) / 0.4);
-  }
-
-  .glow-border {
-    box-shadow: 0 0 20px hsl(var(--primary) / 0.15), inset 0 0 20px hsl(var(--primary) / 0.05);
-  }
-
-  .grid-overlay {
-    background-image: 
-      linear-gradient(hsl(var(--border) / 0.3) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(var(--border) / 0.3) 1px, transparent 1px);
-    background-size: 60px 60px;
-  }
-
-  .gradient-radial {
-    background: radial-gradient(ellipse at 50% 0%, hsl(var(--primary) / 0.12) 0%, transparent 60%);
-  }
-
-  .text-gradient {
-    background: linear-gradient(135deg, hsl(var(--foreground)) 0%, hsl(var(--primary)) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
   }
 }
