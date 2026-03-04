@@ -9,8 +9,8 @@ const StandaloneCTASection = () => {
   const { ref, visible } = useScrollReveal();
 
   return (
-    <section id="cta" className="py-20 md:py-28 scroll-mt-20" style={{ backgroundColor: "hsl(var(--cta-blue))" }}>
-      <div ref={ref} className={`container mx-auto px-6 text-center reveal ${visible ? "visible" : ""}`}>
+    <section id="cta" className="py-12 sm:py-20 md:py-28 scroll-mt-20" style={{ backgroundColor: "hsl(var(--cta-blue))" }}>
+      <div ref={ref} className={`container mx-auto px-4 sm:px-6 text-center reveal ${visible ? "visible" : ""}`}>
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-3">
           {tr.h2}
         </h2>
