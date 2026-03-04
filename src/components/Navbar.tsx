@@ -64,12 +64,12 @@ const Navbar = () => {
           {/* Language toggle */}
           <button
             onClick={() => setLang(lang === "en" ? "he" : "en")}
-            className="inline-flex items-center gap-0.5 text-xs font-semibold rounded-full border border-border px-3 py-1.5 hover:bg-accent transition-colors"
+            className="inline-flex items-center gap-1 rounded-full border border-border px-2.5 py-1.5 hover:bg-accent transition-colors"
             aria-label="Toggle language"
           >
-            <span className={lang === "en" ? "text-primary" : "text-muted-foreground"}>EN</span>
-            <span className="text-muted-foreground mx-0.5">|</span>
-            <span className={lang === "he" ? "text-primary" : "text-muted-foreground"}>עב</span>
+            <span className={`text-base leading-none ${lang === "en" ? "opacity-100" : "opacity-40"}`}>🇺🇸</span>
+            <span className="text-muted-foreground text-xs mx-0.5">|</span>
+            <span className={`text-base leading-none ${lang === "he" ? "opacity-100" : "opacity-40"}`}>🇮🇱</span>
           </button>
         </div>
 
@@ -78,10 +78,10 @@ const Navbar = () => {
           {/* Mobile language toggle */}
           <button
             onClick={() => setLang(lang === "en" ? "he" : "en")}
-            className="text-xs font-semibold rounded-full border border-border px-2 py-1 hover:bg-accent transition-colors"
+            className="rounded-full border border-border px-2 py-1 hover:bg-accent transition-colors"
             aria-label="Toggle language"
           >
-            {lang === "en" ? "עב" : "EN"}
+            <span className="text-base leading-none">{lang === "en" ? "🇮🇱" : "🇺🇸"}</span>
           </button>
           <a href="https://wa.me/972526379747" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
             <WAIcon />
