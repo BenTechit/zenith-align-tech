@@ -33,11 +33,11 @@ const HeroSection = () => {
               {tr.hebrew}
             </p>
 
-            <div className="hero-enter hero-enter-delay-3 flex flex-col sm:flex-row gap-4 mb-4">
+            <div className="hero-enter hero-enter-delay-3 flex flex-col sm:flex-row gap-3 sm:gap-4 mb-4">
               <Button
                 variant="hero"
                 size="lg"
-                className="text-base px-8 py-6 btn-glow"
+                className="text-sm sm:text-base px-5 sm:px-8 py-5 sm:py-6 btn-glow w-full sm:w-auto"
                 onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 {tr.cta1}
@@ -46,7 +46,7 @@ const HeroSection = () => {
               <Button
                 variant="heroOutline"
                 size="lg"
-                className="text-base px-8 py-6"
+                className="text-sm sm:text-base px-5 sm:px-8 py-5 sm:py-6 w-full sm:w-auto"
                 onClick={() => document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 {tr.cta2}
