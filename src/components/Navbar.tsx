@@ -1,19 +1,23 @@
 import { Phone, Menu, X } from "lucide-react";
+import { useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { t } from "@/translations";
 
 const WAIcon = () => (
   <svg viewBox="0 0 32 32" width="16" height="16" fill="#25D366" aria-hidden="true">
     <path d="M16 2C8.268 2 2 8.268 2 16c0 2.478.67 4.797 1.836 6.787L2 30l7.43-1.812A13.93 13.93 0 0 0 16 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm6.39 19.342c-.35-.175-2.072-1.022-2.394-1.138-.32-.115-.554-.174-.787.175-.234.35-.905 1.138-1.11 1.371-.204.233-.408.263-.758.088-.35-.175-1.478-.545-2.815-1.737-1.04-.928-1.742-2.074-1.946-2.424-.203-.35-.022-.539.153-.713.157-.156.35-.408.524-.611.175-.204.233-.35.35-.583.116-.233.058-.437-.029-.612-.088-.175-.787-1.897-1.078-2.598-.284-.682-.573-.59-.787-.6l-.67-.012a1.286 1.286 0 0 0-.932.437c-.32.35-1.224 1.197-1.224 2.918s1.253 3.385 1.427 3.619c.175.233 2.466 3.765 5.977 5.277.835.36 1.487.575 1.995.737.838.267 1.601.229 2.204.139.672-.1 2.072-.847 2.365-1.664.29-.816.29-1.516.203-1.663-.086-.146-.32-.233-.67-.408z" />
   </svg>
 );
-import { useState } from "react";
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { lang, setLang } = useLanguage();
+  const nav = t[lang].nav;
 
   const links = [
-    { label: "Services", href: "#services" },
-    { label: "Why Bentech", href: "#why-bentech" },
-    { label: "Contact", href: "#contact" },
+    { label: nav.services, href: "#services" },
+    { label: nav.whyBentech, href: "#why-bentech" },
+    { label: nav.contact, href: "#contact" },
   ];
 
   const handleClick = (href: string) => {
@@ -41,14 +45,14 @@ const Navbar = () => {
             </button>
           ))}
           <a
-            href="tel:+972544991540"
+            href="tel:+972526379747"
             className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
           >
             <Phone className="w-4 h-4" />
-            +972-54-499-1540
+            {nav.phone}
           </a>
           <a
-            href="https://wa.me/972544991540"
+            href="https://wa.me/972526379747"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-sm font-semibold hover:opacity-80 transition-opacity"
@@ -57,14 +61,32 @@ const Navbar = () => {
             <WAIcon />
             WhatsApp
           </a>
+          {/* Language toggle */}
+          <button
+            onClick={() => setLang(lang === "en" ? "he" : "en")}
+            className="inline-flex items-center gap-0.5 text-xs font-semibold rounded-full border border-border px-3 py-1.5 hover:bg-accent transition-colors"
+            aria-label="Toggle language"
+          >
+            <span className={lang === "en" ? "text-primary" : "text-muted-foreground"}>EN</span>
+            <span className="text-muted-foreground mx-0.5">|</span>
+            <span className={lang === "he" ? "text-primary" : "text-muted-foreground"}>עב</span>
+          </button>
         </div>
 
         {/* Mobile */}
         <div className="flex md:hidden items-center gap-3">
-          <a href="https://wa.me/972544991540" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+          {/* Mobile language toggle */}
+          <button
+            onClick={() => setLang(lang === "en" ? "he" : "en")}
+            className="text-xs font-semibold rounded-full border border-border px-2 py-1 hover:bg-accent transition-colors"
+            aria-label="Toggle language"
+          >
+            {lang === "en" ? "עב" : "EN"}
+          </button>
+          <a href="https://wa.me/972526379747" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
             <WAIcon />
           </a>
-          <a href="tel:+972544991540" className="text-primary" aria-label="Call">
+          <a href="tel:+972526379747" className="text-primary" aria-label="Call">
             <Phone className="w-5 h-5" />
           </a>
           <button onClick={() => setMobileOpen(!mobileOpen)}>
