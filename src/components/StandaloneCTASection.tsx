@@ -1,14 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { t } from "@/translations";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const StandaloneCTASection = () => {
   const { lang } = useLanguage();
   const tr = t[lang].cta;
+  const { ref, visible } = useScrollReveal();
 
   return (
     <section id="cta" className="py-20 md:py-28 scroll-mt-20" style={{ backgroundColor: "hsl(var(--cta-blue))" }}>
-      <div className="container mx-auto px-6 text-center">
+      <div ref={ref} className={`container mx-auto px-6 text-center reveal ${visible ? "visible" : ""}`}>
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-3">
           {tr.h2}
         </h2>
@@ -18,7 +20,7 @@ const StandaloneCTASection = () => {
 
         <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto mb-12">
           {tr.steps.map((step, i) => (
-            <div key={i} className="text-center">
+            <div key={i} className="text-center" style={{ transitionDelay: `${i * 0.15}s` }}>
               <div className="w-12 h-12 rounded-full bg-white/20 text-white text-xl font-bold flex items-center justify-center mx-auto mb-3">
                 {i + 1}
               </div>
@@ -31,7 +33,7 @@ const StandaloneCTASection = () => {
         <Button
           variant="ctaWhite"
           size="lg"
-          className="text-base px-8 py-6 mb-4"
+          className="text-base px-8 py-6 mb-4 btn-glow"
           onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
         >
           {tr.button}

@@ -2,14 +2,16 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { t } from "@/translations";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const RiskSection = () => {
   const { lang } = useLanguage();
   const tr = t[lang].risk;
+  const { ref, visible } = useScrollReveal();
 
   return (
     <section id="risk" className="py-20 md:py-28 scroll-mt-20" style={{ backgroundColor: "hsl(var(--risk-bg))" }}>
-      <div className="container mx-auto px-6">
+      <div ref={ref} className={`container mx-auto px-6 reveal ${visible ? "visible" : ""}`}>
         <div className="text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-3">
             {tr.h2}
@@ -24,7 +26,7 @@ const RiskSection = () => {
 
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           {tr.cards.map((card, i) => (
-            <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-6">
+            <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-6 card-hover" style={{ transitionDelay: `${i * 0.1}s` }}>
               <h3 className="text-lg font-semibold text-white mb-2">{card.title}</h3>
               <p className="text-white/60 leading-relaxed">{card.desc}</p>
             </div>
@@ -38,7 +40,7 @@ const RiskSection = () => {
           <Button
             variant="hero"
             size="lg"
-            className="text-base px-8 py-6"
+            className="text-base px-8 py-6 btn-glow"
             onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
           >
             {tr.cta}

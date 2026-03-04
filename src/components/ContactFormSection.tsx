@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { t } from "@/translations";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const SHEETS_URL = "https://script.google.com/macros/s/AKfycbwFl6-cpxSd67gjN4Dt069YetTXspVUi2hqhhaC1iY0VL2ClFctTyMXciCMXWKJ4L6N/exec";
 
@@ -17,13 +18,13 @@ const selectClass =
 const ContactFormSection = () => {
   const { lang } = useLanguage();
   const tr = t[lang].contact;
+  const { ref, visible } = useScrollReveal();
 
   const [mode, setMode] = useState<FormMode>("business");
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   // Business form state
   const [biz, setBiz] = useState({ name: "", business: "", location: "", teamSize: "", phone: "", email: "", message: "" });
-  // Use indices so selections survive language toggle
   const [bizServiceIdxs, setBizServiceIdxs] = useState<number[]>([]);
   const [bizErrors, setBizErrors] = useState<Record<string, string>>({});
 
@@ -63,7 +64,6 @@ const ContactFormSection = () => {
 
     setStatus("sending");
     try {
-      // Always submit English values to Google Sheets for consistency
       const services = bizServiceIdxs.map(i => t.en.contact.serviceOptions[i]).join(", ");
       const payload = mode === "business"
         ? { type: "business", name: biz.name.trim(), business: biz.business.trim(), location: biz.location.trim(), teamSize: biz.teamSize, services, phone: biz.phone.trim(), email: biz.email.trim(), message: biz.message.trim() }
@@ -90,7 +90,7 @@ const ContactFormSection = () => {
 
   return (
     <section id="contact" className="py-20 md:py-28 scroll-mt-20" style={{ backgroundColor: "hsl(var(--contact-bg))" }}>
-      <div className="container mx-auto px-6">
+      <div ref={ref} className={`container mx-auto px-6 reveal ${visible ? "visible" : ""}`}>
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-3">
             {tr.h2}
@@ -210,7 +210,7 @@ const ContactFormSection = () => {
                   <textarea placeholder={tr.msgPh} value={biz.message} onChange={e => setBiz({ ...biz, message: e.target.value })} rows={3} className={`${inputClass} pl-10 resize-none`} maxLength={1000} />
                 </div>
 
-                <Button variant="hero" size="lg" className="w-full text-base py-6" type="submit" disabled={status === "sending"}>
+                <Button variant="hero" size="lg" className="w-full text-base py-6 btn-glow" type="submit" disabled={status === "sending"}>
                   {status === "sending" ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Send className="w-4 h-4 mr-2" />}
                   {status === "sending" ? tr.sending : tr.send}
                 </Button>
@@ -258,7 +258,7 @@ const ContactFormSection = () => {
                   <input type="email" placeholder={tr.emailPh} value={priv.email} onChange={e => setPriv({ ...priv, email: e.target.value })} className={`${inputClass} pl-10`} maxLength={100} />
                 </div>
 
-                <Button variant="hero" size="lg" className="w-full text-base py-6" type="submit" disabled={status === "sending"}>
+                <Button variant="hero" size="lg" className="w-full text-base py-6 btn-glow" type="submit" disabled={status === "sending"}>
                   {status === "sending" ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Send className="w-4 h-4 mr-2" />}
                   {status === "sending" ? tr.sending : tr.send}
                 </Button>

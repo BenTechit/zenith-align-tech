@@ -61,3 +61,52 @@
     letter-spacing: -0.02em;
   }
 }
+
+@layer utilities {
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Stagger children */
+  .stagger > * { transition-delay: calc(var(--i, 0) * 0.1s); }
+
+  /* Hero entrance */
+  .hero-enter {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: heroIn 0.8s ease-out forwards;
+  }
+  .hero-enter-delay-1 { animation-delay: 0.15s; }
+  .hero-enter-delay-2 { animation-delay: 0.3s; }
+  .hero-enter-delay-3 { animation-delay: 0.45s; }
+  .hero-enter-delay-4 { animation-delay: 0.6s; }
+
+  @keyframes heroIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Card hover */
+  .card-hover {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -8px rgba(0,0,0,0.12);
+  }
+
+  /* CTA button pulse glow */
+  .btn-glow {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .btn-glow:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px -4px hsl(var(--primary) / 0.5);
+  }
+}

@@ -20,24 +20,24 @@ const HeroSection = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left: Text */}
           <div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] text-white mb-6">
+            <h1 className="hero-enter text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] text-white mb-6">
               {tr.h1}
             </h1>
-            <p className="text-lg text-white/80 mb-4 leading-relaxed">
+            <p className="hero-enter hero-enter-delay-1 text-lg text-white/80 mb-4 leading-relaxed">
               {tr.sub}
             </p>
-            <p className="text-base text-white/70 mb-4 leading-relaxed">
+            <p className="hero-enter hero-enter-delay-2 text-base text-white/70 mb-4 leading-relaxed">
               {tr.body}
             </p>
-            <p className="text-sm text-white/50 mb-8" dir={lang === "en" ? "rtl" : "ltr"}>
+            <p className="hero-enter hero-enter-delay-2 text-sm text-white/50 mb-8" dir={lang === "en" ? "rtl" : "ltr"}>
               {tr.hebrew}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-4">
+            <div className="hero-enter hero-enter-delay-3 flex flex-col sm:flex-row gap-4 mb-4">
               <Button
                 variant="hero"
                 size="lg"
-                className="text-base px-8 py-6"
+                className="text-base px-8 py-6 btn-glow"
                 onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 {tr.cta1}
@@ -52,14 +52,14 @@ const HeroSection = () => {
                 {tr.cta2}
               </Button>
             </div>
-            <p className="text-xs text-white/40">
+            <p className="hero-enter hero-enter-delay-4 text-xs text-white/40">
               {tr.trust}
             </p>
           </div>
 
           {/* Right: IT Health Dashboard Card */}
           <div className="hidden md:flex items-center justify-center">
-            <div className="w-full max-w-sm rounded-2xl bg-white/5 border border-white/10 p-6">
+            <div className="hero-enter hero-enter-delay-3 w-full max-w-sm rounded-2xl bg-white/5 border border-white/10 p-6">
               <div className="flex items-center justify-between mb-5">
                 <p className="text-xs font-semibold text-white/50 uppercase tracking-wider">{tr.healthTitle}</p>
                 <span className="flex items-center gap-1.5 text-xs text-green-400 font-medium">
