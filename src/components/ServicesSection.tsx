@@ -45,7 +45,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="py-20 md:py-28" style={{ backgroundColor: "hsl(var(--section-alt2))" }}>
+    <section id="services" className="py-20 md:py-28 scroll-mt-20" style={{ backgroundColor: "hsl(var(--section-alt2))" }}>
       <div className="container mx-auto px-6">
         <div className="text-center mb-14">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-3">

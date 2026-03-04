@@ -7,6 +7,7 @@ import RiskSection from "@/components/RiskSection";
 import StandaloneCTASection from "@/components/StandaloneCTASection";
 import ContactFormSection from "@/components/ContactFormSection";
 import Footer from "@/components/Footer";
+import WhatsAppFAB from "@/components/WhatsAppFAB";
 
 const Index = () => {
   return (
@@ -20,6 +21,7 @@ const Index = () => {
       <StandaloneCTASection />
       <ContactFormSection />
       <Footer />
+      <WhatsAppFAB />
     </div>
   );
 };

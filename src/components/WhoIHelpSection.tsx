@@ -8,7 +8,7 @@ const WhoIHelpSection = () => {
   ];
 
   return (
-    <section className="py-20 md:py-28" style={{ backgroundColor: "hsl(var(--section-alt))" }}>
+    <section id="who-i-help" className="py-20 md:py-28 scroll-mt-20" style={{ backgroundColor: "hsl(var(--section-alt))" }}>
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mb-12">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-3">
