@@ -210,7 +210,7 @@ const ContactFormSection = () => {
                   <textarea placeholder={tr.msgPh} value={biz.message} onChange={e => setBiz({ ...biz, message: e.target.value })} rows={3} className={`${inputClass} pl-10 resize-none`} maxLength={1000} />
                 </div>
 
-                <Button variant="hero" size="lg" className="w-full text-base py-6 btn-glow" type="submit" disabled={status === "sending"}>
+                <Button variant="hero" size="lg" className="w-full text-sm sm:text-base py-5 sm:py-6 btn-glow" type="submit" disabled={status === "sending"}>
                   {status === "sending" ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Send className="w-4 h-4 mr-2" />}
                   {status === "sending" ? tr.sending : tr.send}
                 </Button>
@@ -258,7 +258,7 @@ const ContactFormSection = () => {
                   <input type="email" placeholder={tr.emailPh} value={priv.email} onChange={e => setPriv({ ...priv, email: e.target.value })} className={`${inputClass} pl-10`} maxLength={100} />
                 </div>
 
-                <Button variant="hero" size="lg" className="w-full text-base py-6 btn-glow" type="submit" disabled={status === "sending"}>
+                <Button variant="hero" size="lg" className="w-full text-sm sm:text-base py-5 sm:py-6 btn-glow" type="submit" disabled={status === "sending"}>
                   {status === "sending" ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Send className="w-4 h-4 mr-2" />}
                   {status === "sending" ? tr.sending : tr.send}
                 </Button>

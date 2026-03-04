@@ -33,7 +33,7 @@ const StandaloneCTASection = () => {
         <Button
           variant="ctaWhite"
           size="lg"
-          className="text-base px-8 py-6 mb-4 btn-glow"
+          className="text-sm sm:text-base px-5 sm:px-8 py-5 sm:py-6 mb-4 btn-glow w-full sm:w-auto"
           onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
         >
           {tr.button}
