@@ -5,7 +5,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { t } from "@/translations";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
-const SHEETS_URL = "https://script.google.com/macros/s/AKfycbwFl6-cpxSd67gjN4Dt069YetTXspVUi2hqhhaC1iY0VL2ClFctTyMXciCMXWKJ4L6N/exec";
+const SHEETS_URL = "https://script.google.com/macros/s/AKfycbzjfBE4IcMwAr4KqBFEnePkbxUzXzm25VehtuerUrTzAvriTdw1IVrPmmoG6YD64QsO/exec";
 
 type FormMode = "business" | "private";
 
