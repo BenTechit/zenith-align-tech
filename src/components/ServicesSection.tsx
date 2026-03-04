@@ -45,7 +45,7 @@ const ServicesSection = () => {
           <Button
             variant="hero"
             size="lg"
-            className="text-sm sm:text-base px-5 sm:px-8 py-5 sm:py-6 btn-glow w-full sm:w-auto"
+            className="text-sm sm:text-base px-5 sm:px-8 py-5 sm:py-6 btn-glow w-full sm:w-auto whitespace-normal text-center leading-snug"
             onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
           >
             {tr.cta}
