@@ -89,8 +89,8 @@ const ContactFormSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-28 scroll-mt-20" style={{ backgroundColor: "hsl(var(--contact-bg))" }}>
-      <div ref={ref} className={`container mx-auto px-6 reveal ${visible ? "visible" : ""}`}>
+    <section id="contact" className="py-12 sm:py-20 md:py-28 scroll-mt-20" style={{ backgroundColor: "hsl(var(--contact-bg))" }}>
+      <div ref={ref} className={`container mx-auto px-4 sm:px-6 reveal ${visible ? "visible" : ""}`}>
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-3">
             {tr.h2}

@@ -63,7 +63,7 @@
 }
 
 @layer utilities {
-  /* Scroll reveal */
+  /* Scroll reveal - disabled on small screens for reliability */
   .reveal {
     opacity: 0;
     transform: translateY(24px);
@@ -72,6 +72,14 @@
   .reveal.visible {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  /* On mobile, skip the reveal animation entirely */
+  @media (max-width: 767px) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+    }
   }
 
   /* Stagger children */
