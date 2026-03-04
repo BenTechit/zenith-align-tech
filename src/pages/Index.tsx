@@ -1,13 +1,11 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import ProblemSection from "@/components/ProblemSection";
+import WhoIHelpSection from "@/components/WhoIHelpSection";
 import ServicesSection from "@/components/ServicesSection";
-import HardwareSection from "@/components/HardwareSection";
-import TechnicalExpertiseSection from "@/components/TechnicalExpertiseSection";
 import WhyBentechSection from "@/components/WhyBentechSection";
-import PreventionSection from "@/components/PreventionSection";
+import RiskSection from "@/components/RiskSection";
+import StandaloneCTASection from "@/components/StandaloneCTASection";
 import ContactFormSection from "@/components/ContactFormSection";
-import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -15,14 +13,12 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <HeroSection />
-      <ProblemSection />
+      <WhoIHelpSection />
       <ServicesSection />
-      <HardwareSection />
-      <TechnicalExpertiseSection />
       <WhyBentechSection />
-      <PreventionSection />
+      <RiskSection />
+      <StandaloneCTASection />
       <ContactFormSection />
-      <CTASection />
       <Footer />
     </div>
   );

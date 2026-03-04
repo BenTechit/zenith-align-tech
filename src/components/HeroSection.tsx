@@ -1,90 +1,62 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Phone, Calendar } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useLanguage } from "@/i18n/LanguageContext";
-import { useRef } from "react";
 
 const HeroSection = () => {
-  const { t } = useLanguage();
-  const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-
   return (
-    <section id="home" ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <motion.div style={{ y: bgY }} className="absolute inset-0 grid-overlay animate-grid-shift opacity-30" />
-      <motion.div style={{ y: bgY }} className="absolute inset-0 gradient-radial" />
-      <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-primary/5 blur-3xl animate-float" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-primary/3 blur-3xl animate-float" style={{ animationDelay: "3s" }} />
+    <section id="home" className="relative pt-16" style={{ backgroundColor: "hsl(var(--hero-bg))" }}>
+      <div className="container mx-auto px-6 py-20 md:py-28">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          {/* Left: Text */}
+          <div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] text-white mb-6">
+              Your Business Runs on IT. Make Sure It Actually Runs.
+            </h1>
+            <p className="text-lg text-white/80 mb-4 leading-relaxed">
+              On-site and remote IT support for businesses in Modi'in — Microsoft 365, cloud infrastructure, network setup, and hardware deployment. Done right, the first time.
+            </p>
+            <p className="text-base text-white/70 mb-4 leading-relaxed">
+              When your systems go down, your team goes down. I'm Ben Goldenberg, and I work with businesses of 5–50 people to build IT infrastructure that doesn't fail — and fix it fast when something does.
+            </p>
+            <p className="text-sm text-white/50 mb-8" dir="rtl">
+              העסק שלך רץ על מחשוב. בואו שנוודא שהוא רץ כמו שצריך.
+            </p>
 
-      <motion.div style={{ opacity }} className="relative z-10 container mx-auto px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border/60 bg-secondary/50 mb-8">
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse-glow" />
-            <span className="text-sm text-muted-foreground tracking-wide">{t.hero.badge}</span>
-          </div>
-        </motion.div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.05] mb-6"
-        >
-          {t.hero.headline1}
-          <br />
-          <span className="text-gradient">{t.hero.headline2}</span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
-          className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
-        >
-          {t.hero.subtitle}
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.45, ease: "easeOut" }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
-        >
-          <Button variant="hero" size="lg" className="text-base px-8 py-6 group" onClick={() => document.querySelector('#contact-form')?.scrollIntoView({ behavior: 'smooth' })}>
-              <Calendar className="w-5 h-5 me-2" />
-              {t.hero.ctaPrimary}
-          </Button>
-          <Button variant="heroOutline" size="lg" className="text-base px-8 py-6" asChild>
-            <a href="tel:+972526379747">
-              <Phone className="w-5 h-5 me-2" />
-              {t.hero.ctaSecondary}
-            </a>
-          </Button>
-        </motion.div>
-
-        {/* Stat-style authority blocks */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.6, ease: "easeOut" }}
-          className="flex flex-wrap items-center justify-center gap-8 md:gap-12"
-        >
-          {t.hero.stats.map((stat, i) => (
-            <div key={i} className="text-center">
-              <div className="text-lg md:text-xl font-bold text-primary tracking-tight">{stat.value}</div>
-              <div className="text-xs text-muted-foreground tracking-wider uppercase mt-0.5">{stat.label}</div>
+            <div className="flex flex-col sm:flex-row gap-4 mb-4">
+              <Button
+                variant="hero"
+                size="lg"
+                className="text-base px-8 py-6"
+                onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Get a Free IT Assessment
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+              <Button
+                variant="heroOutline"
+                size="lg"
+                className="text-base px-8 py-6"
+                onClick={() => document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                See What I Do
+              </Button>
             </div>
-          ))}
-        </motion.div>
-      </motion.div>
+            <p className="text-xs text-white/40">
+              No commitment. No jargon. Just a straight conversation about your setup.
+            </p>
+          </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+          {/* Right: Visual placeholder */}
+          <div className="hidden md:flex items-center justify-center">
+            <div className="w-full max-w-md aspect-square rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
+              <div className="text-center text-white/30">
+                <Phone className="w-16 h-16 mx-auto mb-4 opacity-30" />
+                <p className="text-sm">IT Infrastructure Partner</p>
+                <p className="text-xs mt-1">Modi'in, Israel</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
