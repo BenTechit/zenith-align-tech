@@ -9,6 +9,29 @@ const WAIcon = () => (
   </svg>
 );
 
+const USFlag = ({ className = "" }: { className?: string }) => (
+  <svg viewBox="0 0 640 480" className={className} width="18" height="13" aria-hidden="true">
+    <rect width="640" height="480" fill="#bd3d44"/>
+    <rect y="37" width="640" height="37" fill="#fff"/>
+    <rect y="111" width="640" height="37" fill="#fff"/>
+    <rect y="185" width="640" height="37" fill="#fff"/>
+    <rect y="259" width="640" height="37" fill="#fff"/>
+    <rect y="333" width="640" height="37" fill="#fff"/>
+    <rect y="407" width="640" height="37" fill="#fff"/>
+    <rect width="260" height="259" fill="#192f5d"/>
+  </svg>
+);
+
+const ILFlag = ({ className = "" }: { className?: string }) => (
+  <svg viewBox="0 0 640 480" className={className} width="18" height="13" aria-hidden="true">
+    <rect width="640" height="480" fill="#fff"/>
+    <rect y="53" width="640" height="55" fill="#0038b8"/>
+    <rect y="372" width="640" height="55" fill="#0038b8"/>
+    <polygon points="320,138 356,226 290,178 350,178 284,226" fill="none" stroke="#0038b8" strokeWidth="12"/>
+    <polygon points="320,342 356,254 290,302 350,302 284,254" fill="none" stroke="#0038b8" strokeWidth="12"/>
+  </svg>
+);
+
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { lang, setLang } = useLanguage();
@@ -67,9 +90,9 @@ const Navbar = () => {
             className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 hover:bg-accent transition-colors"
             aria-label="Toggle language"
           >
-            <span className={`inline-flex items-center gap-1 text-xs font-semibold ${lang === "en" ? "text-primary" : "text-muted-foreground"}`}>🇺🇸 EN</span>
+            <span className={`inline-flex items-center gap-1 text-xs font-semibold ${lang === "en" ? "text-primary" : "text-muted-foreground"}`}><USFlag /> EN</span>
             <span className="text-muted-foreground text-xs">|</span>
-            <span className={`inline-flex items-center gap-1 text-xs font-semibold ${lang === "he" ? "text-primary" : "text-muted-foreground"}`}>🇮🇱 IL</span>
+            <span className={`inline-flex items-center gap-1 text-xs font-semibold ${lang === "he" ? "text-primary" : "text-muted-foreground"}`}><ILFlag /> IL</span>
           </button>
         </div>
 
@@ -81,7 +104,7 @@ const Navbar = () => {
             className="inline-flex items-center gap-1 rounded-full border border-border px-2 py-1 hover:bg-accent transition-colors text-xs font-semibold"
             aria-label="Toggle language"
           >
-            {lang === "en" ? "🇮🇱 IL" : "🇺🇸 EN"}
+            {lang === "en" ? <><ILFlag /> IL</> : <><USFlag /> EN</>}
           </button>
           <a href="https://wa.me/972526379747" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
             <WAIcon />
