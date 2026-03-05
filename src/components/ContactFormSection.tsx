@@ -1,4 +1,5 @@
 import { Send, User, Phone, Mail, Building, MessageSquare, CheckCircle, Loader2, MapPin, Laptop, Briefcase, ChevronDown } from "lucide-react";
+import benPhoto from "@/assets/ben-photo.jpg";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -269,8 +270,17 @@ const ContactFormSection = () => {
 
           {/* Contact details */}
           <div className="flex flex-col justify-center">
-            <h3 className="text-xl font-semibold text-foreground mb-1">Ben Goldenberg</h3>
-            <p className="text-muted-foreground mb-6">Bentech — IT Support for Businesses</p>
+            <div className="flex items-center gap-4 mb-4">
+              <img
+                src={benPhoto}
+                alt="Ben Goldenberg"
+                className="w-16 h-16 rounded-full object-cover shadow-md"
+              />
+              <div>
+                <h3 className="text-xl font-semibold text-foreground mb-0.5">Ben Goldenberg</h3>
+                <p className="text-muted-foreground text-sm">Bentech — IT Support for Businesses</p>
+              </div>
+            </div>
 
             <div className="space-y-4 mb-8">
               <div className="flex items-start gap-3">
