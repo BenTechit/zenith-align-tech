@@ -6,8 +6,8 @@ export const t = {
     // Hero
     hero: {
       h1: "Your Business Runs on IT. Make Sure It Actually Runs.",
-      sub: "On-site and remote IT support for businesses in Modi'in — Microsoft 365, Google Workspace, cloud infrastructure, network setup, and hardware deployment. Done right, the first time.",
-      body: "When your systems go down, your team goes down. I'm Ben Goldenberg, and I work with businesses of 5–50 people to build IT infrastructure that doesn't fail — and fix it fast when something does.",
+      sub: "On-site and remote IT support for businesses in Modi'in. Microsoft 365, Google Workspace, cloud infrastructure, network setup, and hardware deployment. Done right, the first time.",
+      body: "When your systems go down, your team goes down. I'm Ben Goldenberg, and I work with businesses of 5–50 people to build IT infrastructure that doesn't fail. And when something does break, I fix it fast.",
       hebrew: "העסק שלכם רץ על מחשוב. בואו נוודא שהוא רץ כמו שצריך.",
       cta1: "Get a Free IT Assessment",
       cta2: "See What I Do",
@@ -15,19 +15,19 @@ export const t = {
       healthTitle: "IT Health Overview",
       healthStatus: "All systems go",
       healthCheckIn: "Next check-in",
-      healthBy: "Today — Ben Goldenberg",
+      healthBy: "Today, Ben Goldenberg",
     },
 
     // Who I Help
     who: {
       h2: "Built for Businesses That Can't Afford IT Problems",
       sub: "I work with business owners, not IT departments.",
-      intro: "If you run a team of 5 to 50 people in Modi'in or the surrounding area — and your technology is held together with workarounds and crossed fingers — this is exactly for you.",
+      intro: "If you run a team of 5 to 50 people in Modi'in or the surrounding area, and your technology is held together with workarounds and crossed fingers, this is exactly for you.",
       bullets: [
         "Small businesses where IT failure means the whole team stops",
         "Offices that have outgrown their setup but haven't upgraded",
         "Companies migrating to Microsoft 365 or Google Workspace, or moving off physical servers",
-        "Business owners who want one accountable person for all their IT — not a ticket system",
+        "Business owners who want one accountable person for all their IT. Not a ticket system.",
         "Teams dealing with slow computers, unreliable backups, or chaotic file storage",
       ],
       callout: "Enterprise companies with internal IT departments have larger providers for that. Bentech specializes in the businesses those providers ignore.",
@@ -37,7 +37,7 @@ export const t = {
     services: {
       h2: "What I Handle, So You Don't Have To",
       sub: "Practical IT solutions built for how small businesses actually work.",
-      cta: "Get a Free IT Assessment — I'll tell you exactly what your business needs.",
+      cta: "Get a Free IT Assessment. I'll tell you exactly what your business needs.",
       cards: [
         {
           title: "Business IT Infrastructure",
@@ -46,7 +46,7 @@ export const t = {
             "ISP coordination and connectivity issues",
             "NAS configuration and management",
             "NAS to cloud migrations",
-            "Backup systems — setup, testing, and monitoring",
+            "Backup systems: setup, testing, and monitoring",
             "Remote access and VPN configuration",
             "Security baseline implementation",
           ],
@@ -83,8 +83,8 @@ export const t = {
     repairLab: {
       badge: "Professional Repair Lab",
       h2: "A Fully-Equipped Computer Repair Lab",
-      sub: "From motherboard-level fixes to liquid damage recovery — if it's broken, I fix it. Desktops, laptops, MacBooks, all-in-ones, and even gaming consoles.",
-      closing: "Most repairs are diagnosed same-day. No guesswork, no unnecessary parts — just experienced, hands-on troubleshooting from someone who's done thousands of repairs.",
+      sub: "From motherboard-level fixes to liquid damage recovery. If it's broken, I fix it. Desktops, laptops, MacBooks, all-in-ones, and even gaming consoles.",
+      closing: "Most repairs are diagnosed same-day. No guesswork, no unnecessary parts. Just experienced, hands-on troubleshooting from someone who's done thousands of repairs.",
     },
 
     // Why Bentech
@@ -92,25 +92,37 @@ export const t = {
       h2: "Why Business Owners in Modi'in Choose Bentech",
       sub: "Not because of a brochure. Because of what actually happens when something goes wrong.",
       blocks: [
-        { title: "One Person. Full Accountability.", desc: "You deal with Ben — not a helpdesk, not a rotating support team, not an automated ticket queue. When something breaks, you know exactly who to call." },
+        { title: "One Person. Full Accountability.", desc: "You deal with Ben. Not a helpdesk. Not a rotating support team. Not an automated ticket queue. When something breaks, you know exactly who to call." },
         { title: "On-Site When It Matters.", desc: "Remote support handles most issues fast. When it doesn't, I come to you. Modi'in-based, available for urgent on-site visits without the \"next available slot in 5 days\" answer." },
-        { title: "Business-Level Thinking.", desc: "I don't just fix what's broken. I look at what's about to break, what's slowing your team down, and what your IT setup needs to support your growth — not just survive today." },
-        { title: "Microsoft Ecosystem Depth.", desc: "Microsoft 365, Google Workspace, SharePoint, OneDrive, Teams, Azure — these aren't checkboxes on a service list. They're the backbone of how modern small businesses run. I build that backbone properly." },
+        { title: "Business-Level Thinking.", desc: "I don't just fix what's broken. I look at what's about to break, what's slowing your team down, and what your IT setup needs to support your growth. Not just survive today." },
+        { title: "Microsoft Ecosystem Depth.", desc: "Microsoft 365, Google Workspace, SharePoint, OneDrive, Teams, Azure. These aren't checkboxes on a service list. They're the backbone of how modern small businesses run. I build that backbone properly." },
+      ],
+    },
+
+    // Reviews
+    reviews: {
+      h2: "What My Clients Say",
+      sub: "Real feedback from businesses I work with.",
+      items: [
+        { name: "David R.", role: "Law Office, Modi'in", stars: 5, quote: "Ben migrated our entire office to Microsoft 365 in one day. Zero downtime, zero confusion. We should have done this years ago." },
+        { name: "Shira M.", role: "Marketing Agency", stars: 5, quote: "Finally, one person who handles everything. No more calling three different people for three different problems." },
+        { name: "Oren K.", role: "Accounting Firm", stars: 5, quote: "Our backups weren't actually working. Ben caught it, fixed it, and set up monitoring so it never happens again." },
+        { name: "Noa T.", role: "Clinic Manager", stars: 5, quote: "Fast, reliable, and he actually explains things in a way I understand. Highly recommend." },
       ],
     },
 
     // Risk
     risk: {
       h2: "What Happens When IT Gets Left on the Back Burner",
-      sub: "Most IT problems don't announce themselves. They build quietly — until they stop your business.",
-      intro: "A failing hard drive gives warnings. An insecure network has gaps. An M365 setup without proper backup is one accidental deletion away from a crisis. These aren't theoretical risks — they're the situations I get called into after they've already happened.",
+      sub: "Most IT problems don't announce themselves. They build quietly until they stop your business.",
+      intro: "A failing hard drive gives warnings. An insecure network has gaps. An M365 setup without proper backup is one accidental deletion away from a crisis. These aren't theoretical risks. They're the situations I get called into after they've already happened.",
       cards: [
         { title: "No Backup = No Recovery", desc: "Businesses that lose data without a tested backup don't always survive it. A backup that was set up once and never verified is the same as no backup." },
-        { title: "Old Hardware, Modern Workload", desc: "A team running on underpowered or aging hardware loses hours every week. That's not a hardware problem — it's a revenue problem measured in productivity you're not getting." },
+        { title: "Old Hardware, Modern Workload", desc: "A team running on underpowered or aging hardware loses hours every week. That's not a hardware problem. It's a revenue problem measured in productivity you're not getting." },
         { title: "IT by Committee Costs More", desc: "Hiring different people for different problems creates gaps. Nobody owns the full picture. Nobody catches what's falling through." },
       ],
       closing: "The best time to look at your IT infrastructure is before something fails. The second best time is right now.",
-      cta: "Book a Free IT Check — No commitment required.",
+      cta: "Book a Free IT Check. No commitment required.",
     },
 
     // CTA
@@ -172,14 +184,14 @@ export const t = {
 
     about: {
       h2: "Meet Ben Goldenberg",
-      bio: "I'm Ben — an IT professional with years of experience supporting small and mid-size businesses. I believe every business deserves IT infrastructure that just works, and one person you can count on when something goes wrong. I work from a fully-equipped repair lab in Modi'in, and come on-site when needed.",
+      bio: "I'm Ben, an IT professional with years of experience supporting small and mid-size businesses. I believe every business deserves IT infrastructure that just works, and one person you can count on when something goes wrong. I work from a fully-equipped repair lab in Modi'in, and come on-site when needed.",
       labTitle: "Inside the Lab",
     },
 
     compliance: {
       h2: "Privacy Protection Compliance for Your Business",
       sub: "Many businesses don't realize they're required to meet Israeli data protection regulations.",
-      intro: "If your business stores customer, employee, or operational data — you may be legally required to comply with Israel's Privacy Protection Regulations (Amendment 13). Non-compliance can expose your business to significant legal and financial risk.",
+      intro: "If your business stores customer, employee, or operational data, you may be legally required to comply with Israel's Privacy Protection Regulations (Amendment 13). Non-compliance can expose your business to significant legal and financial risk.",
       bullets: [
         { title: "Regulatory Assessment", desc: "We determine whether your business is required to comply with the Privacy Protection Regulations based on the data you collect and store." },
         { title: "Security Review with Expert Consultants", desc: "I work alongside professional information-security consultants who perform a structured security assessment and business characterization (אפיון אבטחת מידע) of your organization." },
@@ -196,8 +208,8 @@ export const t = {
 
     hero: {
       h1: "העסק שלכם רץ על מחשוב. בואו נוודא שהוא רץ כמו שצריך.",
-      sub: "תמיכת IT עסקית, באתר ומרחוק, לעסקים במודיעין — הגדרת Microsoft 365, Google Workspace, תשתיות ענן, הקמת רשת ופריסת חומרה. נכון, מהפעם הראשונה.",
-      body: "כשהמערכות נופלות, הצוות עוצר. אני בן גולדנברג, ואני עובד עם עסקים של 5–50 עובדים כדי לבנות תשתית IT שלא נכשלת — ולתקן במהירות כשמשהו קורה.",
+      sub: "תמיכת IT עסקית, באתר ומרחוק, לעסקים במודיעין. הגדרת Microsoft 365, Google Workspace, תשתיות ענן, הקמת רשת ופריסת חומרה. נכון, מהפעם הראשונה.",
+      body: "כשהמערכות נופלות, הצוות עוצר. אני בן גולדנברג, ואני עובד עם עסקים של 5–50 עובדים כדי לבנות תשתית IT שלא נכשלת. וכשמשהו כן קורה, אני מתקן מהר.",
       hebrew: "Your Business Runs on IT. Make Sure It Actually Runs.",
       cta1: "קבלו הערכת IT חינם",
       cta2: "ראו מה אני עושה",
@@ -205,18 +217,18 @@ export const t = {
       healthTitle: "סקירת בריאות IT",
       healthStatus: "כל המערכות תקינות",
       healthCheckIn: "בדיקה הבאה",
-      healthBy: "היום — בן גולדנברג",
+      healthBy: "היום, בן גולדנברג",
     },
 
     who: {
       h2: "בנוי לעסקים שלא יכולים להרשות לעצמם בעיות IT",
       sub: "אני עובד עם בעלי עסקים, לא עם מחלקות IT.",
-      intro: "אם אתם מנהלים צוות של 5–50 אנשים במודיעין או בסביבה — והטכנולוגיה שלכם מחוברת עם פלסטרים ותפילות — זה בדיוק בשבילכם.",
+      intro: "אם אתם מנהלים צוות של 5–50 אנשים במודיעין או בסביבה, והטכנולוגיה שלכם מחוברת עם פלסטרים ותפילות, זה בדיוק בשבילכם.",
       bullets: [
         "עסקים קטנים שבהם תקלת IT עוצרת את כל הצוות",
         "משרדים שגדלו מעבר לתשתית הנוכחית אבל לא שדרגו",
         "חברות שעוברות ל-Microsoft 365 או Google Workspace, או עוזבות שרתים פיזיים",
-        "בעלי עסקים שרוצים אדם אחד אחראי על כל ה-IT שלהם — לא מערכת כרטיסים",
+        "בעלי עסקים שרוצים אדם אחד אחראי על כל ה-IT שלהם. לא מערכת כרטיסים.",
         "צוותים שמתמודדים עם מחשבים איטיים, גיבויים לא אמינים, או אחסון קבצים כאוטי",
       ],
       callout: "לחברות גדולות עם מחלקות IT יש ספקים גדולים יותר. Bentech מתמחה בעסקים שאותם ספקים מתעלמים מהם.",
@@ -225,7 +237,7 @@ export const t = {
     services: {
       h2: "מה אני עושה בשבילכם",
       sub: "פתרונות IT מעשיים בנויים לאופן שבו עסקים קטנים עובדים בפועל.",
-      cta: "קבלו הערכת IT חינם — אגיד לכם בדיוק מה העסק שלכם צריך.",
+      cta: "קבלו הערכת IT חינם. אגיד לכם בדיוק מה העסק שלכם צריך.",
       cards: [
         {
           title: "תשתית IT עסקית",
@@ -234,7 +246,7 @@ export const t = {
             "תיאום ספקי אינטרנט ובעיות קישוריות",
             "הגדרה וניהול NAS",
             "מעברי NAS לענן",
-            "מערכות גיבוי — הקמה, בדיקה וניטור",
+            "מערכות גיבוי: הקמה, בדיקה וניטור",
             "גישה מרחוק והגדרת VPN",
             "יישום אבטחת בסיס",
           ],
@@ -270,32 +282,44 @@ export const t = {
     repairLab: {
       badge: "מעבדת תיקונים מקצועית",
       h2: "מעבדת תיקוני מחשבים מאובזרת במלואה",
-      sub: "מתיקונים ברמת לוח אם ועד שחזור נזקי נוזלים — אם זה שבור, אני מתקן. מחשבים שולחניים, ניידים, מקבוקים, All-in-One, ואפילו קונסולות משחקים.",
-      closing: "רוב התיקונים מאובחנים באותו יום. ללא ניחושים, ללא חלקים מיותרים — רק פתרון בעיות מנוסה ומעשי ממישהו שעשה אלפי תיקונים.",
+      sub: "מתיקונים ברמת לוח אם ועד שחזור נזקי נוזלים. אם זה שבור, אני מתקן. מחשבים שולחניים, ניידים, מקבוקים, All-in-One, ואפילו קונסולות משחקים.",
+      closing: "רוב התיקונים מאובחנים באותו יום. ללא ניחושים, ללא חלקים מיותרים. פתרון בעיות מנוסה ומעשי ממישהו שעשה אלפי תיקונים.",
     },
 
     why: {
       h2: "למה בעלי עסקים במודיעין בוחרים Bentech",
       sub: "לא בגלל חוברת. בגלל מה שקורה בפועל כשמשהו משתבש.",
       blocks: [
-        { title: "אדם אחד. אחריות מלאה.", desc: "אתם מדברים עם בן — לא עם מוקד, לא עם צוות תמיכה מתחלף, לא עם מערכת כרטיסים אוטומטית. כשמשהו מתקלקל, אתם יודעים בדיוק למי להתקשר." },
-        { title: "בשטח כשצריך.", desc: "תמיכה מרחוק מטפלת ברוב הבעיות במהירות. כשלא — אני מגיע אליכם. מבוסס מודיעין, זמין לביקורים דחופים בלי תשובת 'הפגישה הפנויה הראשונה בעוד 5 ימים'." },
-        { title: "חשיבה ברמה עסקית.", desc: "אני לא רק מתקן את מה שנשבר. אני בודק מה עומד להישבר, מה מאט את הצוות שלכם, ומה תשתית ה-IT צריכה כדי לתמוך בצמיחה שלכם — לא רק לשרוד את היום." },
-        { title: "עומק במערכת Microsoft.", desc: "Microsoft 365, Google Workspace, SharePoint, OneDrive, Teams, Azure — אלה לא תיבות סימון ברשימת שירותים. זה עמוד השדרה של עסקים קטנים מודרניים. אני בונה את עמוד השדרה הזה כמו שצריך." },
+        { title: "אדם אחד. אחריות מלאה.", desc: "אתם מדברים עם בן. לא עם מוקד. לא עם צוות תמיכה מתחלף. לא עם מערכת כרטיסים אוטומטית. כשמשהו מתקלקל, אתם יודעים בדיוק למי להתקשר." },
+        { title: "בשטח כשצריך.", desc: "תמיכה מרחוק מטפלת ברוב הבעיות במהירות. כשלא, אני מגיע אליכם. מבוסס מודיעין, זמין לביקורים דחופים בלי תשובת 'הפגישה הפנויה הראשונה בעוד 5 ימים'." },
+        { title: "חשיבה ברמה עסקית.", desc: "אני לא רק מתקן את מה שנשבר. אני בודק מה עומד להישבר, מה מאט את הצוות שלכם, ומה תשתית ה-IT צריכה כדי לתמוך בצמיחה שלכם. לא רק לשרוד את היום." },
+        { title: "עומק במערכת Microsoft.", desc: "Microsoft 365, Google Workspace, SharePoint, OneDrive, Teams, Azure. אלה לא תיבות סימון ברשימת שירותים. זה עמוד השדרה של עסקים קטנים מודרניים. אני בונה את עמוד השדרה הזה כמו שצריך." },
+      ],
+    },
+
+    // Reviews
+    reviews: {
+      h2: "מה הלקוחות שלי אומרים",
+      sub: "משוב אמיתי מעסקים שאני עובד איתם.",
+      items: [
+        { name: "דוד ר.", role: "משרד עורכי דין, מודיעין", stars: 5, quote: "בן העביר את כל המשרד שלנו ל-Microsoft 365 ביום אחד. אפס השבתה, אפס בלבול. היינו צריכים לעשות את זה לפני שנים." },
+        { name: "שירה מ.", role: "סוכנות שיווק", stars: 5, quote: "סוף סוף, אדם אחד שמטפל בהכל. לא עוד שלוש שיחות לשלושה אנשים שונים על שלוש בעיות שונות." },
+        { name: "אורן כ.", role: "משרד רואי חשבון", stars: 5, quote: "הגיבויים שלנו לא באמת עבדו. בן תפס את זה, תיקן, והגדיר ניטור כדי שזה לא יקרה שוב." },
+        { name: "נועה ט.", role: "מנהלת מרפאה", stars: 5, quote: "מהיר, אמין, והוא באמת מסביר דברים בצורה שאני מבינה. ממליצה בחום." },
       ],
     },
 
     risk: {
       h2: "מה קורה כשה-IT נדחה לסוף הרשימה",
-      sub: "רוב בעיות ה-IT לא מכריזות על עצמן. הן מצטברות בשקט — עד שהן עוצרות את העסק.",
-      intro: "דיסק קשיח שעומד להיכשל שולח אזהרות. רשת לא מאובטחת מלאה בפרצות. הגדרת M365 ללא גיבוי — מחיקה אחת בטעות, ויש לכם משבר. אלה לא סיכונים תיאורטיים — אלה המצבים שאני מוזמן אליהם אחרי שהם כבר קרו.",
+      sub: "רוב בעיות ה-IT לא מכריזות על עצמן. הן מצטברות בשקט עד שהן עוצרות את העסק.",
+      intro: "דיסק קשיח שעומד להיכשל שולח אזהרות. רשת לא מאובטחת מלאה בפרצות. הגדרת M365 ללא גיבוי? מחיקה אחת בטעות, ויש לכם משבר. אלה לא סיכונים תיאורטיים. אלה המצבים שאני מוזמן אליהם אחרי שהם כבר קרו.",
       cards: [
-        { title: "אין גיבוי = אין שחזור", desc: "עסקים שמאבדים נתונים ללא גיבוי שנבדק לא תמיד שורדים את זה. גיבוי שהוגדר פעם ולא אומת — כמו שאין גיבוי בכלל." },
-         { title: "חומרה ישנה, עומס עבודה מודרני", desc: "צוות שעובד על חומרה לא מספיקה או מיושנת מאבד שעות כל שבוע. זו לא בעיית חומרה — זו בעיית הכנסה שנמדדת בפרודוקטיביות שנעלמת." },
-         { title: "IT מפוצל עולה יותר", desc: "העסקת אנשים שונים לבעיות שונות יוצרת פערים. אף אחד לא מחזיק את התמונה המלאה. אף אחד לא תופס את מה שנופל בין הכיסאות." },
+        { title: "אין גיבוי = אין שחזור", desc: "עסקים שמאבדים נתונים ללא גיבוי שנבדק לא תמיד שורדים את זה. גיבוי שהוגדר פעם ולא אומת? כמו שאין גיבוי בכלל." },
+        { title: "חומרה ישנה, עומס עבודה מודרני", desc: "צוות שעובד על חומרה לא מספיקה או מיושנת מאבד שעות כל שבוע. זו לא בעיית חומרה. זו בעיית הכנסה שנמדדת בפרודוקטיביות שנעלמת." },
+        { title: "IT מפוצל עולה יותר", desc: "העסקת אנשים שונים לבעיות שונות יוצרת פערים. אף אחד לא מחזיק את התמונה המלאה. אף אחד לא תופס את מה שנופל בין הכיסאות." },
       ],
       closing: "הזמן הטוב ביותר לבדוק את תשתית ה-IT שלכם הוא לפני שמשהו נכשל. הזמן השני הטוב ביותר הוא עכשיו.",
-      cta: "קבעו בדיקת IT חינם — ללא התחייבות.",
+      cta: "קבעו בדיקת IT חינם. ללא התחייבות.",
     },
 
     cta: {
@@ -354,14 +378,14 @@ export const t = {
 
     about: {
       h2: "הכירו את בן גולדנברג",
-      bio: "אני בן, טכנאי IT עם ניסיון של שנים בתמיכה טכנית לעסקים קטנים ובינוניים. אני מאמין שכל עסק ראוי לתשתית IT שעובדת בלי הפתעות — ואדם אחד שאפשר לסמוך עליו כשמשהו משתבש. אני עובד מתוך מעבדה מאובזרת במודיעין, ומגיע לשטח כשצריך.",
+      bio: "אני בן, טכנאי IT עם ניסיון של שנים בתמיכה טכנית לעסקים קטנים ובינוניים. אני מאמין שכל עסק ראוי לתשתית IT שעובדת בלי הפתעות, ואדם אחד שאפשר לסמוך עליו כשמשהו משתבש. אני עובד מתוך מעבדה מאובזרת במודיעין, ומגיע לשטח כשצריך.",
       labTitle: "בתוך המעבדה",
     },
 
     compliance: {
       h2: "עמידה בתקנות הגנת הפרטיות לעסק שלכם",
       sub: "עסקים רבים לא מודעים לכך שהם מחויבים לעמוד בדרישות הגנת המידע בישראל.",
-      intro: "אם העסק שלכם מאחסן נתוני לקוחות, עובדים או מידע תפעולי — ייתכן שאתם מחויבים על פי חוק לעמוד בתקנות הגנת הפרטיות (תיקון 13 – אבטחת מידע). אי-עמידה בתקנות חושפת את העסק לסיכונים משפטיים וכלכליים משמעותיים.",
+      intro: "אם העסק שלכם מאחסן נתוני לקוחות, עובדים או מידע תפעולי, ייתכן שאתם מחויבים על פי חוק לעמוד בתקנות הגנת הפרטיות (תיקון 13). אי-עמידה בתקנות חושפת את העסק לסיכונים משפטיים וכלכליים משמעותיים.",
       bullets: [
         { title: "הערכה רגולטורית", desc: "אנו בודקים האם העסק שלכם מחויב לעמוד בתקנות הגנת הפרטיות בהתבסס על סוג המידע שאתם אוספים ומאחסנים." },
         { title: "סקירת אבטחה עם יועצים מומחים", desc: "אני עובד לצד יועצי אבטחת מידע מקצועיים שמבצעים אפיון אבטחת מידע מובנה והערכת סיכונים לארגון שלכם." },
