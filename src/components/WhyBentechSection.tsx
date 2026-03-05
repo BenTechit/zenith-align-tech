@@ -39,22 +39,28 @@ const WhyBentechSection = () => {
           </p>
           <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-12 opacity-60">
             {[
-              { name: "Microsoft", src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/microsoft.svg", color: "#00A4EF" },
-              { name: "Dell", src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/dell.svg", color: "#007DB8" },
-              { name: "Lenovo", src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/lenovo.svg", color: "#E2231A" },
-              { name: "ASUS", src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/asus.svg", color: "#000000" },
-              { name: "HP", src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/hp.svg", color: "#0096D6" },
-              { name: "Intel", src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/intel.svg", color: "#0071C5" },
-              { name: "Apple", src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/apple.svg", color: "#000000" },
+              { name: "Microsoft", src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/microsoft.svg" },
+              { name: "Google", src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/google.svg" },
+              { name: "Dell", src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/dell.svg" },
+              { name: "Lenovo", src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/lenovo.svg" },
+              { name: "ASUS", src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/asus.svg" },
+              { name: "HP", src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/hp.svg" },
+              { name: "Intel", src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/intel.svg" },
+              { name: "Apple", src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/apple.svg" },
+              { name: "CMS", src: "" },
             ].map((brand) => (
               <div key={brand.name} className="flex flex-col items-center gap-1.5">
-                <img
-                  src={brand.src}
-                  alt={brand.name}
-                  className="h-8 sm:h-10 w-auto transition-all duration-300"
-                  style={{ filter: `brightness(0) saturate(100%)` }}
-                  loading="lazy"
-                />
+                {brand.src ? (
+                  <img
+                    src={brand.src}
+                    alt={brand.name}
+                    className="h-8 sm:h-10 w-auto transition-all duration-300"
+                    style={{ filter: `brightness(0) saturate(100%)` }}
+                    loading="lazy"
+                  />
+                ) : (
+                  <span className="h-8 sm:h-10 flex items-center text-lg sm:text-xl font-bold text-foreground/80 tracking-tight">{brand.name}</span>
+                )}
                 <span className="text-[10px] text-muted-foreground font-medium">{brand.name}</span>
               </div>
             ))}
