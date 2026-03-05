@@ -17,11 +17,8 @@ const WhoIHelpSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-3">
             {tr.h2}
           </h2>
-          <p className="text-lg text-muted-foreground mb-4">
+          <p className="text-lg text-muted-foreground">
             {tr.sub}
-          </p>
-          <p className="text-base text-muted-foreground leading-relaxed">
-            {tr.intro}
           </p>
         </div>
 
