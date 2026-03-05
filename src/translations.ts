@@ -78,6 +78,14 @@ export const t = {
       ],
     },
 
+    // Repair Lab
+    repairLab: {
+      badge: "Professional Repair Lab",
+      h2: "A Fully-Equipped Computer Repair Lab",
+      sub: "From motherboard-level fixes to liquid damage recovery — if it's broken, I fix it. Desktops, laptops, MacBooks, all-in-ones, and even gaming consoles.",
+      closing: "Most repairs are diagnosed same-day. No guesswork, no unnecessary parts — just experienced, hands-on troubleshooting from someone who's done thousands of repairs.",
+    },
+
     // Why Bentech
     why: {
       h2: "Why Business Owners in Modi'in Choose Bentech",
@@ -236,6 +244,13 @@ export const t = {
           ],
         },
       ],
+    },
+
+    repairLab: {
+      badge: "מעבדת תיקונים מקצועית",
+      h2: "מעבדת תיקוני מחשבים מאובזרת במלואה",
+      sub: "מתיקונים ברמת לוח אם ועד שחזור נזקי נוזלים — אם זה שבור, אני מתקן. מחשבים שולחניים, ניידים, מקבוקים, All-in-One, ואפילו קונסולות משחקים.",
+      closing: "רוב התיקונים מאובחנים באותו יום. ללא ניחושים, ללא חלקים מיותרים — רק פתרון בעיות מנוסה ומעשי ממישהו שעשה אלפי תיקונים.",
     },
 
     why: {
