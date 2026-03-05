@@ -6,7 +6,7 @@ export const t = {
     // Hero
     hero: {
       h1: "Your Business Runs on IT. Make Sure It Actually Runs.",
-      sub: "On-site and remote IT support for businesses in Modi'in — Microsoft 365, cloud infrastructure, network setup, and hardware deployment. Done right, the first time.",
+      sub: "On-site and remote IT support for businesses in Modi'in — Microsoft 365, Google Workspace, cloud infrastructure, network setup, and hardware deployment. Done right, the first time.",
       body: "When your systems go down, your team goes down. I'm Ben Goldenberg, and I work with businesses of 5–50 people to build IT infrastructure that doesn't fail — and fix it fast when something does.",
       hebrew: "העסק שלכם רץ על מחשוב. בואו נוודא שהוא רץ כמו שצריך.",
       cta1: "Get a Free IT Assessment",
@@ -26,7 +26,7 @@ export const t = {
       bullets: [
         "Small businesses where IT failure means the whole team stops",
         "Offices that have outgrown their setup but haven't upgraded",
-        "Companies migrating to Microsoft 365 or moving off physical servers",
+        "Companies migrating to Microsoft 365 or Google Workspace, or moving off physical servers",
         "Business owners who want one accountable person for all their IT — not a ticket system",
         "Teams dealing with slow computers, unreliable backups, or chaotic file storage",
       ],
@@ -52,14 +52,15 @@ export const t = {
           ],
         },
         {
-          title: "Microsoft 365 & Cloud Solutions",
+          title: "Microsoft 365, Google Workspace & Cloud Solutions",
           items: [
             "Microsoft 365 setup and licensing",
-            "Email migrations (from any platform to M365)",
-            "SharePoint architecture and OneDrive setup",
-            "Teams deployment and organization",
+            "Google Workspace setup and administration",
+            "Email migrations (from any platform to M365 or Google Workspace)",
+            "SharePoint, OneDrive & Google Drive setup",
+            "Teams and Google Meet deployment",
             "Cloud transitions from on-premise systems",
-            "Azure Active Directory / Entra ID management",
+            "Azure Active Directory / Entra ID & Google Admin management",
             "User onboarding and offboarding workflows",
           ],
         },
@@ -94,7 +95,7 @@ export const t = {
         { title: "One Person. Full Accountability.", desc: "You deal with Ben — not a helpdesk, not a rotating support team, not an automated ticket queue. When something breaks, you know exactly who to call." },
         { title: "On-Site When It Matters.", desc: "Remote support handles most issues fast. When it doesn't, I come to you. Modi'in-based, available for urgent on-site visits without the \"next available slot in 5 days\" answer." },
         { title: "Business-Level Thinking.", desc: "I don't just fix what's broken. I look at what's about to break, what's slowing your team down, and what your IT setup needs to support your growth — not just survive today." },
-        { title: "Microsoft Ecosystem Depth.", desc: "Microsoft 365, SharePoint, OneDrive, Teams, Azure — these aren't checkboxes on a service list. They're the backbone of how modern small businesses run. I build that backbone properly." },
+        { title: "Microsoft Ecosystem Depth.", desc: "Microsoft 365, Google Workspace, SharePoint, OneDrive, Teams, Azure — these aren't checkboxes on a service list. They're the backbone of how modern small businesses run. I build that backbone properly." },
       ],
     },
 
@@ -150,7 +151,7 @@ export const t = {
       deviceTypes: ["Laptop", "Desktop PC", "MacBook / iMac", "Tablet", "Phone / Smartphone", "Other"],
       serviceOptions: [
         "Business IT Infrastructure & Network",
-        "Microsoft 365 & Cloud Setup",
+        "Microsoft 365 / Google Workspace & Cloud Setup",
         "Email Migration",
         "SharePoint / OneDrive / Teams",
         "Hardware & Device Deployment",
@@ -166,7 +167,7 @@ export const t = {
     // Footer
     footer: {
       copy: "© 2026 Bentech | Ben Goldenberg | Modi'in, Israel",
-      seo: "שירותי מחשוב לעסקים במודיעין | מיקרוסופט 365 | תמיכת מחשבים מקצועית",
+      seo: "שירותי מחשוב לעסקים במודיעין | מיקרוסופט 365 | Google Workspace | תמיכת מחשבים מקצועית",
     },
 
     about: {
@@ -182,7 +183,7 @@ export const t = {
 
     hero: {
       h1: "העסק שלכם רץ על מחשוב. בואו נוודא שהוא רץ כמו שצריך.",
-      sub: "תמיכת IT עסקית, באתר ומרחוק, לעסקים במודיעין — הגדרת Microsoft 365, תשתיות ענן, הקמת רשת ופריסת חומרה. נכון, מהפעם הראשונה.",
+      sub: "תמיכת IT עסקית, באתר ומרחוק, לעסקים במודיעין — הגדרת Microsoft 365, Google Workspace, תשתיות ענן, הקמת רשת ופריסת חומרה. נכון, מהפעם הראשונה.",
       body: "כשהמערכות נופלות, הצוות עוצר. אני בן גולדנברג, ואני עובד עם עסקים של 5–50 עובדים כדי לבנות תשתית IT שלא נכשלת — ולתקן במהירות כשמשהו קורה.",
       hebrew: "Your Business Runs on IT. Make Sure It Actually Runs.",
       cta1: "קבלו הערכת IT חינם",
@@ -201,7 +202,7 @@ export const t = {
       bullets: [
         "עסקים קטנים שבהם תקלת IT עוצרת את כל הצוות",
         "משרדים שגדלו מעבר לתשתית הנוכחית אבל לא שדרגו",
-        "חברות שעוברות ל-Microsoft 365 או עוזבות שרתים פיזיים",
+        "חברות שעוברות ל-Microsoft 365 או Google Workspace, או עוזבות שרתים פיזיים",
         "בעלי עסקים שרוצים אדם אחד אחראי על כל ה-IT שלהם — לא מערכת כרטיסים",
         "צוותים שמתמודדים עם מחשבים איטיים, גיבויים לא אמינים, או אחסון קבצים כאוטי",
       ],
@@ -226,14 +227,15 @@ export const t = {
           ],
         },
         {
-          title: "Microsoft 365 ופתרונות ענן",
+          title: "Microsoft 365, Google Workspace ופתרונות ענן",
           items: [
             "הגדרת Microsoft 365 ורישוי",
-            "העברות דואר אלקטרוני (מכל פלטפורמה ל-M365)",
-            "ארכיטקטורת SharePoint והגדרת OneDrive",
-            "פריסה וארגון Teams",
+            "הגדרה וניהול Google Workspace",
+            "העברות דואר אלקטרוני (מכל פלטפורמה ל-M365 או Google Workspace)",
+            "הגדרת SharePoint, OneDrive ו-Google Drive",
+            "פריסה וארגון Teams ו-Google Meet",
             "מעבר לענן ממערכות מקומיות",
-            "ניהול Azure Active Directory / Entra ID",
+            "ניהול Azure Active Directory / Entra ID ו-Google Admin",
             "תהליכי קליטה ועזיבת עובדים",
           ],
         },
@@ -266,7 +268,7 @@ export const t = {
         { title: "אדם אחד. אחריות מלאה.", desc: "אתם מדברים עם בן — לא עם מוקד, לא עם צוות תמיכה מתחלף, לא עם מערכת כרטיסים אוטומטית. כשמשהו מתקלקל, אתם יודעים בדיוק למי להתקשר." },
         { title: "בשטח כשצריך.", desc: "תמיכה מרחוק מטפלת ברוב הבעיות במהירות. כשלא — אני מגיע אליכם. מבוסס מודיעין, זמין לביקורים דחופים בלי תשובת 'הפגישה הפנויה הראשונה בעוד 5 ימים'." },
         { title: "חשיבה ברמה עסקית.", desc: "אני לא רק מתקן את מה שנשבר. אני בודק מה עומד להישבר, מה מאט את הצוות שלכם, ומה תשתית ה-IT צריכה כדי לתמוך בצמיחה שלכם — לא רק לשרוד את היום." },
-        { title: "עומק במערכת Microsoft.", desc: "Microsoft 365, SharePoint, OneDrive, Teams, Azure — אלה לא תיבות סימון ברשימת שירותים. זה עמוד השדרה של עסקים קטנים מודרניים. אני בונה את עמוד השדרה הזה כמו שצריך." },
+        { title: "עומק במערכת Microsoft.", desc: "Microsoft 365, Google Workspace, SharePoint, OneDrive, Teams, Azure — אלה לא תיבות סימון ברשימת שירותים. זה עמוד השדרה של עסקים קטנים מודרניים. אני בונה את עמוד השדרה הזה כמו שצריך." },
       ],
     },
 
@@ -319,7 +321,7 @@ export const t = {
       deviceTypes: ["מחשב נייד", "מחשב שולחני", "MacBook / iMac", "טאבלט", "טלפון / סמארטפון", "אחר"],
       serviceOptions: [
         "תשתית IT עסקית ורשת",
-        "הגדרת Microsoft 365 וענן",
+        "הגדרת Microsoft 365 / Google Workspace וענן",
         "העברת דואר אלקטרוני",
         "SharePoint / OneDrive / Teams",
         "פריסת חומרה ומכשירים",
@@ -334,7 +336,7 @@ export const t = {
 
     footer: {
       copy: "© 2026 Bentech | בן גולדנברג | מודיעין, ישראל",
-      seo: "שירותי מחשוב לעסקים במודיעין | מיקרוסופט 365 | תמיכת מחשבים מקצועית",
+      seo: "שירותי מחשוב לעסקים במודיעין | מיקרוסופט 365 | Google Workspace | תמיכת מחשבים מקצועית",
     },
 
     about: {
