@@ -17,9 +17,9 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <AboutMeSection />
+      <RepairLabSection />
       <WhoIHelpSection />
       <ServicesSection />
-      <RepairLabSection />
       <WhyBentechSection />
       <RiskSection />
       <StandaloneCTASection />
