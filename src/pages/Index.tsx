@@ -7,7 +7,6 @@ import RepairLabSection from "@/components/RepairLabSection";
 import WhyBentechSection from "@/components/WhyBentechSection";
 import ComplianceSection from "@/components/ComplianceSection";
 import RiskSection from "@/components/RiskSection";
-import StandaloneCTASection from "@/components/StandaloneCTASection";
 import ContactFormSection from "@/components/ContactFormSection";
 import Footer from "@/components/Footer";
 import WhatsAppFAB from "@/components/WhatsAppFAB";
@@ -24,7 +23,6 @@ const Index = () => {
       <ServicesSection />
       <WhyBentechSection />
       <RiskSection />
-      <StandaloneCTASection />
       <ContactFormSection />
       <Footer />
       <WhatsAppFAB />

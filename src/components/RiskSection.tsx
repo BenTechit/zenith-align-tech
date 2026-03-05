@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 import DataLossAnimation from "@/components/animations/DataLossAnimation";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { t } from "@/translations";
@@ -19,11 +17,8 @@ const RiskSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-3">
             {tr.h2}
           </h2>
-          <p className="text-lg text-white/70 max-w-3xl mx-auto mb-4">
+          <p className="text-lg text-white/70 max-w-3xl mx-auto">
             {tr.sub}
-          </p>
-          <p className="text-base text-white/60 max-w-3xl mx-auto leading-relaxed">
-            {tr.intro}
           </p>
         </div>
 
@@ -37,18 +32,9 @@ const RiskSection = () => {
         </div>
 
         <div className="text-center">
-          <p className="italic text-white/50 mb-6 text-lg">
+          <p className="italic text-white/50 text-lg">
             {tr.closing}
           </p>
-          <Button
-            variant="hero"
-            size="lg"
-            className="text-sm sm:text-base px-5 sm:px-8 py-5 sm:py-6 btn-glow w-full sm:w-auto"
-            onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            {tr.cta}
-            <ArrowRight className="w-5 h-5 ml-2" />
-          </Button>
         </div>
       </div>
     </section>
