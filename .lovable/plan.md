@@ -1,47 +1,75 @@
 
 
-## Plan: Add Live Animated Scenes to Compliance & Repair Lab Sections
+## Plan: Add Live Animated Elements Across All Sections
 
-### 1. Shield Defense Animation (`src/components/animations/ShieldDefenseAnimation.tsx`)
-A dramatic "shield blocking attacks" scene built with CSS keyframes and Lucide icons:
-- **Central shield** (ShieldCheck icon) with a pulsing protective glow aura
-- **Incoming threat particles** — 5-6 small red/orange dots flying in from different angles (top-left, top-right, sides), each on a staggered infinite loop
-- **Deflection effect** — particles hit an invisible barrier around the shield and fade/scatter away with a brief flash
-- **Lock icon** at the center of the shield, slowly rotating
-- **Binary/data streams** — thin vertical lines of "0 1" text scrolling down behind the shield (subtle, low opacity)
-- All pure CSS animations, no JS animation loops
+Currently only **Compliance** (shield defense) and **Repair Lab** (laptop repair) have animated scenes. Here's the plan to add animated visual elements to 5 more sections:
 
-### 2. Laptop Repair Animation (`src/components/animations/RepairAnimation.tsx`)
-A "laptop being fixed" scene:
-- **Laptop icon** in the center with a screen that flickers from red to green (broken → fixed cycle)
-- **Rotating gear/wrench** orbiting around the laptop
-- **Spark particles** — small dots that flash intermittently near the repair point
-- **Progress bar** beneath that fills from 0% to 100% then resets, simulating repair progress
-- **Checkmark** that pops in when progress hits 100%, then the cycle restarts
+### New Animation Components to Create
 
-### 3. New CSS Keyframes in `src/index.css`
-- `attackIncoming` — particles fly toward center from edges, fade at shield radius
-- `deflect` — brief scale-up + fade at impact point
-- `shieldPulse` — shield glow intensifies rhythmically
-- `binaryScroll` — vertical text scrolling
-- `gearOrbit` — circular rotation around a point
-- `sparkFlash` — intermittent opacity flicker
-- `progressFill` — width 0% → 100% over ~3s
-- `screenFix` — color shift from red-tint to green-tint
+**1. `src/components/animations/CloudWorkspaceAnimation.tsx`** — For **Services Section**
+- A cloud icon at center with Microsoft 365 / Google Workspace logos (simplified as colored dots/icons)
+- File icons (documents, spreadsheets) floating upward into the cloud
+- Small "sync" arrows rotating between devices below and cloud above
+- Represents cloud migration and workspace setup
 
-### 4. Integration
-- **ComplianceSection**: Replace the small floating shield icon with the full `ShieldDefenseAnimation` component, displayed in a `w-64 h-64 mx-auto` container above the heading (hidden on mobile via `hidden md:block`)
-- **RepairLabSection**: Add `RepairAnimation` between the badge/heading and the device grid, centered, similar sizing
+**2. `src/components/animations/NetworkPulseAnimation.tsx`** — For **Hero Section** (replace or enhance the IT Health dashboard card)
+- A central server/router node with radiating connection lines to 4-5 device nodes (laptop, phone, monitor, printer)
+- Data packets (small dots) traveling along the lines in both directions
+- Nodes pulse green periodically to show "healthy" status
+- Represents a managed network with live data flow
 
-### 5. Mobile
-- Both animations hidden on mobile (`hidden md:block`) — sections already look clean without them
+**3. `src/components/animations/DataLossAnimation.tsx`** — For **Risk Section**
+- A hard drive icon with a warning triangle that pulses red
+- File icons that fade/fall away (representing data loss)
+- A cracking/glitch effect on the drive icon
+- Creates visual urgency matching the section's warning tone
 
-### Files to create
-- `src/components/animations/ShieldDefenseAnimation.tsx`
-- `src/components/animations/RepairAnimation.tsx`
+**4. `src/components/animations/WorkflowAnimation.tsx`** — For **CTA Section**
+- Three connected nodes (representing the 3 steps: Contact → Talk → Answer)
+- A glowing dot that travels along a path from node 1 to 2 to 3
+- Each node lights up as the dot arrives
+- Visualizes the simple onboarding process
 
-### Files to modify
+**5. `src/components/animations/DeviceGridAnimation.tsx`** — For **Who I Help Section**
+- A network of device silhouettes (5-6) connected by dotted lines
+- Lines pulse outward from center, connecting all devices
+- A "person" icon at center managing all connections
+- Represents one person managing all IT for a small business
+
+### CSS Keyframes to Add in `src/index.css`
+- `floatUp` — files rising into cloud
+- `syncSpin` — rotating sync arrows
+- `packetTravel` — dots moving along network lines
+- `nodePulse` — device nodes lighting up
+- `fileFall` — documents falling/fading
+- `driveGlitch` — warning shake effect
+- `dotTravel` — glowing dot along path
+- `lineGrow` — connection lines growing outward
+
+### Integration Points
+| Section | Animation | Placement |
+|---------|-----------|-----------|
+| Hero | NetworkPulseAnimation | Replace static dashboard card on desktop |
+| Services | CloudWorkspaceAnimation | Above heading, centered |
+| Who I Help | DeviceGridAnimation | Inside the callout card area (right column) |
+| Risk | DataLossAnimation | Above heading, centered |
+| CTA | WorkflowAnimation | Between heading and the 3 steps |
+
+### Mobile
+All animations use `hidden md:block` — mobile users see the clean text-only layout.
+
+### Files to Create (5)
+- `src/components/animations/CloudWorkspaceAnimation.tsx`
+- `src/components/animations/NetworkPulseAnimation.tsx`
+- `src/components/animations/DataLossAnimation.tsx`
+- `src/components/animations/WorkflowAnimation.tsx`
+- `src/components/animations/DeviceGridAnimation.tsx`
+
+### Files to Modify (6)
 - `src/index.css` — new keyframes
-- `src/components/ComplianceSection.tsx` — swap shield icon for animation
-- `src/components/RepairLabSection.tsx` — insert repair animation
+- `src/components/HeroSection.tsx` — add NetworkPulseAnimation
+- `src/components/ServicesSection.tsx` — add CloudWorkspaceAnimation
+- `src/components/WhoIHelpSection.tsx` — add DeviceGridAnimation
+- `src/components/RiskSection.tsx` — add DataLossAnimation
+- `src/components/StandaloneCTASection.tsx` — add WorkflowAnimation
 
