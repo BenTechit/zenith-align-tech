@@ -32,6 +32,32 @@ const WhyBentechSection = () => {
             </div>
           ))}
         </div>
+
+        <div className="mt-16 max-w-4xl mx-auto">
+          <p className="text-center text-sm text-muted-foreground mb-6 uppercase tracking-wider font-medium">
+            {lang === "he" ? "טכנולוגיות שאני עובד איתן" : "Technologies I Work With"}
+          </p>
+          <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-12 opacity-60">
+            {[
+              { name: "Microsoft", src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/microsoft.svg" },
+              { name: "Dell", src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/dell.svg" },
+              { name: "Lenovo", src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/lenovo.svg" },
+              { name: "ASUS", src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/asus.svg" },
+              { name: "HP", src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/hp.svg" },
+              { name: "Intel", src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/intel.svg" },
+            ].map((brand) => (
+              <div key={brand.name} className="flex flex-col items-center gap-1.5">
+                <img
+                  src={brand.src}
+                  alt={brand.name}
+                  className="h-8 sm:h-10 w-auto grayscale hover:grayscale-0 transition-all duration-300"
+                  loading="lazy"
+                />
+                <span className="text-[10px] text-muted-foreground font-medium">{brand.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
