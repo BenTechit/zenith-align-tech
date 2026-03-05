@@ -1,53 +1,34 @@
 
 
-## Plan: Gender-Neutral Hebrew, About Me Section, and Hebrew Default Language
+## Plan: Remove CMS Brand + Add Privacy Compliance Section
 
-### 1. Set Hebrew as Default Language
+### 1. Remove CMS from brand logos
+In `src/components/WhyBentechSection.tsx`, delete the `{ name: "CMS", src: "" }` entry and revert to simple `<img>` rendering (remove the conditional `brand.src` check since all remaining brands have icons).
 
-**`src/contexts/LanguageContext.tsx`**: Change default state from `"en"` to `"he"`. Also set initial `document.documentElement.dir = "rtl"` and `lang = "he"` on mount.
+### 2. Add translations for the new Compliance section
+In `src/translations.ts`, add a new `compliance` key under both `en` and `he` with:
+- Headline, subtitle, intro text
+- 3-4 bullet points covering the process (assessment, gap analysis, implementation, ongoing support)
+- CTA text
 
-**`index.html`**: Change `<html lang="en">` to `<html lang="he" dir="rtl">`.
+**English content outline:**
+- Headline: "Privacy Protection Compliance for Your Business"
+- Subtitle: "Many businesses don't realize they're required to meet Israeli data protection regulations."
+- Bullets covering: legal requirement awareness, security assessment with consultants, gap identification, technical implementation
+- CTA: "Schedule a Compliance Review"
 
-### 2. Fix Gendered Hebrew Throughout Translations
+**Hebrew content outline:**
+- Headline: "עמידה בתקנות הגנת הפרטיות לעסק שלכם"
+- Matching professional Hebrew phrasing for all points
 
-**`src/translations.ts`** — Convert all masculine singular (אתה/אתה מנהל/קבל/ראה/מוכן) to plural forms (אתם/קבלו/ראו/מוכנים) which are gender-neutral in modern Hebrew marketing. Key changes:
+### 3. Create `ComplianceSection.tsx`
+New component placed between Why Bentech and Risk Section in the page flow. Design:
+- Shield/lock icon header
+- Strong headline + explanatory paragraph
+- 3-4 process bullet points with icons (CheckCircle or similar)
+- CTA button linking to contact section
+- Styled consistently with existing sections (alternating background, scroll reveal animation)
 
-- hero.cta1: "קבלו" instead of "קבל"
-- hero.cta2: "ראו" instead of "ראה"
-- who.intro: "אם אתם מנהלים" instead of "אם אתה מנהל"
-- services.h2: "שלא תצטרכו" instead of "שאתה לא תצטרך"
-- services.cta: "קבלו...אגיד לכם"
-- why.blocks: "אתם מדברים", "אתם יודעים"
-- risk.cards: "שאתם לא מקבלים" instead of "שאתה לא מקבל"
-- risk.cta: "קבעו" instead of "קבע"
-- cta.h2: "מוכנים" instead of "מוכן"
-- cta.steps: "אתם יוצרים", "ספרו לי"
-- cta.button: "קבלו"
-- contact.send: "שלחו"
-- contact.error/quote: plural forms
-- All other 2nd-person singular → plural
-
-### 3. Create About Me Section
-
-**New file: `src/components/AboutMeSection.tsx`**
-- Placed between Hero and Who I Help in `Index.tsx`
-- Two-column layout: placeholder photo on left, bio text on right
-- Bio text from translations (bilingual)
-- Below: a small gallery grid (3 placeholders) for lab photos
-- Light background (`#F8F9FA`) to contrast with the dark hero above
-- Styled placeholder areas with camera icons so photos can be uploaded later
-
-**`src/translations.ts`** — Add `about` section:
-- `h2`: "Meet Ben Goldenberg" / "הכירו את בן גולדנברג"
-- `bio`: Short paragraph about background, experience, hands-on approach
-- `labTitle`: "Inside the Lab" / "בתוך המעבדה"
-
-**`src/pages/Index.tsx`** — Import and add `<AboutMeSection />` between `<HeroSection />` and `<WhoIHelpSection />`.
-
-### Files Modified
-- `src/contexts/LanguageContext.tsx` — Default to Hebrew
-- `index.html` — Set `lang="he" dir="rtl"`
-- `src/translations.ts` — Gender-neutral Hebrew + about section translations
-- `src/components/AboutMeSection.tsx` — New component
-- `src/pages/Index.tsx` — Add AboutMeSection
+### 4. Update `Index.tsx`
+Import and insert `ComplianceSection` between `WhyBentechSection` and `RiskSection`.
 
