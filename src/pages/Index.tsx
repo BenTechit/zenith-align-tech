@@ -21,8 +21,8 @@ const Index = () => {
       <RepairLabSection />
       <WhoIHelpSection />
       <ServicesSection />
-      <WhyBentechSection />
       <ComplianceSection />
+      <WhyBentechSection />
       <RiskSection />
       <StandaloneCTASection />
       <ContactFormSection />
