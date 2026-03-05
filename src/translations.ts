@@ -175,6 +175,19 @@ export const t = {
       bio: "I'm Ben — an IT professional with years of experience supporting small and mid-size businesses. I believe every business deserves IT infrastructure that just works, and one person you can count on when something goes wrong. I work from a fully-equipped repair lab in Modi'in, and come on-site when needed.",
       labTitle: "Inside the Lab",
     },
+
+    compliance: {
+      h2: "Privacy Protection Compliance for Your Business",
+      sub: "Many businesses don't realize they're required to meet Israeli data protection regulations.",
+      intro: "If your business stores customer, employee, or operational data — you may be legally required to comply with Israel's Privacy Protection Regulations (Amendment 13). Non-compliance can expose your business to significant legal and financial risk.",
+      bullets: [
+        { title: "Regulatory Assessment", desc: "We determine whether your business is required to comply with the Privacy Protection Regulations based on the data you collect and store." },
+        { title: "Security Review with Expert Consultants", desc: "I work alongside professional information-security consultants who perform a structured security assessment and business characterization (אפיון אבטחת מידע) of your organization." },
+        { title: "Gap Identification", desc: "We review your systems, data storage, access controls, backups, and policies to identify where your business falls short of the required guidelines." },
+        { title: "Technical Implementation", desc: "When gaps are found, we provide practical solutions and hands-on implementation to bring your business into full compliance." },
+      ],
+      cta: "Schedule a Compliance Review",
+    },
   },
 
   // ─────────────── HEBREW ───────────────
@@ -343,6 +356,19 @@ export const t = {
       h2: "הכירו את בן גולדנברג",
       bio: "אני בן, טכנאי IT עם ניסיון של שנים בתמיכה טכנית לעסקים קטנים ובינוניים. אני מאמין שכל עסק ראוי לתשתית IT שעובדת בלי הפתעות — ואדם אחד שאפשר לסמוך עליו כשמשהו משתבש. אני עובד מתוך מעבדה מאובזרת במודיעין, ומגיע לשטח כשצריך.",
       labTitle: "בתוך המעבדה",
+    },
+
+    compliance: {
+      h2: "עמידה בתקנות הגנת הפרטיות לעסק שלכם",
+      sub: "עסקים רבים לא מודעים לכך שהם מחויבים לעמוד בדרישות הגנת המידע בישראל.",
+      intro: "אם העסק שלכם מאחסן נתוני לקוחות, עובדים או מידע תפעולי — ייתכן שאתם מחויבים על פי חוק לעמוד בתקנות הגנת הפרטיות (תיקון 13 – אבטחת מידע). אי-עמידה בתקנות חושפת את העסק לסיכונים משפטיים וכלכליים משמעותיים.",
+      bullets: [
+        { title: "הערכה רגולטורית", desc: "אנו בודקים האם העסק שלכם מחויב לעמוד בתקנות הגנת הפרטיות בהתבסס על סוג המידע שאתם אוספים ומאחסנים." },
+        { title: "סקירת אבטחה עם יועצים מומחים", desc: "אני עובד לצד יועצי אבטחת מידע מקצועיים שמבצעים אפיון אבטחת מידע מובנה והערכת סיכונים לארגון שלכם." },
+        { title: "זיהוי פערים", desc: "אנו סוקרים את המערכות, אחסון הנתונים, בקרות הגישה, הגיבויים והמדיניות שלכם כדי לזהות היכן העסק לא עומד בדרישות." },
+        { title: "יישום טכני", desc: "כאשר מזוהים פערים, אנו מספקים פתרונות מעשיים ויישום ידני כדי להביא את העסק לעמידה מלאה בתקנות." },
+      ],
+      cta: "קבעו סקירת עמידה בתקנות",
     },
   },
 } as const;

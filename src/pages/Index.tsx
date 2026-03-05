@@ -5,6 +5,7 @@ import WhoIHelpSection from "@/components/WhoIHelpSection";
 import ServicesSection from "@/components/ServicesSection";
 import RepairLabSection from "@/components/RepairLabSection";
 import WhyBentechSection from "@/components/WhyBentechSection";
+import ComplianceSection from "@/components/ComplianceSection";
 import RiskSection from "@/components/RiskSection";
 import StandaloneCTASection from "@/components/StandaloneCTASection";
 import ContactFormSection from "@/components/ContactFormSection";
@@ -21,6 +22,7 @@ const Index = () => {
       <WhoIHelpSection />
       <ServicesSection />
       <WhyBentechSection />
+      <ComplianceSection />
       <RiskSection />
       <StandaloneCTASection />
       <ContactFormSection />
