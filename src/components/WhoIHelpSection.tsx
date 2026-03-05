@@ -1,4 +1,5 @@
 import { useLanguage } from "@/contexts/LanguageContext";
+import DeviceGridAnimation from "@/components/animations/DeviceGridAnimation";
 import { t } from "@/translations";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
@@ -37,7 +38,8 @@ const WhoIHelpSection = () => {
           </div>
 
           <div ref={calloutRef} className={`md:col-span-2 ${calloutClass} ${calloutVisible ? "visible" : ""}`}>
-            <div className="bg-white rounded-xl border border-border p-6 shadow-sm card-hover">
+            <DeviceGridAnimation />
+            <div className="bg-white rounded-xl border border-border p-6 shadow-sm card-hover mt-4">
               <p className="italic text-muted-foreground leading-relaxed">
                 {tr.callout}
               </p>
