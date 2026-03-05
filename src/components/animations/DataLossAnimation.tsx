@@ -10,7 +10,7 @@ const fallingFiles = [
 
 const DataLossAnimation = () => {
   return (
-    <div className="hidden md:block w-64 h-64 mx-auto relative overflow-hidden">
+    <div className="w-48 h-48 md:w-64 md:h-64 mx-auto relative overflow-hidden">
       {/* Warning glow */}
       <div
         className="absolute inset-0 m-auto w-28 h-28 rounded-full"

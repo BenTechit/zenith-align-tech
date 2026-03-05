@@ -9,7 +9,7 @@ const floatingFiles = [
 
 const CloudWorkspaceAnimation = () => {
   return (
-    <div className="hidden md:block w-64 h-64 mx-auto relative overflow-hidden">
+    <div className="w-48 h-48 md:w-64 md:h-64 mx-auto relative overflow-hidden">
       {/* Central cloud */}
       <div className="absolute top-6 left-1/2 -translate-x-1/2 z-10">
         <div
