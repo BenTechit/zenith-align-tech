@@ -47,20 +47,15 @@ const WhyBentechSection = () => {
               { name: "HP", src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/hp.svg" },
               { name: "Intel", src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/intel.svg" },
               { name: "Apple", src: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/apple.svg" },
-              { name: "CMS", src: "" },
             ].map((brand) => (
               <div key={brand.name} className="flex flex-col items-center gap-1.5">
-                {brand.src ? (
-                  <img
-                    src={brand.src}
-                    alt={brand.name}
-                    className="h-8 sm:h-10 w-auto transition-all duration-300"
-                    style={{ filter: `brightness(0) saturate(100%)` }}
-                    loading="lazy"
-                  />
-                ) : (
-                  <span className="h-8 sm:h-10 flex items-center text-lg sm:text-xl font-bold text-foreground/80 tracking-tight">{brand.name}</span>
-                )}
+                <img
+                  src={brand.src}
+                  alt={brand.name}
+                  className="h-8 sm:h-10 w-auto transition-all duration-300"
+                  style={{ filter: `brightness(0) saturate(100%)` }}
+                  loading="lazy"
+                />
                 <span className="text-[10px] text-muted-foreground font-medium">{brand.name}</span>
               </div>
             ))}
