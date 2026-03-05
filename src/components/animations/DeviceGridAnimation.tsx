@@ -13,7 +13,7 @@ const radius = 80;
 
 const DeviceGridAnimation = () => {
   return (
-    <div className="hidden md:block w-56 h-56 mx-auto relative">
+    <div className="w-44 h-44 md:w-56 md:h-56 mx-auto relative">
       {/* Central person */}
       <div className="absolute inset-0 flex items-center justify-center z-10">
         <div className="relative">

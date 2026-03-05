@@ -8,7 +8,7 @@ const steps = [
 
 const WorkflowAnimation = () => {
   return (
-    <div className="hidden md:block w-64 h-20 mx-auto relative">
+    <div className="w-48 h-16 md:w-64 md:h-20 mx-auto relative">
       {/* Connection line */}
       <svg className="absolute inset-0 w-full h-full" viewBox="0 0 256 80">
         <line

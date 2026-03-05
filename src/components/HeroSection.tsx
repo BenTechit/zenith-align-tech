@@ -52,7 +52,7 @@ const HeroSection = () => {
           </div>
 
           {/* Right: Network Pulse Animation */}
-          <div className="hidden md:flex items-center justify-center">
+          <div className="flex items-center justify-center">
             <div className="hero-enter hero-enter-delay-3">
               <NetworkPulseAnimation />
             </div>

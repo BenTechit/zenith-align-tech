@@ -12,7 +12,7 @@ const radius = 90;
 
 const NetworkPulseAnimation = () => {
   return (
-    <div className="hidden md:block w-64 h-64 mx-auto relative">
+    <div className="w-48 h-48 md:w-64 md:h-64 mx-auto relative">
       {/* Central server node */}
       <div className="absolute inset-0 flex items-center justify-center z-10">
         <div className="relative">
