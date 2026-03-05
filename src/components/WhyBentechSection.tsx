@@ -10,11 +10,12 @@ const WhyBentechSection = () => {
   const tr = t[lang].why;
   const blocks = tr.blocks.map((b, i) => ({ ...b, icon: icons[i] }));
   const { ref, visible } = useScrollReveal();
+  const { ref: gridRef, visible: gridVisible } = useScrollReveal(0.05);
 
   return (
     <section id="why-bentech" className="py-12 sm:py-20 md:py-28 scroll-mt-20 bg-background">
-      <div ref={ref} className={`container mx-auto px-4 sm:px-6 reveal ${visible ? "visible" : ""}`}>
-        <div className="text-center mb-14">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div ref={ref} className={`text-center mb-14 reveal ${visible ? "visible" : ""}`}>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-3">
             {tr.h2}
           </h2>
@@ -23,9 +24,9 @@ const WhyBentechSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div ref={gridRef} className={`grid md:grid-cols-2 gap-6 max-w-4xl mx-auto stagger-children ${gridVisible ? "visible" : ""}`}>
           {blocks.map((block, i) => (
-            <div key={i} className="bg-secondary rounded-xl p-6 border border-border border-l-4 border-l-primary card-hover" style={{ transitionDelay: `${i * 0.1}s` }}>
+            <div key={i} className="bg-secondary rounded-xl p-6 border border-border border-l-4 border-l-primary card-hover">
               <block.icon className="w-6 h-6 text-primary mb-3" />
               <h3 className="text-lg font-semibold text-foreground mb-2">{block.title}</h3>
               <p className="text-muted-foreground leading-relaxed">{block.desc}</p>

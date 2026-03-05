@@ -7,20 +7,23 @@ const StandaloneCTASection = () => {
   const { lang } = useLanguage();
   const tr = t[lang].cta;
   const { ref, visible } = useScrollReveal();
+  const { ref: stepsRef, visible: stepsVisible } = useScrollReveal(0.05);
 
   return (
     <section id="cta" className="py-12 sm:py-20 md:py-28 scroll-mt-20" style={{ backgroundColor: "hsl(var(--cta-blue))" }}>
-      <div ref={ref} className={`container mx-auto px-4 sm:px-6 text-center reveal ${visible ? "visible" : ""}`}>
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-3">
-          {tr.h2}
-        </h2>
-        <p className="text-lg text-white/80 max-w-2xl mx-auto mb-12 leading-relaxed">
-          {tr.sub}
-        </p>
+      <div className="container mx-auto px-4 sm:px-6 text-center">
+        <div ref={ref} className={`reveal ${visible ? "visible" : ""}`}>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-3">
+            {tr.h2}
+          </h2>
+          <p className="text-lg text-white/80 max-w-2xl mx-auto mb-12 leading-relaxed">
+            {tr.sub}
+          </p>
+        </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto mb-12">
+        <div ref={stepsRef} className={`grid md:grid-cols-3 gap-8 max-w-3xl mx-auto mb-12 stagger-children ${stepsVisible ? "visible" : ""}`}>
           {tr.steps.map((step, i) => (
-            <div key={i} className="text-center" style={{ transitionDelay: `${i * 0.15}s` }}>
+            <div key={i} className="text-center">
               <div className="w-12 h-12 rounded-full bg-white/20 text-white text-xl font-bold flex items-center justify-center mx-auto mb-3">
                 {i + 1}
               </div>

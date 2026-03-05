@@ -7,15 +7,17 @@ import labPhoto from "@/assets/lab-photo.png";
 const AboutMeSection = () => {
   const { lang } = useLanguage();
   const tr = t[lang].about;
-  const { ref, visible } = useScrollReveal();
+  const { ref: photoRef, visible: photoVisible, className: photoClass } = useScrollReveal(0.08, "left");
+  const { ref: textRef, visible: textVisible, className: textClass } = useScrollReveal(0.08, "right");
+  const { ref: labRef, visible: labVisible, className: labClass } = useScrollReveal(0.05);
 
   return (
     <section className="py-12 sm:py-20 md:py-28 scroll-mt-20" style={{ backgroundColor: "#F8F9FA" }}>
-      <div ref={ref} className={`container mx-auto px-4 sm:px-6 reveal ${visible ? "visible" : ""}`}>
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Bio row */}
         <div className="grid md:grid-cols-5 gap-10 items-center mb-14">
           {/* Photo */}
-          <div className="md:col-span-2 flex justify-center">
+          <div ref={photoRef} className={`md:col-span-2 flex justify-center ${photoClass} ${photoVisible ? "visible" : ""}`}>
             <img
               src={benPhoto}
               alt="Ben Goldenberg"
@@ -24,7 +26,7 @@ const AboutMeSection = () => {
           </div>
 
           {/* Text */}
-          <div className="md:col-span-3">
+          <div ref={textRef} className={`md:col-span-3 ${textClass} ${textVisible ? "visible" : ""}`}>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-4">
               {tr.h2}
             </h2>
@@ -35,7 +37,7 @@ const AboutMeSection = () => {
         </div>
 
         {/* Lab photo */}
-        <div>
+        <div ref={labRef} className={`reveal ${labVisible ? "visible" : ""}`}>
           <h3 className="text-xl font-semibold text-foreground mb-5">{tr.labTitle}</h3>
           <img
             src={labPhoto}

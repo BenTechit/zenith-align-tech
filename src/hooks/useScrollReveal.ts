@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 
-export const useScrollReveal = (threshold = 0.08) => {
+type RevealDirection = "up" | "left" | "right" | "scale";
+
+export const useScrollReveal = (threshold = 0.08, direction: RevealDirection = "up") => {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -8,7 +10,6 @@ export const useScrollReveal = (threshold = 0.08) => {
     const el = ref.current;
     if (!el) return;
 
-    // Fallback: if the observer never fires, reveal after 1.5s
     const fallbackTimer = setTimeout(() => setVisible(true), 1500);
 
     const observer = new IntersectionObserver(
@@ -19,7 +20,7 @@ export const useScrollReveal = (threshold = 0.08) => {
           clearTimeout(fallbackTimer);
         }
       },
-      { threshold, rootMargin: "100px 0px 100px 0px" }
+      { threshold, rootMargin: "80px 0px 80px 0px" }
     );
     observer.observe(el);
     return () => {
@@ -28,5 +29,13 @@ export const useScrollReveal = (threshold = 0.08) => {
     };
   }, [threshold]);
 
-  return { ref, visible };
+  const className = direction === "left"
+    ? "reveal-left"
+    : direction === "right"
+    ? "reveal-right"
+    : direction === "scale"
+    ? "reveal-scale"
+    : "reveal";
+
+  return { ref, visible, className };
 };

@@ -7,13 +7,18 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 const ComplianceSection = () => {
   const { lang } = useLanguage();
   const tr = t[lang].compliance;
-  const { ref, visible } = useScrollReveal();
+  const { ref, visible, className } = useScrollReveal(0.08);
+  const { ref: iconRef, visible: iconVisible, className: iconClass } = useScrollReveal(0.1, "scale");
+  const { ref: gridRef, visible: gridVisible } = useScrollReveal(0.05);
 
   return (
     <section id="compliance" className="py-12 sm:py-20 md:py-28 scroll-mt-20 bg-secondary">
-      <div ref={ref} className={`container mx-auto px-4 sm:px-6 reveal ${visible ? "visible" : ""}`}>
-        <div className="text-center mb-14">
-          <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 mb-5">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div ref={ref} className={`text-center mb-14 ${className} ${visible ? "visible" : ""}`}>
+          <div
+            ref={iconRef}
+            className={`inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 mb-5 animate-float animate-glow-pulse ${iconClass} ${iconVisible ? "visible" : ""}`}
+          >
             <ShieldCheck className="w-7 h-7 text-primary" />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-3">
@@ -27,12 +32,14 @@ const ComplianceSection = () => {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-5 max-w-4xl mx-auto mb-12">
+        <div
+          ref={gridRef}
+          className={`grid sm:grid-cols-2 gap-5 max-w-4xl mx-auto mb-12 stagger-children ${gridVisible ? "visible" : ""}`}
+        >
           {tr.bullets.map((bullet, i) => (
             <div
               key={i}
               className="bg-background rounded-xl p-6 border border-border border-l-4 border-l-primary card-hover"
-              style={{ transitionDelay: `${i * 0.1}s` }}
             >
               <CheckCircle className="w-5 h-5 text-primary mb-3" />
               <h3 className="text-lg font-semibold text-foreground mb-2">{bullet.title}</h3>

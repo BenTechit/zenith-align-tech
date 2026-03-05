@@ -11,11 +11,12 @@ const ServicesSection = () => {
   const tr = t[lang].services;
   const cards = tr.cards.map((card, i) => ({ ...card, icon: icons[i] }));
   const { ref, visible } = useScrollReveal();
+  const { ref: gridRef, visible: gridVisible } = useScrollReveal(0.05);
 
   return (
     <section id="services" className="py-12 sm:py-20 md:py-28 scroll-mt-20" style={{ backgroundColor: "hsl(var(--section-alt2))" }}>
-      <div ref={ref} className={`container mx-auto px-4 sm:px-6 reveal ${visible ? "visible" : ""}`}>
-        <div className="text-center mb-14">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div ref={ref} className={`text-center mb-14 reveal ${visible ? "visible" : ""}`}>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-3">
             {tr.h2}
           </h2>
@@ -24,9 +25,9 @@ const ServicesSection = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
+        <div ref={gridRef} className={`grid md:grid-cols-3 gap-6 mb-12 stagger-children ${gridVisible ? "visible" : ""}`}>
           {cards.map((card, i) => (
-            <div key={i} className="bg-white rounded-xl border border-border p-6 shadow-sm card-hover" style={{ transitionDelay: `${i * 0.1}s` }}>
+            <div key={i} className="bg-white rounded-xl border border-border p-6 shadow-sm card-hover">
               <card.icon className="w-8 h-8 text-primary mb-4" />
               <h3 className="text-lg font-semibold text-foreground mb-4">{card.title}</h3>
               <ul className="space-y-2">
