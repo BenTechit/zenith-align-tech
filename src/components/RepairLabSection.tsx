@@ -2,6 +2,7 @@ import { Monitor, Laptop, Smartphone, Cpu, Droplets, Gamepad2, CircuitBoard, Tab
 import { useLanguage } from "@/contexts/LanguageContext";
 import { t } from "@/translations";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import RepairAnimation from "@/components/animations/RepairAnimation";
 
 const devices = [
   { icon: Laptop, en: "Laptops", he: "מחשבים ניידים" },
@@ -39,7 +40,7 @@ const RepairLabSection = () => {
             </span>
           </div>
 
-          <div className="text-center mb-14">
+          <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-3">
               {tr.h2}
             </h2>
@@ -47,6 +48,8 @@ const RepairLabSection = () => {
               {tr.sub}
             </p>
           </div>
+
+          <RepairAnimation />
         </div>
 
         {/* Device grid */}

@@ -1,8 +1,9 @@
-import { ShieldCheck, CheckCircle, ArrowRight } from "lucide-react";
+import { CheckCircle, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { t } from "@/translations";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import ShieldDefenseAnimation from "@/components/animations/ShieldDefenseAnimation";
 
 const ComplianceSection = () => {
   const { lang } = useLanguage();
@@ -15,12 +16,7 @@ const ComplianceSection = () => {
     <section id="compliance" className="py-12 sm:py-20 md:py-28 scroll-mt-20 bg-secondary">
       <div className="container mx-auto px-4 sm:px-6">
         <div ref={ref} className={`text-center mb-14 ${className} ${visible ? "visible" : ""}`}>
-          <div
-            ref={iconRef}
-            className={`inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 mb-5 animate-float animate-glow-pulse ${iconClass} ${iconVisible ? "visible" : ""}`}
-          >
-            <ShieldCheck className="w-7 h-7 text-primary" />
-          </div>
+          <ShieldDefenseAnimation />
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-3">
             {tr.h2}
           </h2>
