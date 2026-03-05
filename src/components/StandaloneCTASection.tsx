@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import WorkflowAnimation from "@/components/animations/WorkflowAnimation";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { t } from "@/translations";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -21,6 +22,7 @@ const StandaloneCTASection = () => {
           </p>
         </div>
 
+        <WorkflowAnimation />
         <div ref={stepsRef} className={`grid md:grid-cols-3 gap-8 max-w-3xl mx-auto mb-12 stagger-children ${stepsVisible ? "visible" : ""}`}>
           {tr.steps.map((step, i) => (
             <div key={i} className="text-center">

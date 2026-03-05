@@ -296,4 +296,74 @@
     90%, 95% { opacity: 1; transform: scale(1); }
     100% { opacity: 0; transform: scale(0); }
   }
+
+  /* === New animation keyframes === */
+
+  /* Files floating upward into cloud */
+  @keyframes floatUp {
+    0% { transform: translateY(0); opacity: 0.6; }
+    50% { transform: translateY(-80px); opacity: 0.8; }
+    80% { transform: translateY(-140px); opacity: 0.3; }
+    100% { transform: translateY(-160px); opacity: 0; }
+  }
+
+  /* Sync arrows spinning */
+  @keyframes syncSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  /* Data packets traveling along network lines */
+  @keyframes packetTravel {
+    0% { transform: translate(-50%, -50%); opacity: 0; }
+    10% { opacity: 1; }
+    50% { transform: translate(calc(-50% + var(--end-x)), calc(-50% + var(--end-y))); opacity: 1; }
+    60% { opacity: 0; }
+    100% { transform: translate(-50%, -50%); opacity: 0; }
+  }
+
+  /* Device nodes pulsing */
+  @keyframes nodePulse {
+    0%, 100% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.15); opacity: 1; }
+  }
+
+  /* Files falling away (data loss) */
+  @keyframes fileFall {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0.5; }
+    100% { transform: translateY(120px) rotate(25deg); opacity: 0; }
+  }
+
+  /* Hard drive glitch/shake */
+  @keyframes driveGlitch {
+    0%, 100% { transform: translate(0, 0); }
+    10% { transform: translate(-2px, 1px); }
+    20% { transform: translate(2px, -1px); }
+    30% { transform: translate(-1px, 2px); }
+    40%, 100% { transform: translate(0, 0); }
+  }
+
+  /* Glowing dot traveling along workflow path */
+  @keyframes dotTravel {
+    0%, 5% { transform: translateX(0) translateY(-50%); opacity: 0; }
+    10% { opacity: 1; }
+    30% { transform: translateX(88px) translateY(-50%); }
+    50% { transform: translateX(176px) translateY(-50%); }
+    60% { opacity: 1; }
+    70% { opacity: 0; }
+    100% { transform: translateX(176px) translateY(-50%); opacity: 0; }
+  }
+
+  /* Node lighting up when dot arrives */
+  @keyframes nodeLight {
+    0%, 15% { background: hsl(0 0% 100% / 0.1); border-color: hsl(0 0% 100% / 0.2); }
+    25%, 40% { background: hsl(var(--primary) / 0.25); border-color: hsl(var(--primary) / 0.5); }
+    55%, 100% { background: hsl(0 0% 100% / 0.1); border-color: hsl(0 0% 100% / 0.2); }
+  }
+
+  /* Connection lines growing outward */
+  @keyframes lineGrow {
+    0% { stroke-dashoffset: 200; opacity: 0; }
+    100% { stroke-dashoffset: 0; opacity: 1; }
+  }
 }

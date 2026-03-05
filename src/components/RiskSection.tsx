@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import DataLossAnimation from "@/components/animations/DataLossAnimation";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { t } from "@/translations";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -13,6 +14,7 @@ const RiskSection = () => {
   return (
     <section id="risk" className="py-12 sm:py-20 md:py-28 scroll-mt-20" style={{ backgroundColor: "hsl(var(--risk-bg))" }}>
       <div className="container mx-auto px-4 sm:px-6">
+        <DataLossAnimation />
         <div ref={ref} className={`text-center mb-14 reveal ${visible ? "visible" : ""}`}>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-3">
             {tr.h2}

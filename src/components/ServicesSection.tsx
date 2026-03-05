@@ -1,4 +1,5 @@
 import { Shield, Cloud, Laptop } from "lucide-react";
+import CloudWorkspaceAnimation from "@/components/animations/CloudWorkspaceAnimation";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { t } from "@/translations";
@@ -16,6 +17,7 @@ const ServicesSection = () => {
   return (
     <section id="services" className="py-12 sm:py-20 md:py-28 scroll-mt-20" style={{ backgroundColor: "hsl(var(--section-alt2))" }}>
       <div className="container mx-auto px-4 sm:px-6">
+        <CloudWorkspaceAnimation />
         <div ref={ref} className={`text-center mb-14 reveal ${visible ? "visible" : ""}`}>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-3">
             {tr.h2}
