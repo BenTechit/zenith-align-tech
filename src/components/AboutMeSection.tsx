@@ -1,7 +1,8 @@
-import { Camera } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { t } from "@/translations";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import benPhoto from "@/assets/ben-photo.jpg";
+import labPhoto from "@/assets/lab-photo.png";
 
 const AboutMeSection = () => {
   const { lang } = useLanguage();
@@ -13,12 +14,13 @@ const AboutMeSection = () => {
       <div ref={ref} className={`container mx-auto px-4 sm:px-6 reveal ${visible ? "visible" : ""}`}>
         {/* Bio row */}
         <div className="grid md:grid-cols-5 gap-10 items-center mb-14">
-          {/* Photo placeholder */}
+          {/* Photo */}
           <div className="md:col-span-2 flex justify-center">
-            <div className="w-56 h-56 sm:w-64 sm:h-64 rounded-2xl bg-muted border-2 border-dashed border-border flex flex-col items-center justify-center text-muted-foreground gap-2">
-              <Camera className="w-10 h-10" />
-              <span className="text-sm font-medium">{lang === "he" ? "תמונה שלי" : "My Photo"}</span>
-            </div>
+            <img
+              src={benPhoto}
+              alt="Ben Goldenberg"
+              className="w-56 h-56 sm:w-64 sm:h-64 rounded-2xl object-cover shadow-lg"
+            />
           </div>
 
           {/* Text */}
@@ -32,20 +34,14 @@ const AboutMeSection = () => {
           </div>
         </div>
 
-        {/* Lab gallery */}
+        {/* Lab photo */}
         <div>
           <h3 className="text-xl font-semibold text-foreground mb-5">{tr.labTitle}</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {[1, 2, 3].map((i) => (
-              <div
-                key={i}
-                className="aspect-video rounded-xl bg-muted border-2 border-dashed border-border flex flex-col items-center justify-center text-muted-foreground gap-2"
-              >
-                <Camera className="w-8 h-8" />
-                <span className="text-xs">{lang === "he" ? `תמונת מעבדה ${i}` : `Lab Photo ${i}`}</span>
-              </div>
-            ))}
-          </div>
+          <img
+            src={labPhoto}
+            alt={lang === "he" ? "מעבדת התיקונים של בנטק" : "Bentech Repair Lab"}
+            className="w-full rounded-xl shadow-lg object-cover max-h-[500px]"
+          />
         </div>
       </div>
     </section>
