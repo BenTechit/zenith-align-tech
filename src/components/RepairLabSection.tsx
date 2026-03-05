@@ -19,6 +19,7 @@ const RepairLabSection = () => {
   const { lang } = useLanguage();
   const tr = t[lang].repairLab;
   const { ref, visible } = useScrollReveal();
+  const { ref: gridRef, visible: gridVisible } = useScrollReveal(0.05);
   const isHe = lang === "he";
 
   return (
@@ -28,31 +29,35 @@ const RepairLabSection = () => {
         backgroundImage: `repeating-linear-gradient(0deg, white 0px, transparent 1px, transparent 40px), repeating-linear-gradient(90deg, white 0px, transparent 1px, transparent 40px)`
       }} />
 
-      <div ref={ref} className={`container mx-auto px-4 sm:px-6 relative z-10 reveal ${visible ? "visible" : ""}`}>
-        {/* Badge */}
-        <div className="flex justify-center mb-6">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/15 border border-primary/30 text-primary text-sm font-semibold tracking-wide">
-            <Cpu className="w-4 h-4" />
-            {tr.badge}
-          </span>
-        </div>
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div ref={ref} className={`reveal ${visible ? "visible" : ""}`}>
+          {/* Badge */}
+          <div className="flex justify-center mb-6">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/15 border border-primary/30 text-primary text-sm font-semibold tracking-wide">
+              <Cpu className="w-4 h-4" />
+              {tr.badge}
+            </span>
+          </div>
 
-        <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-3">
-            {tr.h2}
-          </h2>
-          <p className="text-lg text-white/60 max-w-2xl mx-auto">
-            {tr.sub}
-          </p>
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-3">
+              {tr.h2}
+            </h2>
+            <p className="text-lg text-white/60 max-w-2xl mx-auto">
+              {tr.sub}
+            </p>
+          </div>
         </div>
 
         {/* Device grid */}
-        <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-9 gap-4 max-w-5xl mx-auto mb-12">
+        <div
+          ref={gridRef}
+          className={`grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-9 gap-4 max-w-5xl mx-auto mb-12 stagger-children ${gridVisible ? "visible" : ""}`}
+        >
           {devices.map((device, i) => (
             <div
               key={i}
-              className="group flex flex-col items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
-              style={{ transitionDelay: `${i * 50}ms` }}
+              className="group flex flex-col items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 card-hover"
             >
               <div className="w-12 h-12 rounded-lg bg-primary/15 flex items-center justify-center group-hover:bg-primary/25 transition-colors">
                 <device.icon className="w-6 h-6 text-primary" />
