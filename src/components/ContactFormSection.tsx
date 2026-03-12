@@ -87,7 +87,8 @@ const ContactFormSection = () => {
     if (!validateQuick()) return;
     setStatus("sending");
     try {
-      const painLabel = t.en.contact.painPoints[t[lang].contact.painPoints.indexOf(quick.painPoint)] || quick.painPoint;
+      const painIdx = (tr.painPoints as readonly string[]).indexOf(quick.painPoint);
+      const painLabel = painIdx >= 0 ? t.en.contact.painPoints[painIdx] : quick.painPoint;
       const payload = { type: "quick", name: quick.name.trim(), phone: quick.phone.trim(), painPoint: painLabel };
       await fetch(SHEETS_URL, { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
       setStatus("sent");
