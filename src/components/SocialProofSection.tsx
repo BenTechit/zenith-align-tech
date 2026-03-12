@@ -3,7 +3,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const stats = [
   { icon: Users, value: "5–50 עובדים", label: "גודל עסקים נתמך" },
-  { icon: Zap, value: "שירות בו ביום", label: "זמן תגובה" },
+  { icon: Zap, value: "שירות באותו היום", label: "זמן תגובה" },
   { icon: MapPin, value: "מודיעין והסביבה", label: "אזור שירות" },
 ];
 
