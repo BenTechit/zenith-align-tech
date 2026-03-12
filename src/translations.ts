@@ -104,10 +104,10 @@ export const t = {
       h2: "What My Clients Say",
       sub: "Real feedback from businesses I work with.",
       items: [
-        { name: "David R.", role: "Law Office, Modi'in", stars: 5, quote: "Ben migrated our entire office to Microsoft 365 in one day. Zero downtime, zero confusion. We should have done this years ago." },
-        { name: "Shira M.", role: "Marketing Agency", stars: 5, quote: "Finally, one person who handles everything. No more calling three different people for three different problems." },
-        { name: "Oren K.", role: "Accounting Firm", stars: 5, quote: "Our backups weren't actually working. Ben caught it, fixed it, and set up monitoring so it never happens again." },
-        { name: "Noa T.", role: "Clinic Manager", stars: 5, quote: "Fast, reliable, and he actually explains things in a way I understand. Highly recommend." },
+        { name: "David R.", role: "Law Office, Modi'in", badge: "Law Office", stars: 5, quote: "Ben migrated our entire office to Microsoft 365 in one day. Zero downtime, zero confusion. We should have done this years ago." },
+        { name: "Shira M.", role: "Marketing Agency", badge: "Marketing Agency", stars: 5, quote: "Finally, one person who handles everything. No more calling three different people for three different problems." },
+        { name: "Oren K.", role: "Accounting Firm", badge: "Accounting Firm", stars: 5, quote: "Our backups weren't actually working. Ben caught it, fixed it, and set up monitoring so it never happens again." },
+        { name: "Noa T.", role: "Clinic Manager", badge: "Medical Clinic", stars: 5, quote: "Fast, reliable, and he actually explains things in a way I understand. Highly recommend." },
       ],
     },
 
