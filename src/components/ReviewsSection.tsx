@@ -40,6 +40,11 @@ const ReviewsSection = () => {
                 {review.role && (
                   <p className="text-muted-foreground text-xs">{review.role}</p>
                 )}
+                {review.badge && (
+                  <span className="inline-block mt-1.5 text-[10px] font-medium uppercase tracking-wider bg-primary/10 text-primary px-2 py-0.5 rounded-full">
+                    {review.badge}
+                  </span>
+                )}
               </div>
             </div>
           ))}
