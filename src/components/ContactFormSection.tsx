@@ -127,7 +127,7 @@ const ContactFormSection = () => {
   };
 
   const renderSentState = () => (
-    <div className="bg-white rounded-xl border border-border p-10 text-center">
+    <div className="bg-white rounded-xl border border-border p-10 text-center" role="alert">
       <CheckCircle className="w-12 h-12 text-primary mx-auto mb-4" />
       <h3 className="text-xl font-semibold mb-2">{tr.sent}</h3>
       <p className="text-muted-foreground text-sm">{tr.sentSub}</p>
