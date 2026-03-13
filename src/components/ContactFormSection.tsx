@@ -313,11 +313,12 @@ const ContactFormSection = () => {
           </div>
 
           <div>
+            <label htmlFor="priv-issue" className="sr-only">תיאור הבעיה</label>
             <div className="relative">
               <InputIcon><MessageSquare className="w-4 h-4" /></InputIcon>
-              <textarea placeholder={tr.issuePh} value={priv.issue} onChange={e => setPriv({ ...priv, issue: e.target.value })} rows={4} className={`${iconInputClass} resize-none`} maxLength={1000} />
+              <textarea id="priv-issue" placeholder={tr.issuePh} value={priv.issue} onChange={e => setPriv({ ...priv, issue: e.target.value })} rows={4} className={`${iconInputClass} resize-none`} maxLength={1000} required aria-required="true" />
             </div>
-            {privErrors.issue && <p className="text-destructive text-xs mt-1 ml-1">{privErrors.issue}</p>}
+            {privErrors.issue && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{privErrors.issue}</p>}
           </div>
 
           <div>
