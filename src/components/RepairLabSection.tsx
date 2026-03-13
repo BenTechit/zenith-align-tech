@@ -3,6 +3,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { t } from "@/translations";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import RepairAnimation from "@/components/animations/RepairAnimation";
+import { useEffect, useRef, useState } from "react";
 
 const devices = [
   { icon: Laptop, en: "Laptops", he: "מחשבים ניידים" },
