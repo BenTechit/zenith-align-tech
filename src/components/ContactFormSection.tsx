@@ -322,11 +322,12 @@ const ContactFormSection = () => {
           </div>
 
           <div>
+            <label htmlFor="priv-phone" className="sr-only">טלפון</label>
             <div className="relative">
               <InputIcon><Phone className="w-4 h-4" /></InputIcon>
-              <input type="tel" placeholder={tr.phonePh} value={priv.phone} onChange={e => setPriv({ ...priv, phone: e.target.value })} className={iconInputClass} maxLength={20} />
+              <input id="priv-phone" type="tel" placeholder={tr.phonePh} value={priv.phone} onChange={e => setPriv({ ...priv, phone: e.target.value })} className={iconInputClass} maxLength={20} required aria-required="true" autoComplete="tel" />
             </div>
-            {privErrors.phone && <p className="text-destructive text-xs mt-1 ml-1">{privErrors.phone}</p>}
+            {privErrors.phone && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{privErrors.phone}</p>}
           </div>
 
           <div className="relative">
