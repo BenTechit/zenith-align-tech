@@ -219,11 +219,12 @@ const ContactFormSection = () => {
       {mode === "business" ? (
         <div className="space-y-4">
           <div>
+            <label htmlFor="biz-name" className="sr-only">שם מלא</label>
             <div className="relative">
               <InputIcon><User className="w-4 h-4" /></InputIcon>
-              <input type="text" placeholder={tr.namePh} value={biz.name} onChange={e => setBiz({ ...biz, name: e.target.value })} className={iconInputClass} maxLength={100} />
+              <input id="biz-name" type="text" placeholder={tr.namePh} value={biz.name} onChange={e => setBiz({ ...biz, name: e.target.value })} className={iconInputClass} maxLength={100} required aria-required="true" autoComplete="name" />
             </div>
-            {bizErrors.name && <p className="text-destructive text-xs mt-1 ml-1">{bizErrors.name}</p>}
+            {bizErrors.name && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{bizErrors.name}</p>}
           </div>
 
           <div>
