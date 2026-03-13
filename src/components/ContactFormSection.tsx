@@ -246,14 +246,15 @@ const ContactFormSection = () => {
               {bizErrors.location && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{bizErrors.location}</p>}
             </div>
             <div>
+              <label htmlFor="biz-team" className="sr-only">גודל צוות</label>
               <div className="relative">
-                <select value={biz.teamSize} onChange={e => setBiz({ ...biz, teamSize: e.target.value })} className={selectClass}>
+                <select id="biz-team" value={biz.teamSize} onChange={e => setBiz({ ...biz, teamSize: e.target.value })} className={selectClass} required aria-required="true">
                   <option value="">{tr.teamPh}</option>
                   {tr.teamSizes.map(s => <option key={s} value={s}>{s}</option>)}
                 </select>
                 <ChevronDown className="absolute ltr:right-3 rtl:left-3 top-3.5 w-4 h-4 text-muted-foreground/50 pointer-events-none" />
               </div>
-              {bizErrors.teamSize && <p className="text-destructive text-xs mt-1 ml-1">{bizErrors.teamSize}</p>}
+              {bizErrors.teamSize && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{bizErrors.teamSize}</p>}
             </div>
           </div>
 
