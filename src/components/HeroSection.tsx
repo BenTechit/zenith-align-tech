@@ -7,9 +7,45 @@ import NetworkPulseAnimation from "@/components/animations/NetworkPulseAnimation
 const HeroSection = () => {
   const { lang } = useLanguage();
   const tr = t[lang].hero;
+  const sectionRef = useRef<HTMLElement>(null);
+  const parallaxRef = useRef<HTMLDivElement>(null);
+  const mousePos = useRef({ x: 0, y: 0 });
+  const currentPos = useRef({ x: 0, y: 0 });
+  const rafRef = useRef<number>();
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const parallaxEl = parallaxRef.current;
+    if (!section || !parallaxEl) return;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = section.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      mousePos.current = {
+        x: ((e.clientX - cx) / (rect.width / 2)) * 10,
+        y: ((e.clientY - cy) / (rect.height / 2)) * 10,
+      };
+    };
+
+    const animate = () => {
+      currentPos.current.x += (mousePos.current.x - currentPos.current.x) * 0.08;
+      currentPos.current.y += (mousePos.current.y - currentPos.current.y) * 0.08;
+      parallaxEl.style.transform = `translate(${currentPos.current.x}px, ${currentPos.current.y}px)`;
+      rafRef.current = requestAnimationFrame(animate);
+    };
+
+    section.addEventListener("mousemove", handleMouseMove);
+    rafRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      section.removeEventListener("mousemove", handleMouseMove);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, []);
 
   return (
-    <section id="home" className="relative pt-16 scroll-mt-20" style={{ backgroundColor: "hsl(var(--hero-bg))" }}>
+    <section ref={sectionRef} id="home" className="relative pt-16 scroll-mt-20" style={{ backgroundColor: "hsl(var(--hero-bg))" }}>
       <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-20 md:py-28">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left: Text */}
