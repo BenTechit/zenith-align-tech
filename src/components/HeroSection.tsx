@@ -74,7 +74,7 @@ const HeroSection = () => {
 
           {/* Right: Network Pulse Animation */}
           <div className="flex items-center justify-center">
-            <div ref={parallaxRef} className="hero-enter hero-enter-delay-3">
+            <div ref={parallaxRef} className="hero-enter hero-enter-delay-3" style={{ transition: "transform 0.1s ease-out" }}>
               <NetworkPulseAnimation />
             </div>
           </div>
