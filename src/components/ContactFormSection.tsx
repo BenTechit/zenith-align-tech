@@ -137,30 +137,33 @@ const ContactFormSection = () => {
   const renderQuickForm = () => (
     <form onSubmit={handleQuickSubmit} className="bg-white rounded-xl border border-border p-6 md:p-8 space-y-4">
       <div>
+        <label htmlFor="contact-name" className="sr-only">שם מלא</label>
         <div className="relative">
           <InputIcon><User className="w-4 h-4" /></InputIcon>
-          <input type="text" placeholder={tr.namePh} value={quick.name} onChange={e => setQuick({ ...quick, name: e.target.value })} className={iconInputClass} maxLength={100} />
+          <input id="contact-name" type="text" placeholder={tr.namePh} value={quick.name} onChange={e => setQuick({ ...quick, name: e.target.value })} className={iconInputClass} maxLength={100} required aria-required="true" autoComplete="name" />
         </div>
-        {quickErrors.name && <p className="text-destructive text-xs mt-1 ml-1">{quickErrors.name}</p>}
+        {quickErrors.name && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{quickErrors.name}</p>}
       </div>
 
       <div>
+        <label htmlFor="contact-phone" className="sr-only">טלפון</label>
         <div className="relative">
           <InputIcon><Phone className="w-4 h-4" /></InputIcon>
-          <input type="tel" placeholder={tr.phonePh} value={quick.phone} onChange={e => setQuick({ ...quick, phone: e.target.value })} className={iconInputClass} maxLength={20} />
+          <input id="contact-phone" type="tel" placeholder={tr.phonePh} value={quick.phone} onChange={e => setQuick({ ...quick, phone: e.target.value })} className={iconInputClass} maxLength={20} required aria-required="true" autoComplete="tel" />
         </div>
-        {quickErrors.phone && <p className="text-destructive text-xs mt-1 ml-1">{quickErrors.phone}</p>}
+        {quickErrors.phone && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{quickErrors.phone}</p>}
       </div>
 
       <div>
+        <label htmlFor="contact-service" className="sr-only">שירות נדרש</label>
         <div className="relative">
-          <select value={quick.painPoint} onChange={e => setQuick({ ...quick, painPoint: e.target.value })} className={selectClass}>
+          <select id="contact-service" value={quick.painPoint} onChange={e => setQuick({ ...quick, painPoint: e.target.value })} className={selectClass} required aria-required="true">
             <option value="">{tr.painPointPh}</option>
             {tr.painPoints.map(p => <option key={p} value={p}>{p}</option>)}
           </select>
           <ChevronDown className="absolute ltr:right-3 rtl:left-3 top-3.5 w-4 h-4 text-muted-foreground/50 pointer-events-none" />
         </div>
-        {quickErrors.painPoint && <p className="text-destructive text-xs mt-1 ml-1">{quickErrors.painPoint}</p>}
+        {quickErrors.painPoint && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{quickErrors.painPoint}</p>}
       </div>
 
       <p className="text-xs text-muted-foreground text-center">{tr.callbackNote}</p>
@@ -169,7 +172,7 @@ const ContactFormSection = () => {
         {status === "sending" ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Send className="w-4 h-4 mr-2" />}
         {status === "sending" ? tr.sending : tr.send}
       </Button>
-      {status === "error" && <p className="text-center text-xs text-destructive">{tr.error}</p>}
+      {status === "error" && <p className="text-center text-xs text-destructive" role="alert">{tr.error}</p>}
 
       <button
         type="button"
