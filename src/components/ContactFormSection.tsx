@@ -268,7 +268,7 @@ const ContactFormSection = () => {
                 </label>
               ))}
             </div>
-            {bizErrors.services && <p className="text-destructive text-xs mt-1 ml-1">{bizErrors.services}</p>}
+            {bizErrors.services && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{bizErrors.services}</p>}
           </div>
 
           <div>
