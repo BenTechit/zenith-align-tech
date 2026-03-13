@@ -228,11 +228,12 @@ const ContactFormSection = () => {
           </div>
 
           <div>
+            <label htmlFor="biz-business" className="sr-only">שם העסק</label>
             <div className="relative">
               <InputIcon><Building className="w-4 h-4" /></InputIcon>
-              <input type="text" placeholder={tr.bizPh} value={biz.business} onChange={e => setBiz({ ...biz, business: e.target.value })} className={iconInputClass} maxLength={100} />
+              <input id="biz-business" type="text" placeholder={tr.bizPh} value={biz.business} onChange={e => setBiz({ ...biz, business: e.target.value })} className={iconInputClass} maxLength={100} required aria-required="true" />
             </div>
-            {bizErrors.business && <p className="text-destructive text-xs mt-1 ml-1">{bizErrors.business}</p>}
+            {bizErrors.business && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{bizErrors.business}</p>}
           </div>
 
           <div className="grid grid-cols-2 gap-3">
