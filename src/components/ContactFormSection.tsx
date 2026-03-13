@@ -272,11 +272,12 @@ const ContactFormSection = () => {
           </div>
 
           <div>
+            <label htmlFor="biz-phone" className="sr-only">טלפון</label>
             <div className="relative">
               <InputIcon><Phone className="w-4 h-4" /></InputIcon>
-              <input type="tel" placeholder={tr.phonePh} value={biz.phone} onChange={e => setBiz({ ...biz, phone: e.target.value })} className={iconInputClass} maxLength={20} />
+              <input id="biz-phone" type="tel" placeholder={tr.phonePh} value={biz.phone} onChange={e => setBiz({ ...biz, phone: e.target.value })} className={iconInputClass} maxLength={20} required aria-required="true" autoComplete="tel" />
             </div>
-            {bizErrors.phone && <p className="text-destructive text-xs mt-1 ml-1">{bizErrors.phone}</p>}
+            {bizErrors.phone && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{bizErrors.phone}</p>}
           </div>
           <div className="relative">
             <InputIcon><Mail className="w-4 h-4" /></InputIcon>
