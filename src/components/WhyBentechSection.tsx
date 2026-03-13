@@ -24,9 +24,18 @@ const WhyBentechSection = () => {
           </p>
         </div>
 
-        <div ref={gridRef} className={`grid md:grid-cols-2 gap-6 max-w-4xl mx-auto stagger-children ${gridVisible ? "visible" : ""}`}>
+        <div ref={gridRef} className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {blocks.map((block, i) => (
-            <div key={i} className="bg-secondary rounded-xl p-6 border border-border border-l-4 border-l-primary card-hover">
+            <div
+              key={i}
+              className="stagger-card bg-secondary rounded-xl p-6 border border-border border-l-4 border-l-primary card-hover"
+              style={{
+                transitionDelay: gridVisible ? `${i * 150}ms` : "0ms",
+              }}
+              ref={(el) => {
+                if (el && gridVisible) el.classList.add("visible");
+              }}
+            >
               <block.icon className="w-6 h-6 text-primary mb-3" />
               <h3 className="text-lg font-semibold text-foreground mb-2">{block.title}</h3>
               <p className="text-muted-foreground leading-relaxed">{block.desc}</p>

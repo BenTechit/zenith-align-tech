@@ -60,7 +60,10 @@ const RepairLabSection = () => {
           </div>
 
           <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-3">
+            <h2
+              ref={headingRef}
+              className={`text-3xl md:text-4xl font-bold tracking-tight text-white mb-3 ${glitchTriggered ? "animate-glitch-text" : ""}`}
+            >
               {tr.h2}
             </h2>
             <p className="text-lg text-white/60 max-w-2xl mx-auto">

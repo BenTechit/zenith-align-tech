@@ -27,9 +27,18 @@ const ServicesSection = () => {
           </p>
         </div>
 
-        <div ref={gridRef} className={`grid md:grid-cols-3 gap-6 mb-12 stagger-children ${gridVisible ? "visible" : ""}`}>
+        <div ref={gridRef} className="grid md:grid-cols-3 gap-6 mb-12">
           {cards.map((card, i) => (
-            <div key={i} className="bg-white rounded-xl border border-border p-6 shadow-sm card-hover">
+            <div
+              key={i}
+              className="stagger-card bg-white rounded-xl border border-border p-6 shadow-sm card-hover"
+              style={{
+                transitionDelay: gridVisible ? `${i * 150}ms` : "0ms",
+              }}
+              ref={(el) => {
+                if (el && gridVisible) el.classList.add("visible");
+              }}
+            >
               <card.icon className="w-8 h-8 text-primary mb-4" />
               <h3 className="text-lg font-semibold text-foreground mb-4">{card.title}</h3>
               <ul className="space-y-2">
