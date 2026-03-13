@@ -21,14 +21,14 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <SocialProofSection />
-      <AboutMeSection />
-      <RepairLabSection />
+      <RiskSection />
       <WhoIHelpSection />
       <ServicesSection />
+      <RepairLabSection />
       <ComplianceSection />
       <WhyBentechSection />
+      <AboutMeSection />
       <ReviewsSection />
-      <RiskSection />
       <ContactFormSection />
       <Footer />
       <WhatsAppFAB />

@@ -3,6 +3,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { t } from "@/translations";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import RepairAnimation from "@/components/animations/RepairAnimation";
+import { useEffect, useRef, useState } from "react";
 
 const devices = [
   { icon: Laptop, en: "Laptops", he: "מחשבים ניידים" },
@@ -22,6 +23,24 @@ const RepairLabSection = () => {
   const { ref, visible } = useScrollReveal();
   const { ref: gridRef, visible: gridVisible } = useScrollReveal(0.05);
   const isHe = lang === "he";
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const [glitchTriggered, setGlitchTriggered] = useState(false);
+
+  useEffect(() => {
+    const el = headingRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setGlitchTriggered(true);
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.5 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section className="py-12 sm:py-20 md:py-28 bg-[hsl(var(--hero-bg))] relative overflow-hidden">
@@ -41,7 +60,10 @@ const RepairLabSection = () => {
           </div>
 
           <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white mb-3">
+            <h2
+              ref={headingRef}
+              className={`text-3xl md:text-4xl font-bold tracking-tight text-white mb-3 ${glitchTriggered ? "animate-glitch-text" : ""}`}
+            >
               {tr.h2}
             </h2>
             <p className="text-lg text-white/60 max-w-2xl mx-auto">

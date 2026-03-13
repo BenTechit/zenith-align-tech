@@ -366,4 +366,31 @@
     0% { stroke-dashoffset: 200; opacity: 0; }
     100% { stroke-dashoffset: 0; opacity: 1; }
   }
+
+  /* === Glitch text animation for repair lab heading === */
+  @keyframes glitchText {
+    0% { text-shadow: none; opacity: 1; }
+    10% { text-shadow: -3px 0 #F97316, 3px 0 white; opacity: 0.8; }
+    20% { text-shadow: 3px 0 #F97316, -3px 0 white; opacity: 1; }
+    30% { text-shadow: -2px 0 #F97316, 2px 0 white; opacity: 0.7; }
+    40% { text-shadow: 2px 0 #F97316, -2px 0 white; opacity: 1; }
+    55% { text-shadow: -1px 0 #F97316, 1px 0 white; opacity: 0.85; }
+    70% { text-shadow: 1px 0 #F97316; opacity: 1; }
+    85% { text-shadow: none; opacity: 0.95; }
+    100% { text-shadow: none; opacity: 1; }
+  }
+  .animate-glitch-text {
+    animation: glitchText 0.7s ease-out forwards;
+  }
+
+  /* Stagger animation for cards with custom delays */
+  .stagger-card {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+  .stagger-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
