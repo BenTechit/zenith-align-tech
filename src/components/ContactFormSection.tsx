@@ -238,11 +238,12 @@ const ContactFormSection = () => {
 
           <div className="grid grid-cols-2 gap-3">
             <div>
+              <label htmlFor="biz-location" className="sr-only">עיר</label>
               <div className="relative">
                 <InputIcon><MapPin className="w-4 h-4" /></InputIcon>
-                <input type="text" placeholder={tr.cityPh} value={biz.location} onChange={e => setBiz({ ...biz, location: e.target.value })} className={iconInputClass} maxLength={80} />
+                <input id="biz-location" type="text" placeholder={tr.cityPh} value={biz.location} onChange={e => setBiz({ ...biz, location: e.target.value })} className={iconInputClass} maxLength={80} required aria-required="true" />
               </div>
-              {bizErrors.location && <p className="text-destructive text-xs mt-1 ml-1">{bizErrors.location}</p>}
+              {bizErrors.location && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{bizErrors.location}</p>}
             </div>
             <div>
               <div className="relative">
