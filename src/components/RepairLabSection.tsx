@@ -23,6 +23,24 @@ const RepairLabSection = () => {
   const { ref, visible } = useScrollReveal();
   const { ref: gridRef, visible: gridVisible } = useScrollReveal(0.05);
   const isHe = lang === "he";
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const [glitchTriggered, setGlitchTriggered] = useState(false);
+
+  useEffect(() => {
+    const el = headingRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setGlitchTriggered(true);
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.5 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section className="py-12 sm:py-20 md:py-28 bg-[hsl(var(--hero-bg))] relative overflow-hidden">
