@@ -88,7 +88,7 @@ const Navbar = () => {
           <button
             onClick={() => setLang(lang === "en" ? "he" : "en")}
             className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 hover:bg-accent transition-colors"
-            aria-label="Toggle language"
+            aria-label="החלפת שפה"
           >
             <span className={`inline-flex items-center gap-1 text-xs font-semibold ${lang === "en" ? "text-primary" : "text-muted-foreground"}`}><USFlag /> EN</span>
             <span className="text-muted-foreground text-xs">|</span>
