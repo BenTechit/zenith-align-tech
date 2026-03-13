@@ -341,7 +341,7 @@ const ContactFormSection = () => {
         {status === "sending" ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Send className="w-4 h-4 mr-2" />}
         {status === "sending" ? tr.sending : tr.send}
       </Button>
-      {status === "error" && <p className="text-center text-xs text-destructive">{tr.error}</p>}
+      {status === "error" && <p className="text-center text-xs text-destructive" role="alert">{tr.error}</p>}
     </form>
   );
 
