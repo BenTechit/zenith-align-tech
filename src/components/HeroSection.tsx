@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { t } from "@/translations";
 import NetworkPulseAnimation from "@/components/animations/NetworkPulseAnimation";
+import { useEffect, useRef } from "react";
 
 const HeroSection = () => {
   const { lang } = useLanguage();
