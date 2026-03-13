@@ -30,7 +30,7 @@ const AboutMeSection = () => {
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-4">
               {tr.h2}
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed">
+            <p className="text-base text-muted-foreground leading-relaxed" lang={lang === "en" ? "en" : undefined}>
               {tr.bio}
             </p>
           </div>
