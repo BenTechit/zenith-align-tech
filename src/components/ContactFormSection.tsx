@@ -301,14 +301,15 @@ const ContactFormSection = () => {
           </div>
 
           <div>
+            <label htmlFor="priv-device" className="sr-only">סוג מכשיר</label>
             <div className="relative">
-              <select value={priv.device} onChange={e => setPriv({ ...priv, device: e.target.value })} className={selectClass}>
+              <select id="priv-device" value={priv.device} onChange={e => setPriv({ ...priv, device: e.target.value })} className={selectClass} required aria-required="true">
                 <option value="">{tr.devicePh}</option>
                 {tr.deviceTypes.map(d => <option key={d} value={d}>{d}</option>)}
               </select>
               <ChevronDown className="absolute ltr:right-3 rtl:left-3 top-3.5 w-4 h-4 text-muted-foreground/50 pointer-events-none" />
             </div>
-            {privErrors.device && <p className="text-destructive text-xs mt-1 ml-1">{privErrors.device}</p>}
+            {privErrors.device && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{privErrors.device}</p>}
           </div>
 
           <div>
