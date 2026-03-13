@@ -20,7 +20,7 @@ const AboutMeSection = () => {
           <div ref={photoRef} className={`md:col-span-2 flex justify-center ${photoClass} ${photoVisible ? "visible" : ""}`}>
             <img
               src={benPhoto}
-              alt="Ben Goldenberg"
+              alt="Ben Goldenberg" lang="en"
               className="w-56 h-56 sm:w-64 sm:h-64 rounded-2xl object-cover shadow-lg"
             />
           </div>
