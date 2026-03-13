@@ -10,9 +10,6 @@ const HeroSection = () => {
   const tr = t[lang].hero;
   const sectionRef = useRef<HTMLElement>(null);
   const parallaxRef = useRef<HTMLDivElement>(null);
-  const mousePos = useRef({ x: 0, y: 0 });
-  const currentPos = useRef({ x: 0, y: 0 });
-  const rafRef = useRef<number>();
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -23,26 +20,13 @@ const HeroSection = () => {
       const rect = section.getBoundingClientRect();
       const cx = rect.left + rect.width / 2;
       const cy = rect.top + rect.height / 2;
-      mousePos.current = {
-        x: ((e.clientX - cx) / (rect.width / 2)) * 10,
-        y: ((e.clientY - cy) / (rect.height / 2)) * 10,
-      };
-    };
-
-    const animate = () => {
-      currentPos.current.x += (mousePos.current.x - currentPos.current.x) * 0.08;
-      currentPos.current.y += (mousePos.current.y - currentPos.current.y) * 0.08;
-      parallaxEl.style.transform = `translate(${currentPos.current.x}px, ${currentPos.current.y}px)`;
-      rafRef.current = requestAnimationFrame(animate);
+      const x = ((e.clientX - cx) / (rect.width / 2)) * 10;
+      const y = ((e.clientY - cy) / (rect.height / 2)) * 6;
+      parallaxEl.style.transform = `translate(${x}px, ${y}px)`;
     };
 
     section.addEventListener("mousemove", handleMouseMove);
-    rafRef.current = requestAnimationFrame(animate);
-
-    return () => {
-      section.removeEventListener("mousemove", handleMouseMove);
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    };
+    return () => section.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   return (
@@ -90,7 +74,7 @@ const HeroSection = () => {
 
           {/* Right: Network Pulse Animation */}
           <div className="flex items-center justify-center">
-            <div ref={parallaxRef} className="hero-enter hero-enter-delay-3">
+            <div ref={parallaxRef} className="hero-enter hero-enter-delay-3" style={{ transition: "transform 0.1s ease-out" }}>
               <NetworkPulseAnimation />
             </div>
           </div>
