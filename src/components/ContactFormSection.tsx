@@ -292,11 +292,12 @@ const ContactFormSection = () => {
       ) : (
         <div className="space-y-4">
           <div>
+            <label htmlFor="priv-name" className="sr-only">שם מלא</label>
             <div className="relative">
               <InputIcon><User className="w-4 h-4" /></InputIcon>
-              <input type="text" placeholder={tr.namePh} value={priv.name} onChange={e => setPriv({ ...priv, name: e.target.value })} className={iconInputClass} maxLength={100} />
+              <input id="priv-name" type="text" placeholder={tr.namePh} value={priv.name} onChange={e => setPriv({ ...priv, name: e.target.value })} className={iconInputClass} maxLength={100} required aria-required="true" autoComplete="name" />
             </div>
-            {privErrors.name && <p className="text-destructive text-xs mt-1 ml-1">{privErrors.name}</p>}
+            {privErrors.name && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{privErrors.name}</p>}
           </div>
 
           <div>
