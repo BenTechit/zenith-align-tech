@@ -20,7 +20,7 @@ const AboutMeSection = () => {
           <div ref={photoRef} className={`md:col-span-2 flex justify-center ${photoClass} ${photoVisible ? "visible" : ""}`}>
             <img
               src={benPhoto}
-              alt="Ben Goldenberg"
+              alt="Ben Goldenberg" lang="en"
               className="w-56 h-56 sm:w-64 sm:h-64 rounded-2xl object-cover shadow-lg"
             />
           </div>
@@ -30,7 +30,7 @@ const AboutMeSection = () => {
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-4">
               {tr.h2}
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed">
+            <p className="text-base text-muted-foreground leading-relaxed" lang={lang === "en" ? "en" : undefined}>
               {tr.bio}
             </p>
           </div>

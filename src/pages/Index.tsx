@@ -17,19 +17,27 @@ import WhatsAppFAB from "@/components/WhatsAppFAB";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-1/2 focus:-translate-x-1/2 focus:z-[100] focus:bg-primary focus:text-primary-foreground focus:px-4 focus:py-2 focus:rounded-md focus:text-sm focus:font-semibold"
+      >
+        דלג לתוכן הראשי
+      </a>
       <ComplianceBanner />
       <Navbar />
-      <HeroSection />
-      <SocialProofSection />
-      <RiskSection />
-      <WhoIHelpSection />
-      <ServicesSection />
-      <RepairLabSection />
-      <ComplianceSection />
-      <WhyBentechSection />
-      <AboutMeSection />
-      <ReviewsSection />
-      <ContactFormSection />
+      <main id="main-content" role="main">
+        <HeroSection />
+        <SocialProofSection />
+        <RiskSection />
+        <WhoIHelpSection />
+        <ServicesSection />
+        <RepairLabSection />
+        <ComplianceSection />
+        <WhyBentechSection />
+        <AboutMeSection />
+        <ReviewsSection />
+        <ContactFormSection />
+      </main>
       <Footer />
       <WhatsAppFAB />
     </div>

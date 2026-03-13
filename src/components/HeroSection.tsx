@@ -35,16 +35,16 @@ const HeroSection = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left: Text */}
           <div>
-            <h1 className="hero-enter text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] text-white mb-4 sm:mb-6">
+            <h1 className="hero-enter text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] text-white mb-4 sm:mb-6" lang={lang === "en" ? "en" : undefined}>
               {tr.h1}
             </h1>
-            <p className="hero-enter hero-enter-delay-1 text-base sm:text-lg text-white/80 mb-3 sm:mb-4 leading-relaxed">
+            <p className="hero-enter hero-enter-delay-1 text-base sm:text-lg text-white/90 mb-3 sm:mb-4 leading-relaxed">
               {tr.sub}
             </p>
-            <p className="hero-enter hero-enter-delay-2 text-sm sm:text-base text-white/70 mb-3 sm:mb-4 leading-relaxed">
+            <p className="hero-enter hero-enter-delay-2 text-sm sm:text-base text-white/85 mb-3 sm:mb-4 leading-relaxed">
               {tr.body}
             </p>
-            <p className="hero-enter hero-enter-delay-2 text-xs sm:text-sm text-white/50 mb-6 sm:mb-8" dir={lang === "en" ? "rtl" : "ltr"}>
+            <p className="hero-enter hero-enter-delay-2 text-xs sm:text-sm text-white/70 mb-6 sm:mb-8" dir={lang === "en" ? "rtl" : "ltr"}>
               {tr.hebrew}
             </p>
 

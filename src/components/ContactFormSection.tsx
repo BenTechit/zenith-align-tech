@@ -127,7 +127,7 @@ const ContactFormSection = () => {
   };
 
   const renderSentState = () => (
-    <div className="bg-white rounded-xl border border-border p-10 text-center">
+    <div className="bg-white rounded-xl border border-border p-10 text-center" role="alert">
       <CheckCircle className="w-12 h-12 text-primary mx-auto mb-4" />
       <h3 className="text-xl font-semibold mb-2">{tr.sent}</h3>
       <p className="text-muted-foreground text-sm">{tr.sentSub}</p>
@@ -137,30 +137,33 @@ const ContactFormSection = () => {
   const renderQuickForm = () => (
     <form onSubmit={handleQuickSubmit} className="bg-white rounded-xl border border-border p-6 md:p-8 space-y-4">
       <div>
+        <label htmlFor="contact-name" className="sr-only">שם מלא</label>
         <div className="relative">
           <InputIcon><User className="w-4 h-4" /></InputIcon>
-          <input type="text" placeholder={tr.namePh} value={quick.name} onChange={e => setQuick({ ...quick, name: e.target.value })} className={iconInputClass} maxLength={100} />
+          <input id="contact-name" type="text" placeholder={tr.namePh} value={quick.name} onChange={e => setQuick({ ...quick, name: e.target.value })} className={iconInputClass} maxLength={100} required aria-required="true" autoComplete="name" />
         </div>
-        {quickErrors.name && <p className="text-destructive text-xs mt-1 ml-1">{quickErrors.name}</p>}
+        {quickErrors.name && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{quickErrors.name}</p>}
       </div>
 
       <div>
+        <label htmlFor="contact-phone" className="sr-only">טלפון</label>
         <div className="relative">
           <InputIcon><Phone className="w-4 h-4" /></InputIcon>
-          <input type="tel" placeholder={tr.phonePh} value={quick.phone} onChange={e => setQuick({ ...quick, phone: e.target.value })} className={iconInputClass} maxLength={20} />
+          <input id="contact-phone" type="tel" placeholder={tr.phonePh} value={quick.phone} onChange={e => setQuick({ ...quick, phone: e.target.value })} className={iconInputClass} maxLength={20} required aria-required="true" autoComplete="tel" />
         </div>
-        {quickErrors.phone && <p className="text-destructive text-xs mt-1 ml-1">{quickErrors.phone}</p>}
+        {quickErrors.phone && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{quickErrors.phone}</p>}
       </div>
 
       <div>
+        <label htmlFor="contact-service" className="sr-only">שירות נדרש</label>
         <div className="relative">
-          <select value={quick.painPoint} onChange={e => setQuick({ ...quick, painPoint: e.target.value })} className={selectClass}>
+          <select id="contact-service" value={quick.painPoint} onChange={e => setQuick({ ...quick, painPoint: e.target.value })} className={selectClass} required aria-required="true">
             <option value="">{tr.painPointPh}</option>
             {tr.painPoints.map(p => <option key={p} value={p}>{p}</option>)}
           </select>
           <ChevronDown className="absolute ltr:right-3 rtl:left-3 top-3.5 w-4 h-4 text-muted-foreground/50 pointer-events-none" />
         </div>
-        {quickErrors.painPoint && <p className="text-destructive text-xs mt-1 ml-1">{quickErrors.painPoint}</p>}
+        {quickErrors.painPoint && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{quickErrors.painPoint}</p>}
       </div>
 
       <p className="text-xs text-muted-foreground text-center">{tr.callbackNote}</p>
@@ -169,7 +172,7 @@ const ContactFormSection = () => {
         {status === "sending" ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Send className="w-4 h-4 mr-2" />}
         {status === "sending" ? tr.sending : tr.send}
       </Button>
-      {status === "error" && <p className="text-center text-xs text-destructive">{tr.error}</p>}
+      {status === "error" && <p className="text-center text-xs text-destructive" role="alert">{tr.error}</p>}
 
       <button
         type="button"
@@ -216,38 +219,42 @@ const ContactFormSection = () => {
       {mode === "business" ? (
         <div className="space-y-4">
           <div>
+            <label htmlFor="biz-name" className="sr-only">שם מלא</label>
             <div className="relative">
               <InputIcon><User className="w-4 h-4" /></InputIcon>
-              <input type="text" placeholder={tr.namePh} value={biz.name} onChange={e => setBiz({ ...biz, name: e.target.value })} className={iconInputClass} maxLength={100} />
+              <input id="biz-name" type="text" placeholder={tr.namePh} value={biz.name} onChange={e => setBiz({ ...biz, name: e.target.value })} className={iconInputClass} maxLength={100} required aria-required="true" autoComplete="name" />
             </div>
-            {bizErrors.name && <p className="text-destructive text-xs mt-1 ml-1">{bizErrors.name}</p>}
+            {bizErrors.name && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{bizErrors.name}</p>}
           </div>
 
           <div>
+            <label htmlFor="biz-business" className="sr-only">שם העסק</label>
             <div className="relative">
               <InputIcon><Building className="w-4 h-4" /></InputIcon>
-              <input type="text" placeholder={tr.bizPh} value={biz.business} onChange={e => setBiz({ ...biz, business: e.target.value })} className={iconInputClass} maxLength={100} />
+              <input id="biz-business" type="text" placeholder={tr.bizPh} value={biz.business} onChange={e => setBiz({ ...biz, business: e.target.value })} className={iconInputClass} maxLength={100} required aria-required="true" />
             </div>
-            {bizErrors.business && <p className="text-destructive text-xs mt-1 ml-1">{bizErrors.business}</p>}
+            {bizErrors.business && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{bizErrors.business}</p>}
           </div>
 
           <div className="grid grid-cols-2 gap-3">
             <div>
+              <label htmlFor="biz-location" className="sr-only">עיר</label>
               <div className="relative">
                 <InputIcon><MapPin className="w-4 h-4" /></InputIcon>
-                <input type="text" placeholder={tr.cityPh} value={biz.location} onChange={e => setBiz({ ...biz, location: e.target.value })} className={iconInputClass} maxLength={80} />
+                <input id="biz-location" type="text" placeholder={tr.cityPh} value={biz.location} onChange={e => setBiz({ ...biz, location: e.target.value })} className={iconInputClass} maxLength={80} required aria-required="true" />
               </div>
-              {bizErrors.location && <p className="text-destructive text-xs mt-1 ml-1">{bizErrors.location}</p>}
+              {bizErrors.location && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{bizErrors.location}</p>}
             </div>
             <div>
+              <label htmlFor="biz-team" className="sr-only">גודל צוות</label>
               <div className="relative">
-                <select value={biz.teamSize} onChange={e => setBiz({ ...biz, teamSize: e.target.value })} className={selectClass}>
+                <select id="biz-team" value={biz.teamSize} onChange={e => setBiz({ ...biz, teamSize: e.target.value })} className={selectClass} required aria-required="true">
                   <option value="">{tr.teamPh}</option>
                   {tr.teamSizes.map(s => <option key={s} value={s}>{s}</option>)}
                 </select>
                 <ChevronDown className="absolute ltr:right-3 rtl:left-3 top-3.5 w-4 h-4 text-muted-foreground/50 pointer-events-none" />
               </div>
-              {bizErrors.teamSize && <p className="text-destructive text-xs mt-1 ml-1">{bizErrors.teamSize}</p>}
+              {bizErrors.teamSize && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{bizErrors.teamSize}</p>}
             </div>
           </div>
 
@@ -261,15 +268,16 @@ const ContactFormSection = () => {
                 </label>
               ))}
             </div>
-            {bizErrors.services && <p className="text-destructive text-xs mt-1 ml-1">{bizErrors.services}</p>}
+            {bizErrors.services && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{bizErrors.services}</p>}
           </div>
 
           <div>
+            <label htmlFor="biz-phone" className="sr-only">טלפון</label>
             <div className="relative">
               <InputIcon><Phone className="w-4 h-4" /></InputIcon>
-              <input type="tel" placeholder={tr.phonePh} value={biz.phone} onChange={e => setBiz({ ...biz, phone: e.target.value })} className={iconInputClass} maxLength={20} />
+              <input id="biz-phone" type="tel" placeholder={tr.phonePh} value={biz.phone} onChange={e => setBiz({ ...biz, phone: e.target.value })} className={iconInputClass} maxLength={20} required aria-required="true" autoComplete="tel" />
             </div>
-            {bizErrors.phone && <p className="text-destructive text-xs mt-1 ml-1">{bizErrors.phone}</p>}
+            {bizErrors.phone && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{bizErrors.phone}</p>}
           </div>
           <div className="relative">
             <InputIcon><Mail className="w-4 h-4" /></InputIcon>
@@ -284,38 +292,42 @@ const ContactFormSection = () => {
       ) : (
         <div className="space-y-4">
           <div>
+            <label htmlFor="priv-name" className="sr-only">שם מלא</label>
             <div className="relative">
               <InputIcon><User className="w-4 h-4" /></InputIcon>
-              <input type="text" placeholder={tr.namePh} value={priv.name} onChange={e => setPriv({ ...priv, name: e.target.value })} className={iconInputClass} maxLength={100} />
+              <input id="priv-name" type="text" placeholder={tr.namePh} value={priv.name} onChange={e => setPriv({ ...priv, name: e.target.value })} className={iconInputClass} maxLength={100} required aria-required="true" autoComplete="name" />
             </div>
-            {privErrors.name && <p className="text-destructive text-xs mt-1 ml-1">{privErrors.name}</p>}
+            {privErrors.name && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{privErrors.name}</p>}
           </div>
 
           <div>
+            <label htmlFor="priv-device" className="sr-only">סוג מכשיר</label>
             <div className="relative">
-              <select value={priv.device} onChange={e => setPriv({ ...priv, device: e.target.value })} className={selectClass}>
+              <select id="priv-device" value={priv.device} onChange={e => setPriv({ ...priv, device: e.target.value })} className={selectClass} required aria-required="true">
                 <option value="">{tr.devicePh}</option>
                 {tr.deviceTypes.map(d => <option key={d} value={d}>{d}</option>)}
               </select>
               <ChevronDown className="absolute ltr:right-3 rtl:left-3 top-3.5 w-4 h-4 text-muted-foreground/50 pointer-events-none" />
             </div>
-            {privErrors.device && <p className="text-destructive text-xs mt-1 ml-1">{privErrors.device}</p>}
+            {privErrors.device && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{privErrors.device}</p>}
           </div>
 
           <div>
+            <label htmlFor="priv-issue" className="sr-only">תיאור הבעיה</label>
             <div className="relative">
               <InputIcon><MessageSquare className="w-4 h-4" /></InputIcon>
-              <textarea placeholder={tr.issuePh} value={priv.issue} onChange={e => setPriv({ ...priv, issue: e.target.value })} rows={4} className={`${iconInputClass} resize-none`} maxLength={1000} />
+              <textarea id="priv-issue" placeholder={tr.issuePh} value={priv.issue} onChange={e => setPriv({ ...priv, issue: e.target.value })} rows={4} className={`${iconInputClass} resize-none`} maxLength={1000} required aria-required="true" />
             </div>
-            {privErrors.issue && <p className="text-destructive text-xs mt-1 ml-1">{privErrors.issue}</p>}
+            {privErrors.issue && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{privErrors.issue}</p>}
           </div>
 
           <div>
+            <label htmlFor="priv-phone" className="sr-only">טלפון</label>
             <div className="relative">
               <InputIcon><Phone className="w-4 h-4" /></InputIcon>
-              <input type="tel" placeholder={tr.phonePh} value={priv.phone} onChange={e => setPriv({ ...priv, phone: e.target.value })} className={iconInputClass} maxLength={20} />
+              <input id="priv-phone" type="tel" placeholder={tr.phonePh} value={priv.phone} onChange={e => setPriv({ ...priv, phone: e.target.value })} className={iconInputClass} maxLength={20} required aria-required="true" autoComplete="tel" />
             </div>
-            {privErrors.phone && <p className="text-destructive text-xs mt-1 ml-1">{privErrors.phone}</p>}
+            {privErrors.phone && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{privErrors.phone}</p>}
           </div>
 
           <div className="relative">
@@ -329,7 +341,7 @@ const ContactFormSection = () => {
         {status === "sending" ? <Loader2 className="w-4 h-4 mr-2 animate-spin" /> : <Send className="w-4 h-4 mr-2" />}
         {status === "sending" ? tr.sending : tr.send}
       </Button>
-      {status === "error" && <p className="text-center text-xs text-destructive">{tr.error}</p>}
+      {status === "error" && <p className="text-center text-xs text-destructive" role="alert">{tr.error}</p>}
     </form>
   );
 
