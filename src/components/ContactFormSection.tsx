@@ -279,14 +279,20 @@ const ContactFormSection = () => {
             </div>
             {bizErrors.phone && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{bizErrors.phone}</p>}
           </div>
-          <div className="relative">
-            <InputIcon><Mail className="w-4 h-4" /></InputIcon>
-            <input type="email" placeholder={tr.emailPh} value={biz.email} onChange={e => setBiz({ ...biz, email: e.target.value })} className={iconInputClass} maxLength={100} />
+          <div>
+            <label htmlFor="biz-email" className="sr-only">דואר אלקטרוני</label>
+            <div className="relative">
+              <InputIcon><Mail className="w-4 h-4" /></InputIcon>
+              <input id="biz-email" type="email" placeholder={tr.emailPh} value={biz.email} onChange={e => setBiz({ ...biz, email: e.target.value })} className={iconInputClass} maxLength={100} autoComplete="email" />
+            </div>
           </div>
 
-          <div className="relative">
-            <InputIcon><MessageSquare className="w-4 h-4" /></InputIcon>
-            <textarea placeholder={tr.msgPh} value={biz.message} onChange={e => setBiz({ ...biz, message: e.target.value })} rows={3} className={`${iconInputClass} resize-none`} maxLength={1000} />
+          <div>
+            <label htmlFor="biz-message" className="sr-only">הודעה</label>
+            <div className="relative">
+              <InputIcon><MessageSquare className="w-4 h-4" /></InputIcon>
+              <textarea id="biz-message" placeholder={tr.msgPh} value={biz.message} onChange={e => setBiz({ ...biz, message: e.target.value })} rows={3} className={`${iconInputClass} resize-none`} maxLength={1000} />
+            </div>
           </div>
         </div>
       ) : (
