@@ -61,6 +61,13 @@
     font-family: 'Inter', system-ui, sans-serif;
     letter-spacing: -0.02em;
   }
+
+  /* Visible focus indicators for keyboard navigation */
+  *:focus-visible {
+    outline: 3px solid hsl(var(--ring));
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
 }
 
 @layer utilities {

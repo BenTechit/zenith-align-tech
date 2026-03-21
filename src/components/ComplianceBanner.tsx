@@ -28,7 +28,7 @@ const ComplianceBanner = () => {
           <button
             onClick={() => setDismissed(true)}
             className="p-1 rounded-full hover:bg-primary/10 transition-colors text-muted-foreground hover:text-foreground"
-            aria-label="Dismiss"
+            aria-label="סגור באנר"
           >
             <X className="w-4 h-4" />
           </button>

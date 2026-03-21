@@ -17,6 +17,12 @@ const Footer = () => {
             <Link to="/accessibility" className="text-xs text-muted-foreground/60 hover:text-muted-foreground transition-colors">
               הצהרת נגישות
             </Link>
+            <Link to="/privacy" className="text-xs text-muted-foreground/60 hover:text-muted-foreground transition-colors">
+              מדיניות פרטיות
+            </Link>
+            <Link to="/terms" className="text-xs text-muted-foreground/60 hover:text-muted-foreground transition-colors">
+              תנאי שימוש
+            </Link>
             <div className="text-xs text-muted-foreground/60" dir="rtl">
               {tr.seo}
             </div>

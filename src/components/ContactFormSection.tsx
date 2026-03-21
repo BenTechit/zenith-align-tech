@@ -140,30 +140,30 @@ const ContactFormSection = () => {
         <label htmlFor="contact-name" className="sr-only">שם מלא</label>
         <div className="relative">
           <InputIcon><User className="w-4 h-4" /></InputIcon>
-          <input id="contact-name" type="text" placeholder={tr.namePh} value={quick.name} onChange={e => setQuick({ ...quick, name: e.target.value })} className={iconInputClass} maxLength={100} required aria-required="true" autoComplete="name" />
+          <input id="contact-name" type="text" placeholder={tr.namePh} value={quick.name} onChange={e => setQuick({ ...quick, name: e.target.value })} className={iconInputClass} maxLength={100} required aria-required="true" autoComplete="name" aria-describedby={quickErrors.name ? "quick-name-err" : undefined} />
         </div>
-        {quickErrors.name && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{quickErrors.name}</p>}
+        {quickErrors.name && <p id="quick-name-err" className="text-destructive text-xs mt-1 ml-1" role="alert">{quickErrors.name}</p>}
       </div>
 
       <div>
         <label htmlFor="contact-phone" className="sr-only">טלפון</label>
         <div className="relative">
           <InputIcon><Phone className="w-4 h-4" /></InputIcon>
-          <input id="contact-phone" type="tel" placeholder={tr.phonePh} value={quick.phone} onChange={e => setQuick({ ...quick, phone: e.target.value })} className={iconInputClass} maxLength={20} required aria-required="true" autoComplete="tel" />
+          <input id="contact-phone" type="tel" placeholder={tr.phonePh} value={quick.phone} onChange={e => setQuick({ ...quick, phone: e.target.value })} className={iconInputClass} maxLength={20} required aria-required="true" autoComplete="tel" aria-describedby={quickErrors.phone ? "quick-phone-err" : undefined} />
         </div>
-        {quickErrors.phone && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{quickErrors.phone}</p>}
+        {quickErrors.phone && <p id="quick-phone-err" className="text-destructive text-xs mt-1 ml-1" role="alert">{quickErrors.phone}</p>}
       </div>
 
       <div>
         <label htmlFor="contact-service" className="sr-only">שירות נדרש</label>
         <div className="relative">
-          <select id="contact-service" value={quick.painPoint} onChange={e => setQuick({ ...quick, painPoint: e.target.value })} className={selectClass} required aria-required="true">
+          <select id="contact-service" value={quick.painPoint} onChange={e => setQuick({ ...quick, painPoint: e.target.value })} className={selectClass} required aria-required="true" aria-describedby={quickErrors.painPoint ? "quick-pain-err" : undefined}>
             <option value="">{tr.painPointPh}</option>
             {tr.painPoints.map(p => <option key={p} value={p}>{p}</option>)}
           </select>
           <ChevronDown className="absolute ltr:right-3 rtl:left-3 top-3.5 w-4 h-4 text-muted-foreground/50 pointer-events-none" />
         </div>
-        {quickErrors.painPoint && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{quickErrors.painPoint}</p>}
+        {quickErrors.painPoint && <p id="quick-pain-err" className="text-destructive text-xs mt-1 ml-1" role="alert">{quickErrors.painPoint}</p>}
       </div>
 
       <p className="text-xs text-muted-foreground text-center">{tr.callbackNote}</p>
@@ -279,14 +279,20 @@ const ContactFormSection = () => {
             </div>
             {bizErrors.phone && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{bizErrors.phone}</p>}
           </div>
-          <div className="relative">
-            <InputIcon><Mail className="w-4 h-4" /></InputIcon>
-            <input type="email" placeholder={tr.emailPh} value={biz.email} onChange={e => setBiz({ ...biz, email: e.target.value })} className={iconInputClass} maxLength={100} />
+          <div>
+            <label htmlFor="biz-email" className="sr-only">דואר אלקטרוני</label>
+            <div className="relative">
+              <InputIcon><Mail className="w-4 h-4" /></InputIcon>
+              <input id="biz-email" type="email" placeholder={tr.emailPh} value={biz.email} onChange={e => setBiz({ ...biz, email: e.target.value })} className={iconInputClass} maxLength={100} autoComplete="email" />
+            </div>
           </div>
 
-          <div className="relative">
-            <InputIcon><MessageSquare className="w-4 h-4" /></InputIcon>
-            <textarea placeholder={tr.msgPh} value={biz.message} onChange={e => setBiz({ ...biz, message: e.target.value })} rows={3} className={`${iconInputClass} resize-none`} maxLength={1000} />
+          <div>
+            <label htmlFor="biz-message" className="sr-only">הודעה</label>
+            <div className="relative">
+              <InputIcon><MessageSquare className="w-4 h-4" /></InputIcon>
+              <textarea id="biz-message" placeholder={tr.msgPh} value={biz.message} onChange={e => setBiz({ ...biz, message: e.target.value })} rows={3} className={`${iconInputClass} resize-none`} maxLength={1000} />
+            </div>
           </div>
         </div>
       ) : (
@@ -330,9 +336,12 @@ const ContactFormSection = () => {
             {privErrors.phone && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{privErrors.phone}</p>}
           </div>
 
-          <div className="relative">
-            <InputIcon><Mail className="w-4 h-4" /></InputIcon>
-            <input type="email" placeholder={tr.emailPh} value={priv.email} onChange={e => setPriv({ ...priv, email: e.target.value })} className={iconInputClass} maxLength={100} />
+          <div>
+            <label htmlFor="priv-email" className="sr-only">דואר אלקטרוני</label>
+            <div className="relative">
+              <InputIcon><Mail className="w-4 h-4" /></InputIcon>
+              <input id="priv-email" type="email" placeholder={tr.emailPh} value={priv.email} onChange={e => setPriv({ ...priv, email: e.target.value })} className={iconInputClass} maxLength={100} autoComplete="email" />
+            </div>
           </div>
         </div>
       )}

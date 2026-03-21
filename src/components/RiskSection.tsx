@@ -26,13 +26,13 @@ const RiskSection = () => {
           {tr.cards.map((card, i) => (
             <div key={i} className="bg-white/5 border border-white/10 rounded-xl p-6 card-hover">
               <h3 className="text-lg font-semibold text-white mb-2">{card.title}</h3>
-              <p className="text-white/60 leading-relaxed">{card.desc}</p>
+              <p className="text-white/75 leading-relaxed">{card.desc}</p>
             </div>
           ))}
         </div>
 
         <div className="text-center">
-          <p className="italic text-white/50 text-lg">
+          <p className="italic text-white/70 text-lg">
             {tr.closing}
           </p>
         </div>
