@@ -336,9 +336,12 @@ const ContactFormSection = () => {
             {privErrors.phone && <p className="text-destructive text-xs mt-1 ml-1" role="alert">{privErrors.phone}</p>}
           </div>
 
-          <div className="relative">
-            <InputIcon><Mail className="w-4 h-4" /></InputIcon>
-            <input type="email" placeholder={tr.emailPh} value={priv.email} onChange={e => setPriv({ ...priv, email: e.target.value })} className={iconInputClass} maxLength={100} />
+          <div>
+            <label htmlFor="priv-email" className="sr-only">דואר אלקטרוני</label>
+            <div className="relative">
+              <InputIcon><Mail className="w-4 h-4" /></InputIcon>
+              <input id="priv-email" type="email" placeholder={tr.emailPh} value={priv.email} onChange={e => setPriv({ ...priv, email: e.target.value })} className={iconInputClass} maxLength={100} autoComplete="email" />
+            </div>
           </div>
         </div>
       )}
