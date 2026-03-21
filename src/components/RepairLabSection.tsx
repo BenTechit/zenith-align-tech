@@ -96,7 +96,7 @@ const RepairLabSection = () => {
 
         {/* Bottom callout */}
         <div className="text-center max-w-2xl mx-auto">
-          <p className="text-white/50 text-sm leading-relaxed">
+          <p className="text-white/70 text-sm leading-relaxed">
             {tr.closing}
           </p>
         </div>

@@ -32,7 +32,7 @@ const RiskSection = () => {
         </div>
 
         <div className="text-center">
-          <p className="italic text-white/50 text-lg">
+          <p className="italic text-white/70 text-lg">
             {tr.closing}
           </p>
         </div>
