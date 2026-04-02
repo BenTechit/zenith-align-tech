@@ -1,5 +1,6 @@
 import { Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const WAIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
   <svg viewBox="0 0 32 32" className={className} fill="currentColor" aria-hidden="true">
@@ -7,24 +8,21 @@ const WAIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
   </svg>
 );
 
-const HeroSection = () => {
+const FinalCTASection = () => {
+  const { ref, visible } = useScrollReveal();
+
   return (
-    <section id="home" className="relative pt-16 scroll-mt-20" style={{ backgroundColor: "hsl(var(--hero-bg))" }}>
-      <div className="container mx-auto px-4 sm:px-6 py-14 sm:py-20 md:py-28">
-        <div className="max-w-3xl mx-auto text-center">
-          <h1 className="hero-enter text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.15] text-white mb-4 sm:mb-6" dir="rtl">
-            המחשב לא עובד? אני מגיע עד אליך במודיעין ומטפל במקום
-          </h1>
-
-          <p className="hero-enter hero-enter-delay-1 text-base sm:text-lg text-white/90 mb-3 leading-relaxed" dir="rtl">
-            תמיכה טכנית למחשבים לבית ולעסק – חומרה, תוכנה, רשתות, Microsoft 365 ועוד
+    <section id="contact" className="py-14 sm:py-20 scroll-mt-20" style={{ backgroundColor: "hsl(var(--hero-bg))" }}>
+      <div className="container mx-auto px-4 sm:px-6">
+        <div ref={ref} className={`max-w-2xl mx-auto text-center reveal ${visible ? "visible" : ""}`}>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-4" dir="rtl">
+            צריך עזרה עם המחשב?
+          </h2>
+          <p className="text-base text-white/80 mb-8" dir="rtl">
+            שלח הודעה או התקשר – אחזור אליך בהקדם
           </p>
 
-          <p className="hero-enter hero-enter-delay-2 text-sm sm:text-base text-white/70 mb-8" dir="rtl">
-            בן גולדנברג | <span lang="en">BENTECH</span> שירותי מחשוב
-          </p>
-
-          <div className="hero-enter hero-enter-delay-3 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
             <Button
               variant="hero"
               size="lg"
@@ -59,4 +57,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default FinalCTASection;

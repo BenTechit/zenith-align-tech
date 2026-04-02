@@ -1,7 +1,6 @@
 import { Phone, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { t } from "@/translations";
 
 const WAIcon = () => (
   <svg viewBox="0 0 32 32" width="16" height="16" fill="#25D366" aria-hidden="true">
@@ -35,12 +34,11 @@ const ILFlag = ({ className = "" }: { className?: string }) => (
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { lang, setLang } = useLanguage();
-  const nav = t[lang].nav;
 
   const links = [
-    { label: nav.services, href: "#services" },
-    { label: nav.whyBentech, href: "#why-bentech" },
-    { label: nav.contact, href: "#contact" },
+    { label: lang === "he" ? "שירותים" : "Services", href: "#services" },
+    { label: lang === "he" ? "עליי" : "About", href: "#about" },
+    { label: lang === "he" ? "צרו קשר" : "Contact", href: "#contact" },
   ];
 
   const handleClick = (href: string) => {
@@ -72,7 +70,7 @@ const Navbar = () => {
             className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
           >
             <Phone className="w-4 h-4" />
-            {nav.phone}
+            052-637-9747
           </a>
           <a
             href="https://wa.me/972526379747"
@@ -98,7 +96,6 @@ const Navbar = () => {
 
         {/* Mobile */}
         <div className="flex md:hidden items-center gap-3">
-          {/* Mobile language toggle */}
           <button
             onClick={() => setLang(lang === "en" ? "he" : "en")}
             className="inline-flex items-center gap-1 rounded-full border border-border px-2 py-1 hover:bg-accent transition-colors text-xs font-semibold"
@@ -109,10 +106,10 @@ const Navbar = () => {
           <a href="https://wa.me/972526379747" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
             <WAIcon />
           </a>
-          <a href="tel:+972526379747" className="text-primary" aria-label="Call">
+          <a href="tel:+972526379747" className="text-primary" aria-label="התקשר">
             <Phone className="w-5 h-5" />
           </a>
-          <button onClick={() => setMobileOpen(!mobileOpen)}>
+          <button onClick={() => setMobileOpen(!mobileOpen)} aria-label={mobileOpen ? "סגור תפריט" : "פתח תפריט"}>
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
@@ -124,7 +121,7 @@ const Navbar = () => {
             <button
               key={link.href}
               onClick={() => handleClick(link.href)}
-              className="block w-full text-left text-sm py-2 px-3 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
+              className="block w-full text-right text-sm py-2 px-3 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
             >
               {link.label}
             </button>
