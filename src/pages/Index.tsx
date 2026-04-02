@@ -1,16 +1,11 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import ComplianceBanner from "@/components/ComplianceBanner";
-import SocialProofSection from "@/components/SocialProofSection";
+import TrustBarSection from "@/components/TrustBarSection";
+import CommonProblemsSection from "@/components/CommonProblemsSection";
+import HomeServicesSection from "@/components/HomeServicesSection";
 import AboutMeSection from "@/components/AboutMeSection";
-import RepairLabSection from "@/components/RepairLabSection";
-import WhoIHelpSection from "@/components/WhoIHelpSection";
-import ServicesSection from "@/components/ServicesSection";
-import ComplianceSection from "@/components/ComplianceSection";
-import WhyBentechSection from "@/components/WhyBentechSection";
-import ReviewsSection from "@/components/ReviewsSection";
-import RiskSection from "@/components/RiskSection";
-import ContactFormSection from "@/components/ContactFormSection";
+import BusinessServicesSection from "@/components/BusinessServicesSection";
+import FinalCTASection from "@/components/FinalCTASection";
 import Footer from "@/components/Footer";
 import WhatsAppFAB from "@/components/WhatsAppFAB";
 
@@ -23,20 +18,15 @@ const Index = () => {
       >
         דלג לתוכן הראשי
       </a>
-      <ComplianceBanner />
       <Navbar />
       <main id="main-content" role="main">
         <HeroSection />
-        <SocialProofSection />
-        <RiskSection />
-        <WhoIHelpSection />
-        <ServicesSection />
-        <RepairLabSection />
-        <ComplianceSection />
-        <WhyBentechSection />
+        <TrustBarSection />
+        <CommonProblemsSection />
+        <HomeServicesSection />
         <AboutMeSection />
-        <ReviewsSection />
-        <ContactFormSection />
+        <BusinessServicesSection />
+        <FinalCTASection />
       </main>
       <Footer />
       <WhatsAppFAB />
