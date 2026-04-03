@@ -199,22 +199,42 @@
     to { opacity: 1; transform: scale(1); }
   }
 
-  /* Card hover */
+  /* Card hover — smooth elevation + glow border */
   .card-hover {
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.35s ease;
   }
   .card-hover:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 32px -8px rgba(0,0,0,0.14);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px -6px rgba(0,0,0,0.1), 0 4px 12px -2px rgba(0,0,0,0.06);
+    border-color: hsl(var(--primary) / 0.25);
   }
 
   /* CTA button pulse glow */
   .btn-glow {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    animation: ctaPulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
   .btn-glow:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 24px -4px hsl(var(--primary) / 0.5);
+    box-shadow: 0 8px 24px -4px hsl(var(--primary) / 0.45);
+    animation: none;
+  }
+
+  /* Subtle CTA pulse — draws attention without being aggressive */
+  @keyframes ctaPulse {
+    0%, 100% { box-shadow: 0 0 0 0 hsl(var(--primary) / 0); }
+    50% { box-shadow: 0 0 0 6px hsl(var(--primary) / 0.12); }
+  }
+
+  /* WhatsApp FAB ring pulse */
+  @keyframes fabRing {
+    0% { transform: scale(1); opacity: 0.5; }
+    100% { transform: scale(1.8); opacity: 0; }
+  }
+  .fab-ring {
+    animation: fabRing 2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
   }
 
   /* === Shield Defense Animation keyframes === */
